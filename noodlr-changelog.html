@@ -77,11 +77,236 @@ a{color:#6B8E23}
       <span class="brand-name">noodlr</span><span class="brand-dot">.</span>
     </div>
     <div class="brand-sub">What's New · Creativity Tracker</div>
-    <div class="brand-note">Updated in sync with the demo · Last updated June 1, 2026</div>
+    <div class="brand-note">Updated in sync with the demo · Last updated May 31, 2026</div>
   </div>
 
   <div class="intro-box">
     <strong>Thanks for testing!</strong> This page gives you a plain-English rundown of what's in the demo and what to try. You don't need any technical background — just tap through the things listed under "Give it a try" and let us know if anything feels off or confusing.
+  </div>
+
+  <!-- Entry: Evening session -->
+  <div class="entry">
+    <div class="entry-header" onclick="toggle(this)">
+      <span class="version-badge">May 31 · Evening</span>
+      <span class="entry-date">Fields, pages, search, and shopping</span>
+      <span class="entry-count">28 changes</span>
+      <i class="ti ti-chevron-right chevron open"></i>
+    </div>
+    <div class="changes open">
+
+      <div class="change-item">
+        <div class="change-what">New project fields — category, priority, effort</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Projects now have a category (from a managed list), a priority level (Low / Medium / High), and an effort estimate (a few hours → ongoing). All three appear in the detail view and can optionally show as badges on cards.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Edit any project and set a category, priority, and effort. Open the project detail — they appear in the meta row under the title.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Step notes — tap to expand</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Each step can now have a freeform notes field — materials to use, tips, reminders. The note is hidden by default and revealed with a "📝 Notes" tap, keeping the checklist clean.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open the Wildflower Hoop project and tap "📝 Notes" on the "Stitch tall grasses" step. Then add a new step with a note of your own.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Supply URL field</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Supplies can now have a link — paste in the Etsy listing, Amazon product, or supplier page. It shows as "🔗 View item" on the supply row and opens in a new tab.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Last activity timestamp on project detail</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">"Active X ago" now appears in the detail view meta row, tracking when the project was last touched. Updates when you complete a step, edit the pick-up note, or add a journal entry.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Timeline journal entries</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The Timeline tab now has a + button to add freeform journal notes — moments between steps, breaks, restarts, waiting on supplies. Entries mix with step completions in chronological order. Free tier shows the 3 most recent events; Premium shows all.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open a project, go to Timeline, and tap + to add a note. Check that it appears in the right spot chronologically.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Export to Google Sheets preview</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Every project detail view now has an Export button (top right of the cover). Tapping it shows a preview of the three-tab Sheet that will be created: Steps (with strikethrough for completed), Materials (with strikethrough for acquired, totals row), and Timeline. The "Open in Google Sheets" button is a placeholder — the real API connection comes later. Premium only.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open any project and tap Export. Tab through Steps, Materials, and Timeline. Does the preview feel like something worth printing?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Due Today card on home screen</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The home screen now opens with a "Due Today" card showing steps and project deadlines that are due or overdue, across all projects. Shows up to 3 items; "See all →" opens a full-screen view grouped into Overdue and Due Today sections. Shows only on the Active tab. When nothing is due: "🎉 Hooray! You're all caught up."</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Check the top of the Active tab. Do the overdue items stand out clearly? Tap one — does it open the right project?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Project search</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">A search icon in the header drops a search bar. Results span all status tabs and are structured into two sections: Projects (grouped by status) and Steps (matching by step name or notes). A Sort menu (Relevance, Title A–Z, Last active, Status) sits on the results header. Tapping any result opens that project. Selecting a tab clears the search.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Search "DMC" — you should get the Wildflower Hoop step with that note. Search "writing" — the short story and podcast should both appear under Projects.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Nav hub — full side panel overhaul</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The profile panel is now a proper navigation hub with five destination panels: Account, Project Settings, Notifications, Reports (placeholder), and About & Help. Organised into three groups with Account at top, Shopping List / Reports / Project Settings in the middle, and Notifications / About & Help pinned to the bottom. Initials replace the generic avatar icon.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Tap the avatar (QA) to open the hub. Tap into each panel. Does the grouping feel logical?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Account panel</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The Account panel has your avatar, display name, app settings (dark mode, date format), plan status with upgrade / cancel subscription, manage billing, and data export. No bio — kept focused on functional settings.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Change the display name and tap Save — the hub and header avatar initials should both update. Toggle dark mode from here.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Project Settings panel</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">A dedicated panel for project-specific preferences: which badges show on cards (priority, effort, category, pick-up note), default status for new projects, shopping list default sort, and category management.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Turn off "Show pick-up note" and return to the home screen — the notes should disappear from all cards. Turn it back on.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Notifications panel</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Three notification types with individual toggles and timing controls: step due date reminders (how many days before), dormancy nudge (after how long inactive), and weekly summary (which day). Email delivery field. All placeholder for now — real delivery comes with backend.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Upgrade / Plans panel</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Plan cards for Free, Monthly ($4/mo), and Annual ($32/yr, best value badge). Checkout button is wired as a Stripe hook placeholder. Free-tier users see an "Upgrade" pill next to their plan label in the hub. The new project form shows an amethyst upgrade CTA instead of a greyed-out button when the limit is reached.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Switch to Free in the demo banner. Try creating a 6th project — does the upgrade CTA feel clear rather than punitive?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">About & Help panel with FAQ</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Six accordion FAQ items covering the most common tester questions: data persistence, progress photos, desktop use, project limits, cancellation, and privacy. Plus feedback, bug report, and changelog links.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open About & Help and tap through the FAQ. Are there questions missing that you'd expect to see?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Reports panel (placeholder)</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Reports is now a named destination in the nav with four planned report types listed: completion over time, supply spend, dormant projects, and by category. All marked "Soon" — this is the roadmap view.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Shopping list — checkbox-only purchase toggle</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Previously the whole row was tappable to mark a supply purchased. Now only the checkbox does it — the rest of the row is inert, preventing accidental purchases while scrolling.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open the shopping list and tap an item name vs the checkbox. Only the checkbox should trigger the purchase.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Shopping list — purchased items persist during session</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Checking off an item no longer removes it immediately. It drops to a "Purchased (N)" section at the bottom, struck through and checked. The session clears when you close the list — so the next time you open it, only unacquired items show.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open the shopping list and check off a few items. Do they land cleanly at the bottom? Close and reopen — are they gone from the list?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Card menu — "Move to" removed from status options</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The ⋯ menu on each card now just shows the status name (Paused, Someday, Done) instead of "Move to Paused" etc. Cleaner and faster to read.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Avatar initials replace generic icon</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The header button and profile hub show your initials instead of a 👤 icon. One initial for a single name, two for two words, one for three or more. Updates live when you save a new display name.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Detail view navigation fixed</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Project detail, shopping list, and due-today screen now use position:fixed overlays instead of toggling the home screen's display — fixing a bug where tapping a card on non-Active tabs would lose the header without opening the detail.</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Explore the App -->
@@ -188,6 +413,288 @@ a{color:#6B8E23}
             <i class="ti ti-sun explore-icon"></i>
             <span class="explore-text"><strong>Light and dark mode.</strong> Tap the sun/moon icon in the top right to switch. The app follows your system preference by default.</span>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Entry: May 31 session -->
+  <div class="entry">
+    <div class="entry-header" onclick="toggle(this)">
+      <span class="version-badge">May 31</span>
+      <span class="entry-date">Big session — UX, editing, navigation</span>
+      <span class="entry-count">18 changes</span>
+      <i class="ti ti-chevron-right chevron open"></i>
+    </div>
+    <div class="changes open">
+
+      <div class="change-item">
+        <div class="change-what">Edit and delete projects</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The ⋯ menu on each project card now has Edit and Delete options below the status moves. Edit opens the same modal pre-filled with the project's current data. Delete asks for confirmation first.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Tap ⋯ on any card and edit the title or cover color. Then try deleting a project — does the confirmation feel right, not annoying?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Step due dates in the add form</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The step data model always supported due dates, but the add form never exposed them. Now it does — the date field is optional and feeds directly into the smart indicator on the card (overdue, due soon).</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open a project and add a step with a due date in the past. Go back to the home screen and check the card indicator — it should show the overdue warning.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Project description shown in detail view</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The description field was always saved but never displayed anywhere. It now appears below the progress bar in the detail view, hidden cleanly if empty.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Shopping list with four sort modes</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The shopping list now aggregates all unacquired supplies across every project, with four sort options: By Store (grouped, with unstored items at the bottom), By Type, By Importance (Active project supplies first), and By Cost (highest first). Supplies can now also have an optional store field.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open the shopping list from the profile menu. Switch between the four sort tabs. Try "By Store" — Joann, Etsy, and Amazon items should group separately.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Delete steps and supplies</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Steps and supplies were add-only. Now each row has a delete button hidden behind an Edit toggle in the section header — so the default view stays clean and editing is intentional.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open a project, tap Edit next to Steps, and delete one. Does the Edit toggle feel like the right pattern, or would you prefer always-visible controls?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Drag to reorder steps</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">In Edit mode, a drag handle (⠿) appears on each step. Touch-drag to reorder — built with touch events so it works properly on iOS Safari rather than using the unreliable HTML5 drag API.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Tap Edit on the Steps section and drag a step to a new position. Does it feel responsive? Does the ghost follow your finger?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Add step modal (centered, larger)</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The step add form was a small inline field that appeared in-place. It's now a centered modal overlay with a larger input — easier to use, especially for people with larger fingers or poor eyesight.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Detail view restructured into three tabs</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Steps, Supplies, and Timeline were all stacked vertically in the detail view, requiring lots of scrolling. They're now in separate tabs — Steps, Supplies, Timeline — each scrolling independently.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open any project and tap through the three tabs. Does the split feel natural or would you rather scroll through everything on one page?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Timeline tab with completion timestamps</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The Timeline tab shows completed steps with the exact date and time they were checked off, plus upcoming steps in grey. Steps completed before this session show "Completed before tracking began."</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open a project, check off a step, then switch to the Timeline tab. Does the timestamp feel satisfying or unnecessary?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Project creation date tracked and displayed</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Every project now records when it was created. "Started [date]" appears in the detail view meta row alongside the status and deadline.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Accessibility — larger text and tap targets</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Base font size bumped to 17px with 1.5 line height. Checkboxes are larger (24px). Buttons have bigger tap targets. Input font size set to 16px to prevent iOS auto-zoom on focus.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Hand the phone to someone who doesn't use reading glasses and someone who does. Does it feel readable for both?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Profile menu (replaces header buttons)</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Dark mode and shopping list were floating buttons in the header. They're now in a slide-in profile panel with sections for Settings, Account, Shopping List, and About. Header is cleaner — just the wordmark, tagline, and profile avatar.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Tap the round profile icon. Does the panel feel like a natural place for these controls? Is anything missing or hard to find?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Profile photo upload</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The profile avatar in the panel and header button can now be set by tapping the photo and picking an image. The photo syncs to both spots immediately.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Premium / Free demo switcher</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">A pill in the demo banner switches between Premium and Free modes. In Free mode, the 5 most recently created projects stay accessible; older ones are locked with an upgrade prompt. The tagline switches between "creativity tracker" and "✦ Premium" on the home screen.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Switch to Free mode. Which projects lock? Does the locked state feel clear and fair — not punitive? Switch back to Premium and confirm everything returns.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">New seed projects — embroidery, writing, sewing</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The three original seed projects (blanket, lino print, ceramics) were replaced with seven richer projects across different creative disciplines: embroidery, short story writing, sewing, indigo dyeing, podcasting, patchwork, and quilting — one in each status, plus extras to show Premium mode.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Pagination — Show more at 10</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The home screen now shows the first 10 projects per tab, with a "Show X more" button that reveals the rest inline. No page reload.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Entry: May 31 session -->
+  <div class="entry">
+    <div class="entry-header" onclick="toggle(this)">
+      <span class="version-badge">May 31</span>
+      <span class="entry-date">Big session — UX, editing, navigation</span>
+      <span class="entry-count">16 changes</span>
+      <i class="ti ti-chevron-right chevron open"></i>
+    </div>
+    <div class="changes open">
+
+      <div class="change-item">
+        <div class="change-what">Edit and delete projects</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The ⋯ menu now has Edit and Delete below the status moves. Edit pre-fills the modal; Delete asks for confirmation.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Detail view restructured into three tabs</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Steps, Supplies, and Timeline are now separate tabs instead of one long scroll. Each section has an Edit toggle that reveals drag handles and delete buttons.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open any project and tap through the three tabs. Does the split feel natural or would you rather scroll through everything?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Timeline tab with completion timestamps</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Completed steps show the exact date and time they were checked off. Upcoming steps appear below in grey with due dates if set.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Check off a step, then switch to the Timeline tab. Does the timestamp feel satisfying or unnecessary?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Drag to reorder steps</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">In Edit mode, a ⠿ handle appears on each step. Touch-drag to reorder — built with touch events so it works properly on iOS.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Shopping list with four sort modes</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Aggregates unacquired supplies from all projects. Sort by Store (grouped), Type, Importance (Active first), or Cost. Supplies can now include an optional store field.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Open the shopping list from the profile menu and switch sort modes. Does "By Store" grouping match how you actually shop?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Profile menu replaces header buttons</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Dark mode and shopping list were floating header buttons. They're now in a slide-in profile panel with Settings, Account, Shopping List, and About sections. Includes a profile photo upload.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Premium / Free demo switcher</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">A pill in the demo banner switches modes. In Free, the 5 newest projects stay accessible; older ones lock with an upgrade prompt. The tagline switches between "creativity tracker" and "✦ Premium."</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Switch to Free mode. Does the locked state feel clear and fair — not punitive?</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Accessibility improvements</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Base font bumped to 17px, larger checkboxes (24px), bigger tap targets, and input font size set to 16px to prevent iOS auto-zoom on focus.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Also shipped</div>
+        <div class="change-row">
+          <span class="change-label" style="color:#6b7280;font-weight:700;min-width:120px;flex-shrink:0">Minor</span>
+          <span class="change-body">Step due dates in the add form · Project description shown in detail view · Project creation date tracked and displayed · New seed projects (embroidery, writing, sewing, quilting, indigo dyeing, podcasting, patchwork) · Pagination at 10 with Show more · Coral + button moved to project counter bar · Step add form is now a centered modal</span>
         </div>
       </div>
 

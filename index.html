@@ -10,7 +10,7 @@
 /* ── Reset & base ─────────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;-webkit-tap-highlight-color:transparent}
-body{font-family:Inter,sans-serif;transition:background .2s,color .2s}
+body{font-family:Inter,sans-serif;transition:background .2s,color .2s;font-size:17px;line-height:1.5}
 
 /* ── CSS variables ────────────────────────────────────────────────────────── */
 :root{
@@ -73,9 +73,9 @@ body{background:var(--bg);color:var(--text)}
 
 /* ── Buttons ──────────────────────────────────────────────────────────────── */
 .btn-icon{
-  width:34px;height:34px;border-radius:8px;border:none;
+  width:40px;height:40px;border-radius:8px;border:none;
   background:var(--elevated);color:var(--text-muted);
-  font-size:15px;cursor:pointer;
+  font-size:17px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:background .2s;flex-shrink:0;
 }
@@ -92,7 +92,7 @@ body{background:var(--bg);color:var(--text)}
   cursor:pointer;transition:opacity .15s;
 }
 .btn-primary:disabled{background:var(--elevated);color:var(--text-disabled);cursor:not-allowed}
-.btn-sm{padding:8px 14px;border-radius:7px;border:none;font-size:13px;font-weight:600;font-family:Inter,sans-serif;cursor:pointer}
+.btn-sm{padding:10px 16px;border-radius:7px;border:none;font-size:15px;font-weight:600;font-family:Inter,sans-serif;cursor:pointer}
 .btn-sm-sage{background:var(--sage);color:#fff}
 .btn-sm-ghost{background:var(--elevated);color:var(--text-sub)}
 .btn-sm-amethyst{background:var(--amethyst);color:#fff}
@@ -101,19 +101,19 @@ body{background:var(--bg);color:var(--text)}
 .tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{
-  padding:5px 12px;border-radius:8px;border:1px solid transparent;
+  padding:5px 10px;border-radius:8px;border:1px solid transparent;
   font-size:13px;font-weight:600;font-family:Inter,sans-serif;
   cursor:pointer;white-space:nowrap;
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:center;gap:5px;
   background:transparent;color:var(--text-disabled);
-  transition:all .15s;
+  transition:all .15s;flex-shrink:0;
 }
 .tab.active{border-color:var(--tab-color,var(--sage))4d;background:var(--tab-color,var(--sage))18;color:var(--tab-color,var(--sage))}
 .tab-count{border-radius:99px;font-size:10px;padding:1px 6px;font-weight:700;background:var(--elevated);color:var(--text-disabled)}
 .tab.active .tab-count{background:var(--tab-color,var(--sage))2a;color:var(--tab-color,var(--sage))}
 
 /* ── Project list ─────────────────────────────────────────────────────────── */
-.project-list{padding:14px 16px}
+.project-list{padding:14px 16px 80px}
 
 /* ── Limit bar ────────────────────────────────────────────────────────────── */
 .limit-bar{margin-bottom:14px}
@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--text)}
 .card-top{display:flex;gap:12px;margin-bottom:10px}
 .cover-swatch{width:50px;height:50px;border-radius:10px;flex-shrink:0}
 .card-meta{flex:1;min-width:0}
-.card-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:5px}
+.card-title{font-size:17px;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:5px}
 .card-pills{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .status-pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.04em}
 .card-deadline{font-size:11px;color:var(--text-muted)}
@@ -166,6 +166,8 @@ body{background:var(--bg);color:var(--text)}
   cursor:pointer;display:flex;align-items:center;gap:8px;
   font-family:Inter,sans-serif;
 }
+.status-menu-item.danger{color:#ef4444}
+.status-menu-divider{height:1px;background:var(--border);margin:4px 0}
 .status-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
 
 /* ── Empty state ──────────────────────────────────────────────────────────── */
@@ -205,7 +207,7 @@ label.field-label{display:block;font-size:11px;font-weight:700;letter-spacing:.0
 input,textarea,select{
   width:100%;background:var(--input);border:1px solid var(--border-strong);
   border-radius:8px;padding:10px 12px;color:var(--text);
-  font-size:14px;font-family:Inter,sans-serif;
+  font-size:16px;font-family:Inter,sans-serif;
   margin-bottom:14px;outline:none;
   -webkit-appearance:none;
 }
@@ -217,7 +219,7 @@ textarea{resize:vertical;min-height:60px}
 .color-swatch.selected{border-color:var(--amethyst)}
 
 /* ── Detail view ──────────────────────────────────────────────────────────── */
-#detail{display:none}
+#detail{display:none;position:fixed;inset:0;overflow-y:auto;z-index:50;background:var(--bg)}
 #detail.open{display:block}
 .detail-cover{height:150px;position:relative}
 .detail-back{
@@ -226,7 +228,7 @@ textarea{resize:vertical;min-height:60px}
   color:#f1f5f9;padding:6px 12px;font-size:13px;font-weight:600;
   font-family:Inter,sans-serif;cursor:pointer;
 }
-.detail-body{padding:16px 16px 0}
+.detail-body{padding:16px 16px 120px}
 .detail-title{font-size:22px;font-weight:700;color:var(--text);margin:0 0 6px;line-height:1.2}
 .detail-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px;font-size:12px;color:var(--text-muted)}
 .progress-bar-wrap{height:4px;background:var(--elevated);border-radius:99px;overflow:hidden;margin-bottom:18px}
@@ -237,7 +239,7 @@ textarea{resize:vertical;min-height:60px}
   border-left:4px solid var(--amethyst);
 }
 .pickup-label{font-size:10px;font-weight:700;color:var(--amethyst);text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
-.pickup-text{font-size:14px;color:var(--text);line-height:1.5;cursor:pointer}
+.pickup-text{font-size:16px;color:var(--text);line-height:1.55;cursor:pointer}
 .pickup-text.empty{color:var(--text-disabled);font-style:italic}
 .pickup-edit-actions{display:flex;gap:8px;margin-top:8px}
 
@@ -254,29 +256,190 @@ textarea{resize:vertical;min-height:60px}
 
 /* ── Step / Supply rows ───────────────────────────────────────────────────── */
 .check-row{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--border);cursor:pointer;
+  position:relative;touch-action:none;
 }
+.drag-handle{
+  display:flex;align-items:center;padding:2px 2px 2px 0;
+  color:var(--text-faint);font-size:14px;cursor:grab;flex-shrink:0;
+  touch-action:none;user-select:none;
+}
+.edit-mode-hidden{display:none}
+.btn-edit-mode{
+  padding:3px 10px;border-radius:6px;border:1px solid var(--border-strong);
+  font-size:11px;font-weight:700;font-family:Inter,sans-serif;
+  background:var(--elevated);color:var(--text-muted);cursor:pointer;
+  transition:all .15s;
+}
+.btn-edit-mode.active{background:var(--amethyst);color:#fff;border-color:var(--amethyst)}
+.check-row.dragging{opacity:.4}
+.check-row.drag-over{border-top:2px solid var(--amethyst)}
 .check-row:last-child{border-bottom:none}
 .checkbox{
-  width:18px;height:18px;border-radius:5px;flex-shrink:0;margin-top:2px;
+  width:24px;height:24px;border-radius:6px;flex-shrink:0;margin-top:2px;
   display:flex;align-items:center;justify-content:center;
   transition:all .15s;
 }
 .checkbox.unchecked{border:2px solid var(--border-strong);background:transparent}
 .checkbox.checked-sage{background:var(--sage);border:none}
 .checkbox.checked-amethyst{background:var(--amethyst);border:none}
-.check-icon{font-size:11px;color:#fff;font-weight:700;line-height:1}
+.check-icon{font-size:14px;color:#fff;font-weight:700;line-height:1}
 .check-content{flex:1}
-.check-title{font-size:14px;line-height:1.35;color:var(--text)}
+.check-title{font-size:16px;line-height:1.4;color:var(--text)}
 .check-title.done{text-decoration:line-through;color:var(--text-disabled)}
-.check-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
+.check-sub{font-size:13px;color:var(--text-muted);margin-top:2px}
 .check-cost{font-size:12px;color:var(--text-muted);flex-shrink:0;align-self:center}
 .shortfall{color:#f59e0b;margin-left:6px}
 .empty-section{font-size:13px;color:var(--text-faint);padding:8px 0 12px;font-style:italic}
 
-/* ── Inline add forms ─────────────────────────────────────────────────────── */
-.inline-add{padding:10px 0}
+/* ── Profile panel ────────────────────────────────────────────────────────── */
+.profile-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:300;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.profile-overlay.open{opacity:1;pointer-events:all}
+.profile-panel{
+  position:absolute;top:0;right:0;bottom:0;width:82%;max-width:320px;
+  background:var(--card);
+  transform:translateX(100%);transition:transform .25s ease;
+  overflow-y:auto;
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;
+}
+.profile-overlay.open .profile-panel{transform:translateX(0)}
+.profile-panel-head{
+  padding:52px 20px 16px;
+  border-bottom:1px solid var(--border);
+}
+.profile-name{font-size:18px;font-weight:800;color:var(--text);margin-bottom:2px}
+.profile-plan{font-size:12px;font-weight:600;color:var(--amethyst)}
+.profile-section{padding:0}
+.profile-section-label{
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-faint);padding:12px 20px 4px;
+}
+.profile-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 20px;cursor:pointer;
+  font-size:15px;font-weight:500;color:var(--text);
+  border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.profile-row:last-child{border-bottom:none}
+.profile-row:active{background:var(--elevated)}
+.profile-row-left{display:flex;align-items:center;gap:12px}
+.profile-row-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0}
+.profile-row-arrow{color:var(--text-faint);font-size:14px}
+.profile-toggle{
+  width:44px;height:26px;border-radius:99px;border:none;cursor:pointer;
+  background:var(--elevated);position:relative;transition:background .2s;flex-shrink:0;
+}
+.profile-toggle.on{background:var(--sage)}
+.profile-toggle::after{
+  content:'';position:absolute;top:3px;left:3px;
+  width:20px;height:20px;border-radius:50%;background:#fff;
+  transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.profile-toggle.on::after{transform:translateX(18px)}
+.detail-tabs{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:0}
+.detail-tab{
+  padding:8px 18px;border:none;background:transparent;
+  font-size:15px;font-weight:600;font-family:Inter,sans-serif;
+  color:var(--text-disabled);cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-1px;
+  transition:color .15s,border-color .15s;
+}
+.detail-tab.active{color:var(--amethyst);border-bottom-color:var(--amethyst)}
+
+/* ── Export button ────────────────────────────────────────────────────────── */
+.detail-export{
+  position:absolute;top:16px;right:16px;
+  background:rgba(0,0,0,.3);border:none;border-radius:8px;
+  color:#f1f5f9;padding:6px 12px;font-size:13px;font-weight:600;
+  font-family:Inter,sans-serif;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+}
+
+/* ── Export preview modal ─────────────────────────────────────────────────── */
+.export-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.65);
+  z-index:600;display:flex;align-items:flex-end;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.export-overlay.open{opacity:1;pointer-events:all}
+.export-modal{
+  width:100%;background:var(--card);
+  border-radius:20px 20px 0 0;
+  max-height:88vh;display:flex;flex-direction:column;
+  border:1px solid var(--border);
+  transform:translateY(20px);transition:transform .2s;
+}
+.export-overlay.open .export-modal{transform:translateY(0)}
+.export-modal-head{
+  padding:16px 20px 0;flex-shrink:0;
+}
+.export-modal-title{font-size:17px;font-weight:800;color:var(--text)}
+.export-modal-sub{font-size:12px;color:var(--text-muted);margin-top:2px;margin-bottom:12px}
+.export-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);flex-shrink:0}
+.export-tab{
+  padding:10px 16px;border:none;background:transparent;
+  font-size:13px;font-weight:600;font-family:Inter,sans-serif;
+  color:var(--text-disabled);cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-1px;
+  transition:color .15s,border-color .15s;white-space:nowrap;
+}
+.export-tab.active{color:var(--sage);border-bottom-color:var(--sage)}
+.export-preview{flex:1;overflow-y:auto;padding:0}
+.export-table{width:100%;border-collapse:collapse;font-size:13px}
+.export-table th{
+  background:var(--elevated);color:var(--text-muted);
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+  padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);
+  position:sticky;top:0;
+}
+.export-table td{
+  padding:9px 12px;border-bottom:1px solid var(--border);
+  color:var(--text);vertical-align:top;line-height:1.4;
+}
+.export-table tr:last-child td{border-bottom:none}
+.export-strike{text-decoration:line-through;color:var(--text-disabled)}
+.export-header-block{
+  padding:14px 16px;border-bottom:1px solid var(--border);
+  background:var(--elevated);
+}
+.export-header-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px}
+.export-header-meta{font-size:12px;color:var(--text-muted);line-height:1.6}
+.export-footer{
+  padding:14px 20px;border-top:1px solid var(--border);
+  display:flex;gap:10px;flex-shrink:0;
+}
+.export-note{font-size:11px;color:var(--text-faint);padding:10px 16px;font-style:italic}
+.export-totals td{font-weight:700;background:var(--elevated);color:var(--text)}
+
+/* ── Timeline ─────────────────────────────────────────────────────────────── */
+.timeline-empty{font-size:14px;color:var(--text-faint);padding:20px 0;font-style:italic}
+.timeline-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.timeline-item:last-child{border-bottom:none}
+.timeline-dot{width:10px;height:10px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px}
+.timeline-content{flex:1}
+.timeline-title{font-size:15px;color:var(--text);font-weight:600}
+.timeline-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
+.step-modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:200;display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;transition:opacity .18s;
+}
+.step-modal-overlay.open{opacity:1;pointer-events:all}
+.step-modal{
+  width:100%;max-width:360px;background:var(--card);
+  border-radius:16px;padding:22px 20px 20px;
+  border:1px solid var(--border);
+  box-shadow:0 8px 32px rgba(0,0,0,.22);
+  transform:scale(.96);transition:transform .18s;
+}
+.step-modal-overlay.open .step-modal{transform:scale(1)}
 .supply-add-row{display:flex;gap:8px}
 .supply-add-row input{flex:1}
 
@@ -296,7 +459,225 @@ textarea{resize:vertical;min-height:60px}
   color:#fff;cursor:pointer;font-family:Inter,sans-serif;
 }
 
-/* ── Demo banner ──────────────────────────────────────────────────────────── */
+/* ── Step notes (tap to expand) ───────────────────────────────────────────── */
+.step-notes-toggle{font-size:11px;color:var(--amethyst);cursor:pointer;margin-top:3px;display:inline-block;user-select:none}
+.step-notes-body{font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:5px;padding:7px 10px;background:var(--elevated);border-radius:6px;display:none}
+.step-notes-body.open{display:block}
+
+/* ── Journal entries ──────────────────────────────────────────────────────── */
+.journal-locked{font-size:13px;color:var(--text-faint);padding:10px 0;font-style:italic;text-align:center}
+.journal-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.journal-item:last-child{border-bottom:none}
+.journal-dot{width:10px;height:10px;border-radius:50%;background:var(--amethyst);flex-shrink:0;margin-top:5px}
+.journal-content{flex:1}
+.journal-text{font-size:15px;color:var(--text);line-height:1.45}
+.journal-date{font-size:12px;color:var(--text-muted);margin-top:3px}
+.journal-add-form{margin-top:12px;display:none}
+
+/* ── Category / priority badges ──────────────────────────────────────────── */
+.cat-badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;background:var(--elevated);color:var(--text-muted)}
+.priority-badge-high{color:#ef4444}
+.priority-badge-medium{color:#E8A020}
+.priority-badge-low{color:var(--text-faint)}
+
+/* ── Settings modal ───────────────────────────────────────────────────────── */
+.settings-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .2s}
+.settings-overlay.open{opacity:1;pointer-events:all}
+.settings-modal{width:100%;background:var(--card);border-radius:20px 20px 0 0;padding:20px 20px 44px;max-height:80vh;overflow-y:auto;border:1px solid var(--border);transform:translateY(20px);transition:transform .2s}
+.settings-overlay.open .settings-modal{transform:translateY(0)}
+.cat-chip{display:inline-flex;align-items:center;gap:5px;background:var(--elevated);border-radius:99px;padding:4px 10px 4px 12px;font-size:13px;color:var(--text-sub);margin:4px}
+.cat-chip-remove{border:none;background:none;color:var(--text-muted);font-size:14px;cursor:pointer;padding:0;line-height:1}
+
+/* ── Sub-panels (slide over profile panel) ────────────────────────────────── */
+.subpanel{
+  position:fixed;inset:0;z-index:500;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.subpanel.open{opacity:1;pointer-events:all}
+.subpanel-inner{
+  position:absolute;top:0;right:0;bottom:0;width:100%;max-width:430px;
+  background:var(--card);
+  transform:translateX(100%);transition:transform .25s ease;
+  overflow-y:auto;border-left:1px solid var(--border);
+}
+.subpanel.open .subpanel-inner{transform:translateX(0)}
+.subpanel-head{
+  display:flex;align-items:center;gap:12px;
+  padding:52px 20px 16px;border-bottom:1px solid var(--border);
+}
+.subpanel-back{
+  width:34px;height:34px;border-radius:8px;border:none;
+  background:var(--elevated);color:var(--text-muted);
+  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.subpanel-title{font-size:18px;font-weight:800;color:var(--text)}
+.subpanel-body{padding:0 0 60px}
+.sp-section{padding:8px 0}
+.sp-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);padding:14px 20px 4px}
+.sp-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 20px;font-size:15px;font-weight:500;color:var(--text);
+  border-bottom:1px solid var(--border);
+}
+.sp-row:last-child{border-bottom:none}
+.sp-row-left{display:flex;align-items:center;gap:12px}
+.sp-row-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0}
+.sp-row-sub{font-size:12px;color:var(--text-muted);margin-top:2px;font-weight:400}
+.sp-row-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.sp-select{
+  background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:7px;padding:5px 8px;font-size:13px;font-family:Inter,sans-serif;
+  color:var(--text);-webkit-appearance:none;outline:none;cursor:pointer;
+}
+.sp-input{
+  background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:8px;padding:9px 12px;font-size:15px;font-family:Inter,sans-serif;
+  color:var(--text);outline:none;width:100%;margin:0;
+}
+.sp-textarea{
+  background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:8px;padding:10px 12px;font-size:15px;font-family:Inter,sans-serif;
+  color:var(--text);outline:none;width:100%;resize:vertical;min-height:80px;margin:0;
+}
+.sp-field{padding:12px 20px;border-bottom:1px solid var(--border)}
+.sp-field-label{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.sp-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--elevated);border:2px solid var(--border-strong);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+  font-size:34px;cursor:pointer;margin:0 auto 8px;
+}
+.sp-avatar img{width:100%;height:100%;object-fit:cover;display:none}
+
+/* ── Upgrade panel ────────────────────────────────────────────────────────── */
+.plan-card{
+  margin:16px 20px;border-radius:14px;
+  border:2px solid var(--border);padding:20px;
+  cursor:pointer;transition:border-color .15s;
+}
+.plan-card.featured{border-color:var(--amethyst);background:var(--amethyst)0a}
+.plan-card.selected{border-color:var(--sage)}
+.plan-name{font-size:16px;font-weight:800;color:var(--text);margin-bottom:2px}
+.plan-price{font-size:26px;font-weight:800;color:var(--sage);line-height:1}
+.plan-price span{font-size:14px;font-weight:500;color:var(--text-muted)}
+.plan-badge{display:inline-block;background:var(--amethyst);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:.04em;margin-bottom:8px}
+.plan-features{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.plan-feature{font-size:13px;color:var(--text-sub);display:flex;gap:8px;align-items:flex-start}
+.plan-feature-check{color:var(--sage);flex-shrink:0;font-weight:700}
+.plan-feature-x{color:var(--text-faint);flex-shrink:0}
+
+/* ── FAQ accordion ────────────────────────────────────────────────────────── */
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;font-size:15px;font-weight:600;color:var(--text);
+  cursor:pointer;user-select:none;
+}
+.faq-q:active{background:var(--elevated)}
+.faq-chevron{color:var(--amethyst);font-size:14px;transition:transform .2s;flex-shrink:0}
+.faq-chevron.open{transform:rotate(90deg)}
+.faq-a{display:none;padding:0 20px 14px;font-size:14px;color:var(--text-muted);line-height:1.6}
+.faq-a.open{display:block}
+
+/* ── Notif timing row ─────────────────────────────────────────────────────── */
+.notif-timing{padding:10px 20px 14px 56px;background:var(--elevated);border-bottom:1px solid var(--border);display:none}
+.notif-timing.open{display:block}
+.notif-timing-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:6px}
+
+/* ── Due today ────────────────────────────────────────────────────────────── */
+.due-today-card{
+  background:var(--card);border-radius:14px;
+  border:1px solid var(--border);
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+  margin-bottom:14px;overflow:hidden;
+}
+.due-today-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--border);
+}
+.due-today-label{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:#ef4444;display:flex;align-items:center;gap:6px;
+}
+.due-today-count{
+  background:#ef444422;color:#ef4444;
+  font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;
+}
+.due-today-see-more{
+  font-size:12px;font-weight:600;color:var(--sage);
+  background:none;border:none;cursor:pointer;font-family:Inter,sans-serif;padding:0;
+}
+.due-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;
+}
+.due-row:last-child{border-bottom:none}
+.due-row:active{background:var(--elevated)}
+.due-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.due-row-content{flex:1;min-width:0}
+.due-row-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.due-row-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
+.due-row-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;flex-shrink:0;align-self:center}
+
+/* ── Due today full screen ────────────────────────────────────────────────── */
+.supply-url-link{font-size:12px;color:var(--amethyst);text-decoration:none;word-break:break-all}
+
+/* ── Display name input in profile ───────────────────────────────────────── */
+.profile-name-input{
+  background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:8px;padding:6px 10px;
+  font-size:17px;font-weight:800;color:var(--text);
+  font-family:Inter,sans-serif;width:100%;outline:none;
+}
+
+/* ── Search sort popup ────────────────────────────────────────────────────── */
+.sort-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:12px;font-weight:600;color:var(--sage);
+  font-family:Inter,sans-serif;padding:0;display:flex;align-items:center;gap:3px;
+}
+.sort-popup{
+  position:absolute;right:0;top:22px;
+  background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:10px;z-index:100;min-width:140px;overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.18);display:none;
+}
+.sort-popup.open{display:block}
+.sort-option{
+  padding:10px 14px;font-size:13px;font-weight:500;cursor:pointer;
+  color:var(--text);border-bottom:1px solid var(--border);font-family:Inter,sans-serif;
+}
+.sort-option:last-child{border-bottom:none}
+.sort-option.active{color:var(--sage);font-weight:700}
+.sort-option:active{background:var(--card)}
+.search-results-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:8px;position:relative;
+}
+.search-results-count{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint)}
+
+/* ── Search ───────────────────────────────────────────────────────────────── */
+.search-bar{
+  display:none;padding:0 16px 10px;
+}
+.search-bar.open{display:block}
+.search-input-wrap{position:relative}
+.search-input{
+  width:100%;background:var(--elevated);border:1px solid var(--border-strong);
+  border-radius:10px;padding:9px 36px 9px 14px;
+  font-size:15px;font-family:Inter,sans-serif;color:var(--text);
+  outline:none;margin:0;
+}
+.search-clear{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  border:none;background:none;color:var(--text-muted);font-size:16px;
+  cursor:pointer;padding:0;line-height:1;display:none;
+}
+
+/* ── Last activity ────────────────────────────────────────────────────────── */
+.last-activity{font-size:11px;color:var(--text-faint)}
+
+
 .demo-banner{
   background:#1e3a5f;color:#a8c4e8;
   font-size:12px;padding:8px 16px;
@@ -325,6 +706,7 @@ textarea{resize:vertical;min-height:60px}
     <span class="demo-banner-dot"></span>
     <span>Demo mode — data resets on refresh</span>
     <a class="demo-pill" href="./noodlr-changelog.html">📋 Testing notes</a>
+    <button class="demo-pill" id="demo-mode-toggle" style="border:none;cursor:pointer">✦ Premium</button>
   </div>
 
   <!-- ── Home screen ───────────────────────────────────────────────────────── -->
@@ -333,23 +715,38 @@ textarea{resize:vertical;min-height:60px}
       <div class="header-row">
         <div>
           <div class="wordmark">noodlr<span>.</span></div>
-          <div class="tagline">creativity tracker</div>
+          <div class="tagline" id="header-plan-tag">creativity tracker</div>
         </div>
         <div class="header-actions">
-          <button class="btn-icon" id="theme-toggle" title="Toggle dark mode">🌙</button>
-          <button class="btn-add-main" id="btn-new-project" title="New project">+</button>
+          <button id="btn-search" title="Search" style="background:none;border:none;cursor:pointer;font-size:22px;padding:4px;color:var(--text-muted);display:flex;align-items:center">🔍</button>
+          <button id="btn-profile" title="Profile" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--border-strong);background:var(--elevated);cursor:pointer;overflow:hidden;padding:0;flex-shrink:0">
+            <img id="profile-avatar-header" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none">
+            <span id="profile-avatar-initials" style="font-size:15px;font-weight:800;color:var(--text-muted)">CS</span>
+          </button>
         </div>
+      </div>
+      <div class="search-bar" id="search-bar">
+        <div class="search-input-wrap">
+          <input class="search-input" id="search-input" type="search" placeholder="Search projects…" autocomplete="off">
+          <button class="search-clear" id="search-clear">✕</button>
+        </div>
+      </div>
       </div>
       <div class="tabs" id="tabs"></div>
     </div>
     <div class="project-list">
-      <div class="limit-bar">
+      <div id="due-today-container"></div>
+      <div class="limit-bar" id="limit-bar">
         <div class="limit-bar-labels">
           <span id="limit-label">0 of 5 projects (free)</span>
-          <span id="limit-warn" class="limit-bar-warn" style="display:none">Limit reached</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span id="limit-warn" class="limit-bar-warn" style="display:none">Limit reached</span>
+            <button id="btn-new-project" title="New project" style="width:34px;height:34px;border-radius:8px;border:none;background:#ff6b6b22;color:#ff6b6b;font-size:26px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0">+</button>
+          </div>
         </div>
         <div class="limit-bar-track"><div class="limit-bar-fill" id="limit-fill" style="width:0%"></div></div>
       </div>
+      <div id="search-sort-row" style="display:none"></div>
       <div id="project-list"></div>
     </div>
   </div>
@@ -358,6 +755,7 @@ textarea{resize:vertical;min-height:60px}
   <div id="detail">
     <div class="detail-cover" id="detail-cover">
       <button class="detail-back" id="detail-back">← Back</button>
+      <button class="detail-export" id="detail-export">⬆ Export</button>
     </div>
     <div class="detail-body">
       <h1 class="detail-title" id="detail-title"></h1>
@@ -365,6 +763,7 @@ textarea{resize:vertical;min-height:60px}
       <div class="progress-bar-wrap" id="progress-wrap" style="display:none">
         <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
       </div>
+      <div id="detail-description" style="font-size:15px;color:var(--text-muted);line-height:1.55;margin-bottom:16px;display:none"></div>
       <div class="pickup-box">
         <div class="pickup-label">Pick up here</div>
         <div id="pickup-display" class="pickup-text"></div>
@@ -376,44 +775,609 @@ textarea{resize:vertical;min-height:60px}
           </div>
         </div>
       </div>
-      <div class="section-header">
-        <span class="section-label">Steps <span class="section-count" id="steps-count"></span></span>
-        <button class="btn-section-add" id="btn-add-step">+</button>
+
+      <!-- detail tabs -->
+      <div class="detail-tabs" id="detail-tabs">
+        <button class="detail-tab active" data-tab="steps">Steps</button>
+        <button class="detail-tab" data-tab="supplies">Supplies</button>
+        <button class="detail-tab" data-tab="timeline">Timeline</button>
       </div>
-      <div id="steps-list"></div>
-      <div id="step-add-form" class="inline-add" style="display:none">
-        <input type="text" id="step-input" placeholder="Step name">
-        <div style="display:flex;gap:8px">
-          <button class="btn-sm btn-sm-sage" id="step-save">Add</button>
-          <button class="btn-sm btn-sm-ghost" id="step-cancel">Cancel</button>
+
+      <!-- steps panel -->
+      <div class="detail-panel" id="panel-steps">
+        <div class="section-header">
+          <span class="section-label">Steps <span class="section-count" id="steps-count"></span></span>
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="btn-edit-mode" id="steps-edit-toggle">Edit</button>
+            <button class="btn-section-add" id="btn-add-step">+</button>
+          </div>
+        </div>
+        <div id="steps-list"></div>
+        <div id="step-add-form" style="display:none"></div>
+      </div>
+
+      <!-- supplies panel -->
+      <div class="detail-panel" id="panel-supplies" style="display:none">
+        <div class="section-header">
+          <span class="section-label">Supplies <span class="section-count" id="supplies-count"></span></span>
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="btn-edit-mode" id="supplies-edit-toggle">Edit</button>
+            <button class="btn-section-add" id="btn-add-supply">+</button>
+          </div>
+        </div>
+        <div id="supplies-list"></div>
+        <div id="supply-add-form" class="inline-add" style="display:none">
+          <input type="text" id="supply-name" placeholder="Item name">
+          <div class="supply-add-row">
+            <input type="number" id="supply-need" placeholder="Need" value="1" min="0">
+            <input type="number" id="supply-have" placeholder="Have" value="0" min="0">
+            <input type="text" id="supply-unit" placeholder="Unit">
+          </div>
+          <input type="number" id="supply-cost" placeholder="Est. cost ($)" min="0" step="0.01">
+          <input type="text" id="supply-store" placeholder="Store (optional, e.g. Joann, Amazon)">
+          <input type="url" id="supply-url" placeholder="Link (optional)">
+          <div style="display:flex;gap:8px">
+            <button class="btn-sm btn-sm-amethyst" id="supply-save">Add</button>
+            <button class="btn-sm btn-sm-ghost" id="supply-cancel">Cancel</button>
+          </div>
         </div>
       </div>
-      <div class="section-header" style="margin-top:22px">
-        <span class="section-label">Supplies <span class="section-count" id="supplies-count"></span></span>
-        <button class="btn-section-add" id="btn-add-supply">+</button>
+
+      <!-- timeline panel -->
+      <div class="detail-panel" id="panel-timeline" style="display:none">
+        <div class="section-header">
+          <span class="section-label">Timeline</span>
+          <button class="btn-section-add" id="btn-add-journal" title="Add journal entry">+</button>
+        </div>
+        <div class="journal-add-form" id="journal-add-form">
+          <textarea id="journal-input" placeholder="What's going on with this project?" style="min-height:60px"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn-sm btn-sm-amethyst" id="journal-save">Add Note</button>
+            <button class="btn-sm btn-sm-ghost" id="journal-cancel">Cancel</button>
+          </div>
+        </div>
+        <div id="timeline-list"></div>
       </div>
-      <div id="supplies-list"></div>
-      <div id="supply-add-form" class="inline-add" style="display:none">
-        <input type="text" id="supply-name" placeholder="Item name">
-        <div class="supply-add-row">
-          <input type="number" id="supply-need" placeholder="Need" value="1" min="0">
-          <input type="number" id="supply-have" placeholder="Have" value="0" min="0">
-          <input type="text" id="supply-unit" placeholder="Unit">
+
+    </div>
+  </div>
+
+  <!-- ── Due Today full screen ─────────────────────────────────────────────── -->
+  <div id="due-screen" style="display:none;position:fixed;inset:0;overflow-y:auto;z-index:50;background:var(--bg)">
+    <div class="header">
+      <div class="header-row">
+        <div>
+          <div class="wordmark">noodlr<span>.</span></div>
+          <div class="tagline">due today</div>
         </div>
-        <input type="number" id="supply-cost" placeholder="Est. cost ($)" min="0" step="0.01">
-        <div style="display:flex;gap:8px">
-          <button class="btn-sm btn-sm-amethyst" id="supply-save">Add</button>
-          <button class="btn-sm btn-sm-ghost" id="supply-cancel">Cancel</button>
+        <div class="header-actions">
+          <button class="btn-icon" id="due-screen-close" title="Back">✕</button>
         </div>
       </div>
-      <div class="upgrade-section">
-        <div class="upgrade-label">Progress Photos</div>
-        <div class="upgrade-box">
-          <div class="upgrade-icon">📷</div>
-          <div class="upgrade-title">Progress photo gallery</div>
-          <div class="upgrade-body">Document your work as you go — available with the paid upgrade.</div>
-          <button class="btn-upgrade">Unlock for $7 →</button>
+    </div>
+    <div class="project-list" id="due-screen-list"></div>
+  </div>
+
+  <!-- ── Shopping list ──────────────────────────────────────────────────────── -->
+  <div id="shopping" style="display:none;position:fixed;inset:0;z-index:50;background:var(--bg);flex-direction:column">
+    <div class="header" style="flex-shrink:0;position:relative">
+      <div class="header-row">
+        <div>
+          <div class="wordmark">noodlr<span>.</span></div>
+          <div class="tagline">shopping list</div>
         </div>
+        <div class="header-actions">
+          <button class="btn-icon" id="shopping-close" title="Back">✕</button>
+        </div>
+      </div>
+      <div class="tabs" id="shopping-sort-tabs" style="padding-bottom:12px">
+        <button class="tab active" data-sort="store" style="--tab-color:var(--amethyst)">By Store</button>
+        <button class="tab" data-sort="type" style="--tab-color:var(--amethyst)">By Type</button>
+        <button class="tab" data-sort="importance" style="--tab-color:var(--amethyst)">By Importance</button>
+        <button class="tab" data-sort="cost" style="--tab-color:var(--amethyst)">By Cost</button>
+      </div>
+    </div>
+    <div class="project-list" id="shopping-list" style="flex:1;overflow-y:auto"></div>
+  </div>
+
+  <!-- ── Profile panel (nav hub) ───────────────────────────────────────────── -->
+  <div class="profile-overlay" id="profile-overlay">
+    <div class="profile-panel">
+      <div class="profile-panel-head">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="position:relative;flex-shrink:0">
+              <div id="profile-avatar-large" style="width:64px;height:64px;border-radius:50%;background:var(--elevated);border:2px solid var(--border-strong);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer" title="Upload photo">
+                <img id="profile-avatar-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none">
+                <span id="profile-avatar-emoji" style="font-size:22px;font-weight:800;color:var(--text-muted)">QA</span>
+              </div>
+              <div style="position:absolute;bottom:0;right:0;width:20px;height:20px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;pointer-events:none">✎</div>
+              <input type="file" id="profile-avatar-input" accept="image/*" style="display:none">
+            </div>
+            <div>
+              <div id="profile-hub-name" style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px">Quinn Avery</div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <div id="profile-hub-plan" style="font-size:12px;font-weight:600;color:var(--amethyst)">✦ Premium</div>
+                <button id="nav-upgrade" style="display:none;font-size:11px;font-weight:700;padding:2px 9px;border-radius:99px;border:none;background:var(--amethyst);color:#fff;cursor:pointer;font-family:Inter,sans-serif">Upgrade</button>
+              </div>
+            </div>
+          </div>
+          <button id="btn-logout" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--text-faint);font-family:Inter,sans-serif;padding:4px 0;flex-shrink:0">Log out</button>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <div class="profile-row" id="nav-profile">
+          <div class="profile-row-left"><span class="profile-row-icon">👤</span><span>Account</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+      </div>
+
+      <div class="profile-section" style="border-top:1px solid var(--border)">
+        <div class="profile-row" id="profile-shopping-row" style="border-bottom:none">
+          <div class="profile-row-left"><span class="profile-row-icon">🛒</span><span>Shopping List</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+        <div class="profile-row" id="nav-reports" style="border-bottom:none">
+          <div class="profile-row-left"><span class="profile-row-icon">📊</span><span>Reports</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+        <div class="profile-row" id="nav-project-settings" style="border-bottom:none">
+          <div class="profile-row-left"><span class="profile-row-icon">🗂️</span><span>Project Settings</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+      </div>
+
+      <div class="profile-section" style="margin-top:auto;border-top:1px solid var(--border)">
+        <div class="profile-row" id="nav-notifications">
+          <div class="profile-row-left"><span class="profile-row-icon" style="font-size:15px">🔔</span><span style="font-size:14px;color:var(--text-muted)">Notifications</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+        <div class="profile-row" id="nav-about">
+          <div class="profile-row-left"><span class="profile-row-icon" style="font-size:15px">ℹ️</span><span style="font-size:14px;color:var(--text-muted)">About &amp; Help</span></div>
+          <span class="profile-row-arrow">›</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ Sub-panels ══════════════════════════════════════════════════════════ -->
+
+  <!-- Profile sub-panel -->
+  <div class="subpanel" id="sp-profile">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-profile">‹</button>
+        <span class="subpanel-title">Account</span>
+      </div>
+      <div class="subpanel-body">
+
+        <!-- Identity -->
+        <div style="padding:24px 20px 16px;text-align:center;border-bottom:1px solid var(--border)">
+          <div class="sp-avatar" id="sp-avatar-wrap">
+            <img id="sp-avatar-img" src="" alt="">
+            <span id="sp-avatar-emoji" style="font-size:28px;font-weight:800;color:var(--text-muted)">CS</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted)">Tap to change photo</div>
+          <input type="file" id="sp-avatar-input" accept="image/*" style="display:none">
+        </div>
+        <div class="sp-section">
+          <div class="sp-label">Display name</div>
+          <div class="sp-field" style="border-bottom:none">
+            <input class="sp-input" id="sp-name" placeholder="Your name or studio name" maxlength="40">
+          </div>
+        </div>
+
+        <!-- App settings -->
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">App settings</div>
+          <div class="sp-row">
+            <div class="sp-row-left"><span class="sp-row-icon">🌙</span><span>Dark mode</span></div>
+            <button class="profile-toggle" id="sp-theme-toggle"></button>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📅</span>
+              <div><div>Date format</div><div class="sp-row-sub">How dates appear throughout the app</div></div>
+            </div>
+            <select class="sp-select" id="sp-date-format">
+              <option value="mdy">Jan 5</option>
+              <option value="dmy">5 Jan</option>
+              <option value="iso">2026-01-05</option>
+            </select>
+          </div>
+          <!-- Space for future settings -->
+        </div>
+
+        <!-- Billing -->
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">Plan</div>
+          <div class="sp-row" style="cursor:default">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">✦</span>
+              <div>
+                <div id="sp-plan-name">Premium</div>
+                <div class="sp-row-sub" id="sp-plan-sub">Full access to all features</div>
+              </div>
+            </div>
+            <button id="sp-plan-action" style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;border:none;cursor:pointer;font-family:Inter,sans-serif;display:none">Upgrade</button>
+          </div>
+          <div class="sp-row" style="cursor:pointer" id="sp-manage-billing">
+            <div class="sp-row-left"><span class="sp-row-icon">💳</span><span>Manage billing &amp; invoices</span></div>
+            <span style="color:var(--text-faint);font-size:14px">›</span>
+          </div>
+          <div class="sp-row" style="cursor:pointer" id="sp-cancel-row">
+            <div class="sp-row-left"><span class="sp-row-icon" style="color:#ef4444">✕</span><span style="color:#ef4444">Cancel subscription</span></div>
+            <span style="color:var(--text-faint);font-size:14px">›</span>
+          </div>
+        </div>
+
+        <!-- Data -->
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">Data</div>
+          <div class="sp-row" style="cursor:pointer" id="sp-export-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📤</span>
+              <div><div>Export all data</div><div class="sp-row-sub">Download your projects as JSON</div></div>
+            </div>
+            <span style="color:var(--text-faint);font-size:14px">›</span>
+          </div>
+        </div>
+
+        <div style="padding:20px">
+          <button class="btn-primary" id="sp-profile-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Settings sub-panel -->
+  <div class="subpanel" id="sp-project-settings">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-project-settings">‹</button>
+        <span class="subpanel-title">Project Settings</span>
+      </div>
+      <div class="subpanel-body">
+
+        <!-- Cards -->
+        <div class="sp-section">
+          <div class="sp-label">Project cards</div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">▲</span>
+              <div><div>Show priority</div><div class="sp-row-sub">Priority badge on each card</div></div>
+            </div>
+            <button class="profile-toggle on" id="sp-show-priority"></button>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">⏱</span>
+              <div><div>Show effort</div><div class="sp-row-sub">Effort estimate on each card</div></div>
+            </div>
+            <button class="profile-toggle on" id="sp-show-effort"></button>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">🏷️</span>
+              <div><div>Show category</div><div class="sp-row-sub">Category badge on each card</div></div>
+            </div>
+            <button class="profile-toggle on" id="sp-show-category"></button>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📝</span>
+              <div><div>Show pick-up note</div><div class="sp-row-sub">Reminder note on each card</div></div>
+            </div>
+            <button class="profile-toggle on" id="sp-show-pickup"></button>
+          </div>
+        </div>
+
+        <!-- New projects -->
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">New projects</div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📂</span>
+              <div><div>Default status</div><div class="sp-row-sub">Pre-selected when creating a project</div></div>
+            </div>
+            <select class="sp-select" id="sp-default-status">
+              <option>Active</option>
+              <option>Paused</option>
+              <option>Someday</option>
+            </select>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">🛒</span>
+              <div><div>Shopping list sort</div><div class="sp-row-sub">Default sort when opening list</div></div>
+            </div>
+            <select class="sp-select" id="sp-shopping-sort-pref">
+              <option value="store">By Store</option>
+              <option value="type">By Type</option>
+              <option value="importance">By Importance</option>
+              <option value="cost">By Cost</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">Categories</div>
+          <div style="padding:4px 20px 12px" id="sp-cat-chips"></div>
+          <div style="padding:0 20px 16px;display:flex;gap:8px">
+            <input class="sp-input" id="sp-cat-input" placeholder="Add a category…" style="margin:0">
+            <button class="btn-sm btn-sm-sage" id="sp-cat-add" style="white-space:nowrap;flex-shrink:0">Add</button>
+          </div>
+        </div>
+
+        <!-- Space for future project settings -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifications sub-panel -->
+  <div class="subpanel" id="sp-notifications">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-notifications">‹</button>
+        <span class="subpanel-title">Notifications</span>
+      </div>
+      <div class="subpanel-body">
+        <div style="padding:14px 20px;font-size:13px;color:var(--text-muted);line-height:1.6;border-bottom:1px solid var(--border)">
+          Notifications are delivered by email in the demo. Push notifications will be available in the native app.
+        </div>
+        <div class="sp-section">
+          <div class="sp-label">Reminders</div>
+          <div class="sp-row" style="flex-wrap:wrap;gap:0">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📅</span>
+              <div>
+                <div>Step due date reminders</div>
+                <div class="sp-row-sub">Alert before a step's due date</div>
+              </div>
+            </div>
+            <button class="profile-toggle on" id="notif-due-toggle" data-timing="notif-due-timing"></button>
+          </div>
+          <div class="notif-timing open" id="notif-due-timing">
+            <div class="notif-timing-label">Remind me</div>
+            <select class="sp-select" id="notif-due-when">
+              <option value="1d">1 day before</option>
+              <option value="2d">2 days before</option>
+              <option value="3d" selected>3 days before</option>
+              <option value="1w">1 week before</option>
+            </select>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">💤</span>
+              <div>
+                <div>Dormancy nudge</div>
+                <div class="sp-row-sub">When you haven't touched a project in a while</div>
+              </div>
+            </div>
+            <button class="profile-toggle on" id="notif-dormant-toggle" data-timing="notif-dormant-timing"></button>
+          </div>
+          <div class="notif-timing open" id="notif-dormant-timing">
+            <div class="notif-timing-label">Nudge me after</div>
+            <select class="sp-select" id="notif-dormant-when">
+              <option value="7d">1 week of inactivity</option>
+              <option value="14d" selected>2 weeks of inactivity</option>
+              <option value="30d">1 month of inactivity</option>
+              <option value="60d">2 months of inactivity</option>
+            </select>
+          </div>
+        </div>
+        <div class="sp-section">
+          <div class="sp-label">Check-ins</div>
+          <div class="sp-row">
+            <div class="sp-row-left">
+              <span class="sp-row-icon">📊</span>
+              <div>
+                <div>Weekly summary</div>
+                <div class="sp-row-sub">What you finished and what's coming up</div>
+              </div>
+            </div>
+            <button class="profile-toggle on" id="notif-weekly-toggle" data-timing="notif-weekly-timing"></button>
+          </div>
+          <div class="notif-timing open" id="notif-weekly-timing">
+            <div class="notif-timing-label">Send on</div>
+            <select class="sp-select" id="notif-weekly-day">
+              <option value="0">Sunday</option>
+              <option value="1" selected>Monday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+            </select>
+          </div>
+        </div>
+        <div class="sp-section" style="border-top:1px solid var(--border)">
+          <div class="sp-label">Delivery</div>
+          <div class="sp-field" style="border-bottom:none">
+            <div class="sp-field-label">Email address</div>
+            <input class="sp-input" id="notif-email" type="email" placeholder="you@example.com">
+          </div>
+          <div style="padding:0 20px 16px">
+            <button class="btn-primary" id="notif-save">Save Preferences</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upgrade / Pricing sub-panel -->
+  <div class="subpanel" id="sp-upgrade">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-upgrade">‹</button>
+        <span class="subpanel-title">Plans &amp; Billing</span>
+      </div>
+      <div class="subpanel-body">
+        <div style="padding:20px 20px 4px;text-align:center">
+          <div style="font-size:22px;margin-bottom:6px">✦</div>
+          <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Unlock everything in noodlr</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Unlimited projects, full timeline history, progress photos, and more.</div>
+        </div>
+
+        <!-- Free plan -->
+        <div class="plan-card" id="plan-free">
+          <div class="plan-name">Free</div>
+          <div class="plan-price">$0 <span>forever</span></div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Up to 5 projects</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Steps, supplies &amp; pick-up notes</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Shopping list</div>
+            <div class="plan-feature"><span class="plan-feature-x">✕</span>Timeline history (last 3 only)</div>
+            <div class="plan-feature"><span class="plan-feature-x">✕</span>Progress photo gallery</div>
+            <div class="plan-feature"><span class="plan-feature-x">✕</span>Unlimited projects</div>
+          </div>
+        </div>
+
+        <!-- Monthly plan -->
+        <div class="plan-card" id="plan-monthly">
+          <div class="plan-name">Premium Monthly</div>
+          <div class="plan-price">$4 <span>/ month</span></div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Unlimited projects</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Full timeline history</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Progress photo gallery</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Priority support</div>
+          </div>
+        </div>
+
+        <!-- Annual plan -->
+        <div class="plan-card featured" id="plan-annual">
+          <div class="plan-badge">BEST VALUE</div>
+          <div class="plan-name">Premium Annual</div>
+          <div class="plan-price">$32 <span>/ year · save 33%</span></div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Everything in Monthly</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Early access to new features</div>
+            <div class="plan-feature"><span class="plan-feature-check">✓</span>Name in the credits</div>
+          </div>
+        </div>
+
+        <div style="padding:0 20px">
+          <button class="btn-primary" id="btn-checkout" style="background:var(--amethyst)">Continue to checkout →</button>
+          <div style="font-size:11px;color:var(--text-faint);text-align:center;margin-top:10px;line-height:1.6">
+            Payments handled securely by Stripe.<br>Cancel any time — no questions asked.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Reports sub-panel -->
+  <div class="subpanel" id="sp-reports">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-reports">‹</button>
+        <span class="subpanel-title">Reports</span>
+      </div>
+      <div class="subpanel-body">
+        <div style="padding:20px 20px 4px;text-align:center">
+          <div style="font-size:28px;margin-bottom:8px">📊</div>
+          <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">Reports coming soon</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Insights across all your projects — time spent, completion rates, supply spend, and more.</div>
+        </div>
+        <div class="sp-section" style="margin-top:16px">
+          <div class="sp-label">Planned reports</div>
+          <div class="sp-row"><div class="sp-row-left"><span class="sp-row-icon">✅</span><div><div>Completion over time</div><div class="sp-row-sub">Steps finished per week or month</div></div></div><span style="font-size:11px;color:var(--text-faint)">Soon</span></div>
+          <div class="sp-row"><div class="sp-row-left"><span class="sp-row-icon">💸</span><div><div>Supply spend</div><div class="sp-row-sub">Total cost across all projects</div></div></div><span style="font-size:11px;color:var(--text-faint)">Soon</span></div>
+          <div class="sp-row"><div class="sp-row-left"><span class="sp-row-icon">💤</span><div><div>Dormant projects</div><div class="sp-row-sub">What hasn't been touched in a while</div></div></div><span style="font-size:11px;color:var(--text-faint)">Soon</span></div>
+          <div class="sp-row"><div class="sp-row-left"><span class="sp-row-icon">🏷️</span><div><div>By category</div><div class="sp-row-sub">Breakdown of projects by craft type</div></div></div><span style="font-size:11px;color:var(--text-faint)">Soon</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About & Help sub-panel -->
+  <div class="subpanel" id="sp-about">
+    <div class="subpanel-inner">
+      <div class="subpanel-head">
+        <button class="subpanel-back" data-close-sp="sp-about">‹</button>
+        <span class="subpanel-title">About &amp; Help</span>
+      </div>
+      <div class="subpanel-body">
+        <div style="padding:20px;text-align:center;border-bottom:1px solid var(--border)">
+          <div style="font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--text)">noodlr<span style="color:var(--amethyst)">.</span></div>
+          <div style="font-size:12px;color:var(--text-faint);margin-top:4px">Version 0.1 · Demo build · May 2026</div>
+        </div>
+
+        <div class="sp-section">
+          <div class="sp-label">Get in touch</div>
+          <div class="sp-row" style="cursor:pointer" id="sp-feedback-row">
+            <div class="sp-row-left"><span class="sp-row-icon">💬</span><span>Send feedback</span></div>
+            <span style="color:var(--text-faint)">›</span>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left"><span class="sp-row-icon">📋</span>
+              <a href="./noodlr-changelog.html" style="text-decoration:none;color:inherit">What's new</a>
+            </div>
+            <span style="color:var(--text-faint)">›</span>
+          </div>
+          <div class="sp-row">
+            <div class="sp-row-left"><span class="sp-row-icon">🐛</span><span>Report a bug</span></div>
+            <span style="color:var(--text-faint)">›</span>
+          </div>
+        </div>
+
+        <div class="sp-section">
+          <div class="sp-label">FAQ</div>
+          <div id="faq-list">
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Does my data save between sessions? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">Not yet — this is a demo with no database. Everything resets on refresh. The real version will save to your account automatically.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I add a progress photo? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">Progress photos are a Premium feature. Open a project, go to the Photos tab, and tap the upgrade prompt. Once subscribed, you can upload photos directly from your camera roll.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can I use noodlr on desktop? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">The demo works in any browser. A native iOS and Android app is planned — noodlr is designed mobile-first so it'll feel right at home.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What's the 5-project limit about? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">Free accounts can track up to 5 projects across all statuses. Premium removes the limit entirely. Projects in Done status still count toward the cap.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I cancel Premium? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">Go to Plans &amp; Billing → Manage billing &amp; invoices. You can cancel any time — your Premium access continues until the end of your billing period.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Is my data private? <span class="faq-chevron">›</span></div>
+              <div class="faq-a">Yes. Your projects are stored in your account only — we don't sell or share your data. A full privacy policy will be published before the public launch.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:20px;text-align:center;color:var(--text-faint);font-size:12px;line-height:1.7;border-top:1px solid var(--border)">
+          Made with care for makers, writers, and creative humans.<br>
+          <span style="color:var(--amethyst)">noodlr.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step modal ────────────────────────────────────────────────────────── -->
+  <div class="step-modal-overlay" id="step-modal-overlay">
+    <div class="step-modal">
+      <div class="modal-header" style="margin-bottom:16px">
+        <span class="modal-title">Add Step</span>
+        <button class="modal-close" id="step-modal-close">×</button>
+      </div>
+      <label class="field-label">Step name *</label>
+      <input type="text" id="step-input" placeholder="e.g. Carve the key block" style="font-size:15px;padding:12px">
+      <label class="field-label">Due date (optional)</label>
+      <input type="date" id="step-due">
+      <label class="field-label">Notes (optional)</label>
+      <textarea id="step-notes" placeholder="Any details, tips, or reminders…" style="min-height:50px;font-size:15px"></textarea>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button class="btn-primary" id="step-save" style="flex:1">Add Step</button>
+        <button class="btn-sm btn-sm-ghost" id="step-cancel" style="padding:13px 18px">Cancel</button>
       </div>
     </div>
   </div>
@@ -423,7 +1387,7 @@ textarea{resize:vertical;min-height:60px}
     <div class="modal">
       <div class="modal-handle"></div>
       <div class="modal-header">
-        <span class="modal-title">New Project</span>
+        <span class="modal-title" id="modal-title">New Project</span>
         <button class="modal-close" id="modal-close">×</button>
       </div>
       <div class="warn-box" id="limit-warn-box" style="display:none">
@@ -450,17 +1414,74 @@ textarea{resize:vertical;min-height:60px}
           <input type="date" id="new-deadline">
         </div>
       </div>
+      <div class="field-row">
+        <div>
+          <label class="field-label">Category</label>
+          <select id="new-category"></select>
+        </div>
+        <div>
+          <label class="field-label">Priority</label>
+          <select id="new-priority">
+            <option value="0">—</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+          </select>
+        </div>
+      </div>
+      <label class="field-label">Effort estimate</label>
+      <select id="new-effort">
+        <option value="0">—</option>
+        <option value="1">A few hours</option>
+        <option value="2">A weekend</option>
+        <option value="3">A few weeks</option>
+        <option value="4">Months</option>
+        <option value="5">Ongoing</option>
+      </select>
       <label class="field-label">Cover color</label>
       <div class="swatch-grid" id="swatch-grid"></div>
       <button class="btn-primary" id="btn-create">Create Project</button>
     </div>
   </div>
+  <!-- ── Export preview modal ──────────────────────────────────────────────── -->
+  <div class="export-overlay" id="export-overlay">
+    <div class="export-modal">
+      <div class="export-modal-head">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div class="export-modal-title">Export to Google Sheets</div>
+            <div class="export-modal-sub" id="export-modal-sub">Preview of what your Sheet will contain</div>
+          </div>
+          <button class="modal-close" id="export-close" style="margin-top:-2px">×</button>
+        </div>
+        <div class="export-tabs" id="export-tabs">
+          <button class="export-tab active" data-export-tab="steps">📋 Steps</button>
+          <button class="export-tab" data-export-tab="materials">📦 Materials</button>
+          <button class="export-tab" data-export-tab="timeline">🕐 Timeline</button>
+        </div>
+      </div>
+      <div class="export-preview" id="export-preview"></div>
+      <div class="export-footer">
+        <button class="btn-primary" id="btn-export-sheets" style="background:var(--sage)">
+          Open in Google Sheets
+        </button>
+        <button class="btn-sm btn-sm-ghost" id="export-close-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- ── Subpanel backdrop ──────────────────────────────────────────────────── -->
+  <div id="subpanel-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:499;opacity:0;pointer-events:none;transition:opacity .2s"></div>
 
 </div>
 <script>
 // ── Data ───────────────────────────────────────────────────────────────────
 
 const uid = () => Math.random().toString(36).slice(2,10);
+
+let categories = ['Ceramics','Drawing','Embroidery','Knitting/Crochet','Painting','Photography','Printmaking','Sewing','Weaving','Writing','Other'];
+
+const PRIORITY_LABELS = ['—','Low','Medium','High'];
+const EFFORT_LABELS = ['—','A few hours','A weekend','A few weeks','Months','Ongoing'];
 
 const SWATCH_COLORS = [
   '#b45309','#0f4c75','#7c6d5a','#15803d','#be185d',
@@ -471,71 +1492,172 @@ const STATUS_COLORS = {
   Active:'#6B8E23', Paused:'#E8A020', Someday:'#9966CC', Done:'#94a3b8'
 };
 const STATUS_ORDER = ['Active','Paused','Someday','Done'];
-const FREE_LIMIT = 5;
+const FREE_LIMIT_CAP = 5;
+let IS_PREMIUM = true;
+function FREE_LIMIT(){ return IS_PREMIUM ? 999 : FREE_LIMIT_CAP; }
 
 let projects = [
   {
-    id:uid(), title:'Autumn Throw Blanket',
-    description:'Knitted blanket for the living room couch, rust and cream colorway.',
-    status:'Active', deadline:'2026-11-01',
-    pickUpHere:'Cast on row 47 — switch to rust yarn at row 50. Needles in the knitting bag.',
-    coverColor:'#b45309',
+    id:uid(), title:'Wildflower Hoop — Meadow Series',
+    description:'8" embroidery hoop with a wildflower meadow scene. Gift for my sister\'s birthday.',
+    status:'Active', deadline:'2026-07-20', createdAt:'2026-05-01T09:00:00.000Z', updatedAt:'2026-05-30T21:10:00.000Z',
+    pickUpHere:'French knots done on the clover. Starting the tall grasses next — use 2 strands of DMC 3363.',
+    coverColor:'#15803d', category:'Embroidery', priority:2, effort:3, tags:[],
     steps:[
-      {id:uid(),title:'Buy yarn',completed:true,dueDate:null},
-      {id:uid(),title:'Swatch and gauge check',completed:true,dueDate:null},
-      {id:uid(),title:'Cast on and knit body',completed:false,dueDate:'2026-07-15'},
-      {id:uid(),title:'Weave in ends',completed:false,dueDate:null},
-      {id:uid(),title:'Block finished piece',completed:false,dueDate:null},
+      {id:uid(),title:'Transfer pattern to fabric',completed:true,dueDate:null,completedAt:'2026-05-10T10:22:00.000Z',notes:''},
+      {id:uid(),title:'Stitch background (sky, ground)',completed:true,dueDate:null,completedAt:'2026-05-18T14:05:00.000Z',notes:''},
+      {id:uid(),title:'Stitch wildflowers',completed:true,dueDate:null,completedAt:'2026-05-28T19:30:00.000Z',notes:''},
+      {id:uid(),title:'Add French knot clover details',completed:true,dueDate:null,completedAt:'2026-05-30T21:10:00.000Z',notes:''},
+      {id:uid(),title:'Stitch tall grasses',completed:false,dueDate:'2026-05-31',completedAt:null,notes:'Use 2 strands DMC 3363. Work from base up.'},
+      {id:uid(),title:'Finish edges and mount in hoop',completed:false,dueDate:'2026-07-10',completedAt:null,notes:''},
+    ],
+    journalEntries:[
+      {id:uid(),text:'Took a break for a week — hands needed a rest.',createdAt:'2026-05-22T09:00:00.000Z'},
     ],
     supplies:[
-      {id:uid(),item:'Rust yarn (bulky)',qtyNeeded:4,qtyOnHand:4,unit:'skeins',cost:28,acquired:true},
-      {id:uid(),item:'Cream yarn (bulky)',qtyNeeded:2,qtyOnHand:2,unit:'skeins',cost:14,acquired:true},
-      {id:uid(),item:'US 13 circular needles',qtyNeeded:1,qtyOnHand:1,unit:'',cost:12,acquired:true},
+      {id:uid(),item:'8" embroidery hoop',qtyNeeded:1,qtyOnHand:1,unit:'',cost:6,acquired:true},
+      {id:uid(),item:'DMC floss — greens (3363, 704)',qtyNeeded:4,qtyOnHand:4,unit:'skeins',cost:6,acquired:true},
+      {id:uid(),item:'DMC floss — florals (blanc, 602, 726)',qtyNeeded:3,qtyOnHand:2,unit:'skeins',cost:4,store:'Joann',acquired:false},
+      {id:uid(),item:'Linen fabric',qtyNeeded:1,qtyOnHand:1,unit:'fat quarter',cost:8,acquired:true},
     ]
   },
   {
-    id:uid(), title:'Lino Print — Heron',
-    description:'A5 reduction linocut of a great blue heron. Planning 4-color edition of 20.',
-    status:'Active', deadline:null,
-    pickUpHere:'Key block is carved. Transfer drawing for the water layer next.',
-    coverColor:'#0f4c75',
+    id:uid(), title:'Short Story — The Cartographer\'s Daughter',
+    description:'A historical short story, ~5000 words. Set in 1840s London. Targeting a literary magazine submission.',
+    status:'Paused', deadline:'2026-09-01', createdAt:'2026-03-15T10:30:00.000Z', updatedAt:'2026-05-01T22:45:00.000Z',
+    pickUpHere:'Draft ends mid-scene at the dockyard (p.12). Elara needs a stronger motivation to steal the map — revisit her backstory first.',
+    coverColor:'#1e3a5f', category:'Writing', priority:1, effort:4, tags:[],
     steps:[
-      {id:uid(),title:'Final reference sketch',completed:true,dueDate:null},
-      {id:uid(),title:'Transfer to lino block',completed:true,dueDate:null},
-      {id:uid(),title:'Carve key block (black)',completed:true,dueDate:null},
-      {id:uid(),title:'Carve water layer (blue)',completed:false,dueDate:null},
-      {id:uid(),title:'Test print edition',completed:false,dueDate:null},
-      {id:uid(),title:'Full edition print',completed:false,dueDate:null},
+      {id:uid(),title:'Outline and character notes',completed:true,dueDate:null,completedAt:'2026-04-03T09:15:00.000Z',notes:''},
+      {id:uid(),title:'First draft',completed:true,dueDate:null,completedAt:'2026-05-01T22:45:00.000Z',notes:'~5200 words. Ends mid-scene at the dockyard, p.12.'},
+      {id:uid(),title:'Revise backstory and motivation',completed:false,dueDate:'2026-07-01',completedAt:null,notes:'Elara\'s motivation to steal the map needs to be more personal — consider a family debt angle.'},
+      {id:uid(),title:'Second draft',completed:false,dueDate:'2026-07-20',completedAt:null,notes:''},
+      {id:uid(),title:'Proofread and format for submission',completed:false,dueDate:'2026-08-15',completedAt:null,notes:'Check submission guidelines for Ploughshares — double-spaced, 12pt Times.'},
+      {id:uid(),title:'Submit to magazine',completed:false,dueDate:'2026-09-01',completedAt:null,notes:''},
     ],
+    journalEntries:[],
     supplies:[
-      {id:uid(),item:'A5 lino blocks',qtyNeeded:4,qtyOnHand:3,unit:'blocks',cost:16,acquired:false},
-      {id:uid(),item:'Blue ink',qtyNeeded:1,qtyOnHand:1,unit:'tube',cost:8,acquired:true},
-      {id:uid(),item:'Black ink',qtyNeeded:1,qtyOnHand:1,unit:'tube',cost:8,acquired:true},
+      {id:uid(),item:'Submission fee',qtyNeeded:1,qtyOnHand:0,unit:'',cost:20,acquired:false},
     ]
   },
   {
-    id:uid(), title:'Ceramic Mugs — Spring Set',
-    description:'Hand-built mugs for a gift set. Aiming for 4 matching pieces with speckled glaze.',
-    status:'Paused', deadline:'2026-09-01',
-    pickUpHere:'Waiting for kiln time at the studio — check back after the 15th.',
-    coverColor:'#7c6d5a',
+    id:uid(), title:'Linen Tote Bag',
+    description:'Simple structured tote in natural linen with an interior zip pocket. Pattern from Closet Core.',
+    status:'Someday', deadline:null, createdAt:'2026-02-10T14:00:00.000Z', updatedAt:'2026-03-15T11:00:00.000Z',
+    pickUpHere:'Haven\'t started yet — pattern is printed and fabric is washed. Just need a free weekend.',
+    coverColor:'#7c6d5a', category:'Sewing', priority:0, effort:2, tags:[],
     steps:[
-      {id:uid(),title:'Wedge and prepare clay',completed:true,dueDate:null},
-      {id:uid(),title:'Hand-build all 4 mugs',completed:true,dueDate:null},
-      {id:uid(),title:'Bisque fire',completed:false,dueDate:'2026-06-20'},
-      {id:uid(),title:'Apply speckled glaze',completed:false,dueDate:null},
-      {id:uid(),title:'Glaze fire',completed:false,dueDate:null},
+      {id:uid(),title:'Wash and press fabric',completed:true,dueDate:null,completedAt:'2026-03-15T11:00:00.000Z',notes:''},
+      {id:uid(),title:'Cut all pieces',completed:false,dueDate:null,completedAt:null,notes:''},
+      {id:uid(),title:'Sew exterior panels',completed:false,dueDate:null,completedAt:null,notes:''},
+      {id:uid(),title:'Install zip pocket in lining',completed:false,dueDate:null,completedAt:null,notes:'Use invisible zipper foot.'},
+      {id:uid(),title:'Join exterior and lining',completed:false,dueDate:null,completedAt:null,notes:''},
+      {id:uid(),title:'Attach handles and topstitch',completed:false,dueDate:null,completedAt:null,notes:''},
+    ],
+    journalEntries:[],
+    supplies:[
+      {id:uid(),item:'Natural linen (exterior)',qtyNeeded:1.5,qtyOnHand:1.5,unit:'yards',cost:22,acquired:true},
+      {id:uid(),item:'Cotton lining fabric',qtyNeeded:1,qtyOnHand:1,unit:'yard',cost:10,acquired:true},
+      {id:uid(),item:'14" zipper',qtyNeeded:1,qtyOnHand:0,unit:'',cost:3,store:'Joann',acquired:false},
+      {id:uid(),item:'Bag handles (leather)',qtyNeeded:1,qtyOnHand:0,unit:'pair',cost:14,store:'Etsy',acquired:false},
+      {id:uid(),item:'Fusible interfacing',qtyNeeded:0.5,qtyOnHand:0.5,unit:'yard',cost:5,acquired:true},
+    ]
+  },
+  {
+    id:uid(), title:'Hand-Stitched Quilt — Grandmother\'s Garden',
+    description:'A traditional hexagon quilt made from fabric scraps and vintage sheets. Took two years.',
+    status:'Done', deadline:null, createdAt:'2024-03-01T08:00:00.000Z', updatedAt:'2026-04-12T00:00:00.000Z',
+    pickUpHere:'All done! Hanging in the guest room.',
+    coverColor:'#be185d', category:'Sewing', priority:0, effort:5, tags:[],
+    steps:[
+      {id:uid(),title:'Cut 600 hexagon pieces',completed:true,dueDate:null,completedAt:'2024-06-01T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Baste all hexagons over papers',completed:true,dueDate:null,completedAt:'2024-09-10T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Whipstitch flowers and rows',completed:true,dueDate:null,completedAt:'2025-03-22T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Join all rows into quilt top',completed:true,dueDate:null,completedAt:'2025-08-14T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Layer and baste with batting',completed:true,dueDate:null,completedAt:'2025-10-05T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Hand quilt',completed:true,dueDate:null,completedAt:'2026-02-28T00:00:00.000Z',notes:''},
+      {id:uid(),title:'Bind edges',completed:true,dueDate:null,completedAt:'2026-04-12T00:00:00.000Z',notes:''},
+    ],
+    journalEntries:[
+      {id:uid(),text:'Finally finished after two years! Hanging in the guest room — looks amazing.',createdAt:'2026-04-13T10:00:00.000Z'},
     ],
     supplies:[
-      {id:uid(),item:'Stoneware clay',qtyNeeded:5,qtyOnHand:5,unit:'lbs',cost:15,acquired:true},
-      {id:uid(),item:'Speckled glaze',qtyNeeded:1,qtyOnHand:0,unit:'pint',cost:18,acquired:false},
+      {id:uid(),item:'Fabric scraps and vintage sheets',qtyNeeded:1,qtyOnHand:1,unit:'lot',cost:0,acquired:true},
+      {id:uid(),item:'Hexagon papers (1")',qtyNeeded:600,qtyOnHand:600,unit:'',cost:8,acquired:true},
+      {id:uid(),item:'Cotton batting',qtyNeeded:1,qtyOnHand:1,unit:'twin size',cost:24,acquired:true},
+      {id:uid(),item:'Quilting thread',qtyNeeded:3,qtyOnHand:3,unit:'spools',cost:12,acquired:true},
+    ]
+  },
+  {
+    id:uid(), title:'Indigo Dye — Botanical Prints',
+    description:'Eco-printing and indigo dye experiments on silk scarves. Planning a small batch of 6 to sell.',
+    status:'Active', deadline:'2026-08-01', createdAt:'2026-04-20T11:00:00.000Z', updatedAt:'2026-05-12T15:30:00.000Z',
+    pickUpHere:'Second scarf mordanted and dried. Set up the dye vat Thursday — check iron content first.',
+    coverColor:'#0369a1', category:'Other', priority:2, effort:3, tags:[],
+    steps:[
+      {id:uid(),title:'Research mordanting process',completed:true,dueDate:null,completedAt:'2026-05-05T10:00:00.000Z',notes:''},
+      {id:uid(),title:'Source silk scarves and botanicals',completed:true,dueDate:null,completedAt:'2026-05-12T15:30:00.000Z',notes:''},
+      {id:uid(),title:'Mordant all scarves',completed:false,dueDate:'2026-06-10',completedAt:null,notes:'Alum mordant — 15% weight of fiber. Simmer 1hr, cool slowly.'},
+      {id:uid(),title:'Set up indigo vat',completed:false,dueDate:'2026-06-15',completedAt:null,notes:'Check iron content first. Fructose reduction method.'},
+      {id:uid(),title:'Dye and eco-print all 6 scarves',completed:false,dueDate:'2026-07-01',completedAt:null,notes:''},
+      {id:uid(),title:'Photograph and list for sale',completed:false,dueDate:'2026-07-20',completedAt:null,notes:''},
+    ],
+    journalEntries:[],
+    supplies:[
+      {id:uid(),item:'Silk scarves (habotai)',qtyNeeded:6,qtyOnHand:6,unit:'',cost:48,acquired:true},
+      {id:uid(),item:'Indigo dye kit',qtyNeeded:1,qtyOnHand:1,unit:'',cost:32,acquired:true},
+      {id:uid(),item:'Alum mordant',qtyNeeded:1,qtyOnHand:0,unit:'bag',cost:12,store:'Amazon',acquired:false},
+      {id:uid(),item:'Fresh botanicals (ferns, eucalyptus)',qtyNeeded:1,qtyOnHand:0,unit:'bundle',cost:8,store:null,acquired:false},
+    ]
+  },
+  {
+    id:uid(), title:'Podcast Script — Episode 12',
+    description:'Script for the monthly creative process podcast. Topic: why we abandon projects and how to return to them.',
+    status:'Active', deadline:'2026-06-20', createdAt:'2026-05-18T16:00:00.000Z', updatedAt:'2026-05-27T20:15:00.000Z',
+    pickUpHere:'Intro and section 1 written (~800 words). Stuck on the transition into the interview segment — listen back to ep 9 for pacing reference.',
+    coverColor:'#7e22ce', category:'Writing', priority:3, effort:2, tags:[],
+    steps:[
+      {id:uid(),title:'Episode outline',completed:true,dueDate:null,completedAt:'2026-05-20T09:00:00.000Z',notes:''},
+      {id:uid(),title:'Write intro and section 1',completed:true,dueDate:null,completedAt:'2026-05-27T20:15:00.000Z',notes:'~800 words. Sets up the "why we abandon" thesis well.'},
+      {id:uid(),title:'Write interview transition and section 2',completed:false,dueDate:'2026-05-29',completedAt:null,notes:'Listen back to ep 9 for pacing reference on the interview bridge.'},
+      {id:uid(),title:'Write outro and show notes',completed:false,dueDate:'2026-06-14',completedAt:null,notes:''},
+      {id:uid(),title:'Record and edit audio',completed:false,dueDate:'2026-06-18',completedAt:null,notes:''},
+      {id:uid(),title:'Publish and share',completed:false,dueDate:'2026-06-20',completedAt:null,notes:''},
+    ],
+    journalEntries:[],
+    supplies:[]
+  },
+  {
+    id:uid(), title:'Patchwork Jacket',
+    description:'Upcycled denim jacket with patchwork panels on the back and sleeves. Using vintage fabric scraps.',
+    status:'Active', deadline:null, createdAt:'2026-04-01T13:00:00.000Z', updatedAt:'2026-05-15T16:45:00.000Z',
+    pickUpHere:'Back panel layout pinned and approved. Start sewing patches together before attaching to jacket.',
+    coverColor:'#9a3412', category:'Sewing', priority:1, effort:3, tags:[],
+    steps:[
+      {id:uid(),title:'Source and wash denim jacket',completed:true,dueDate:null,completedAt:'2026-04-18T11:00:00.000Z',notes:''},
+      {id:uid(),title:'Sort and select fabric scraps',completed:true,dueDate:null,completedAt:'2026-04-25T14:00:00.000Z',notes:''},
+      {id:uid(),title:'Cut patches and plan layout',completed:true,dueDate:null,completedAt:'2026-05-15T16:45:00.000Z',notes:''},
+      {id:uid(),title:'Sew back panel patchwork',completed:false,dueDate:null,completedAt:null,notes:'Use denim needle size 16. Press seams open.'},
+      {id:uid(),title:'Sew sleeve patches',completed:false,dueDate:null,completedAt:null,notes:''},
+      {id:uid(),title:'Attach all panels to jacket',completed:false,dueDate:null,completedAt:null,notes:''},
+      {id:uid(),title:'Add embroidery details',completed:false,dueDate:null,completedAt:null,notes:''},
+    ],
+    journalEntries:[],
+    supplies:[
+      {id:uid(),item:'Vintage fabric scraps',qtyNeeded:1,qtyOnHand:1,unit:'lot',cost:0,acquired:true},
+      {id:uid(),item:'Heavy duty thread',qtyNeeded:2,qtyOnHand:2,unit:'spools',cost:7,acquired:true},
+      {id:uid(),item:'Denim needle (size 16)',qtyNeeded:3,qtyOnHand:1,unit:'',cost:4,store:'Joann',acquired:false},
+      {id:uid(),item:'Iron-on interfacing',qtyNeeded:0.5,qtyOnHand:0,unit:'yard',cost:5,store:'Joann',acquired:false},
     ]
   }
 ];
 
 let activeTab = 'Active';
 let openProjectId = null;
+let editingProjectId = null;
 let selectedColor = SWATCH_COLORS[0];
+let stepsEditMode = false;
+let suppliesEditMode = false;
 let dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -569,43 +1691,141 @@ function indicatorColor(type){
   return type==='overdue'?'#ef4444':type==='soon'?'#E8A020':type==='done'?'var(--sage)':'var(--text-sub)';
 }
 
+function timeAgo(dateStr){
+  if(!dateStr) return null;
+  const diff = Math.floor((Date.now()-new Date(dateStr))/1000);
+  if(diff<60) return 'just now';
+  if(diff<3600) return `${Math.floor(diff/60)}m ago`;
+  if(diff<86400) return `${Math.floor(diff/3600)}h ago`;
+  if(diff<2592000) return `${Math.floor(diff/86400)}d ago`;
+  return fmt(dateStr.slice(0,10));
+}
+
+function getInitials(name){
+  const words = name.trim().split(/\s+/).filter(Boolean);
+  if(!words.length) return '?';
+  if(words.length === 1) return words[0][0].toUpperCase();
+  if(words.length === 2) return (words[0][0]+words[1][0]).toUpperCase();
+  return words[0][0].toUpperCase(); // 3+ words: first initial only
+}
+
+function updateAvatarInitials(){
+  const initials = getInitials(userProfile.name);
+  ['profile-avatar-initials','profile-avatar-emoji','sp-avatar-emoji'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.textContent = initials;
+  });
+}
+
 function coverGradient(c){
   return `linear-gradient(135deg,${c}ee 0%,${c}88 100%)`;
 }
 
-// ── Theme ──────────────────────────────────────────────────────────────────
+// ── Profile avatar ─────────────────────────────────────────────────────────
+let profileAvatarUrl = null;
+
+function setAvatar(url){
+  profileAvatarUrl = url;
+  const hImg = document.getElementById('profile-avatar-header');
+  const hInit = document.getElementById('profile-avatar-initials');
+  if(url){ hImg.src=url; hImg.style.display='block'; hInit.style.display='none'; }
+  else { hImg.style.display='none'; hInit.style.display=''; }
+  const pImg = document.getElementById('profile-avatar-img');
+  const pEmoji = document.getElementById('profile-avatar-emoji');
+  if(url){ pImg.src=url; pImg.style.display='block'; pEmoji.style.display='none'; }
+  else { pImg.style.display='none'; pEmoji.style.display=''; }
+  const spImg = document.getElementById('sp-avatar-img');
+  const spEmoji = document.getElementById('sp-avatar-emoji');
+  if(spImg){ if(url){ spImg.src=url; spImg.style.display='block'; spEmoji.style.display='none'; }
+  else { spImg.style.display='none'; spEmoji.style.display=''; } }
+}
+
+document.getElementById('profile-avatar-large').addEventListener('click',()=>{
+  document.getElementById('profile-avatar-input').click();
+});
+document.getElementById('profile-avatar-input').addEventListener('change',e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => setAvatar(ev.target.result);
+  reader.readAsDataURL(file);
+});
+
+// ── Profile panel ──────────────────────────────────────────────────────────
+
+function openProfile(){
+  document.getElementById('profile-overlay').classList.add('open');
+  updateProfileToggles();
+}
+function closeProfile(){
+  document.getElementById('profile-overlay').classList.remove('open');
+}
+function updateProfileToggles(){
+  updatePremiumUI();
+}
+
+document.getElementById('btn-logout').addEventListener('click',()=>{
+  closeProfile();
+  alert('Log out flow goes here — will clear session and return to sign-in screen.');
+});
+document.getElementById('btn-profile').addEventListener('click', openProfile);
+document.getElementById('profile-overlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('profile-overlay')) closeProfile();
+});
+document.getElementById('profile-shopping-row').addEventListener('click',()=>{
+  closeProfile();
+  openShopping();
+});
+
+function updatePremiumUI(){
+  const isPrem = IS_PREMIUM;
+  document.getElementById('header-plan-tag').textContent = isPrem ? '✦ Premium' : 'creativity tracker';
+  document.getElementById('header-plan-tag').style.color = isPrem ? 'var(--amethyst)' : '';
+  document.getElementById('profile-hub-plan').textContent = isPrem ? '✦ Premium' : 'Free plan';
+  document.getElementById('profile-hub-plan').style.color = isPrem ? 'var(--amethyst)' : 'var(--text-muted)';
+  document.getElementById('nav-upgrade').style.display = isPrem ? 'none' : '';
+  const bannerBtn = document.getElementById('demo-mode-toggle');
+  if(bannerBtn){ bannerBtn.textContent = isPrem ? '✦ Premium' : '⬡ Free'; bannerBtn.style.opacity = isPrem?'1':'0.7'; }
+}
+
+document.getElementById('demo-mode-toggle').addEventListener('click',()=>{
+  IS_PREMIUM=!IS_PREMIUM;
+  updatePremiumUI();
+  renderHome();
+});
 
 function applyTheme(){
   document.documentElement.setAttribute('data-theme', dark?'dark':'light');
-  document.getElementById('theme-toggle').textContent = dark?'☀️':'🌙';
 }
-
-document.getElementById('theme-toggle').addEventListener('click',()=>{
-  dark=!dark; applyTheme();
-});
 
 // ── Render home ────────────────────────────────────────────────────────────
 
 function renderHome(){
-  // tabs
   const tabsEl = document.getElementById('tabs');
   tabsEl.innerHTML = '';
   const grouped = {};
   STATUS_ORDER.forEach(s=>{ grouped[s]=projects.filter(p=>p.status===s); });
   STATUS_ORDER.forEach(s=>{
     const btn = document.createElement('button');
-    btn.className = 'tab'+(s===activeTab?' active':'');
+    btn.className = 'tab'+(!searchQuery && s===activeTab?' active':'');
     btn.style.setProperty('--tab-color', STATUS_COLORS[s]);
     const count = grouped[s].length;
     btn.innerHTML = `${s}${count?`<span class="tab-count">${count}</span>`:''}`;
-    btn.addEventListener('click',()=>{ activeTab=s; renderHome(); });
+    btn.addEventListener('click',()=>{
+      if(searchQuery){
+        searchQuery='';
+        document.getElementById('search-input').value='';
+        document.getElementById('search-clear').style.display='none';
+        document.getElementById('search-bar').classList.remove('open');
+      }
+      activeTab=s; renderHome();
+    });
     tabsEl.appendChild(btn);
   });
 
   // limit bar
-  const pct = Math.min(100,(projects.length/FREE_LIMIT)*100);
-  const atLimit = projects.length>=FREE_LIMIT;
-  document.getElementById('limit-label').textContent = `${projects.length} of ${FREE_LIMIT} projects (free)`;
+  const pct = Math.min(100,(projects.length/FREE_LIMIT())*100);
+  const atLimit = projects.length>=FREE_LIMIT();
+  document.getElementById('limit-label').textContent = IS_PREMIUM ? `${projects.length} projects` : `${projects.length} of ${FREE_LIMIT()} projects (free)`;
   document.getElementById('limit-warn').style.display = atLimit?'':'none';
   const fill = document.getElementById('limit-fill');
   fill.style.width = pct+'%';
@@ -614,7 +1834,142 @@ function renderHome(){
   // project list
   const listEl = document.getElementById('project-list');
   listEl.innerHTML = '';
-  const current = grouped[activeTab]||[];
+  let current = grouped[activeTab]||[];
+
+  // hide/show chrome based on search mode
+  document.getElementById('limit-bar').style.display = searchQuery ? 'none' : '';
+  document.getElementById('btn-new-project').style.display = searchQuery ? 'none' : '';
+  document.getElementById('due-today-container').style.display = (searchQuery || activeTab !== 'Active') ? 'none' : '';
+
+  // ── Search mode: structured results ───────────────────────────────────────
+  if(searchQuery){
+    const q = searchQuery;
+
+    // projects matching by title/desc/pickup/category/supplies, grouped by status
+    const matchedProjects = projects.filter(p=>
+      p.title.toLowerCase().includes(q) ||
+      (p.description||'').toLowerCase().includes(q) ||
+      (p.pickUpHere||'').toLowerCase().includes(q) ||
+      (p.category||'').toLowerCase().includes(q) ||
+      p.supplies.some(s=>s.item.toLowerCase().includes(q))
+    );
+
+    // steps matching by title or notes, across all projects
+    const matchedSteps = [];
+    projects.forEach(p=>{
+      p.steps.filter(s=>
+        s.title.toLowerCase().includes(q) ||
+        (s.notes||'').toLowerCase().includes(q)
+      ).forEach(s=>matchedSteps.push({step:s, project:p}));
+    });
+
+    const totalResults = matchedProjects.length + matchedSteps.length;
+
+    // apply sort
+    const sortVal = searchSort;
+    const sortedProjects = [...matchedProjects].sort((a,b)=>{
+      if(sortVal==='title') return a.title.localeCompare(b.title);
+      if(sortVal==='updated') return new Date(b.updatedAt||0)-new Date(a.updatedAt||0);
+      if(sortVal==='status') return STATUS_ORDER.indexOf(a.status)-STATUS_ORDER.indexOf(b.status);
+      return 0; // relevance — keep original order
+    });
+
+    if(!totalResults){
+      const empty = document.createElement('div');
+      empty.className='empty';
+      empty.innerHTML=`No results for "<strong>${q}</strong>"`;
+      listEl.appendChild(empty);
+      renderDueToday(); return;
+    }
+
+    // results header with sort popup
+    const sortLabels = {relevance:'Relevance',title:'Title A–Z',updated:'Last active',status:'Status'};
+    const header = document.createElement('div');
+    header.className='search-results-header';
+    header.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+        <button id="search-results-close" style="background:var(--elevated);border:none;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:16px;color:var(--text-muted);display:flex;align-items:center;justify-content:center;flex-shrink:0">✕</button>
+        <span style="font-size:17px;font-weight:800;color:var(--text);line-height:1.2">${totalResults} Search Result${totalResults===1?'':'s'}</span>
+      </div>
+      <div style="position:relative;flex-shrink:0">
+        <button class="sort-btn" id="sort-btn">Sort ▾</button>
+        <div class="sort-popup" id="sort-popup">
+          ${Object.entries(sortLabels).map(([v,l])=>`<div class="sort-option${searchSort===v?' active':''}" data-sort="${v}">${l}</div>`).join('')}
+        </div>
+      </div>`;
+    listEl.appendChild(header);
+    header.querySelectorAll('.sort-option').forEach(opt=>{
+      opt.addEventListener('click',e=>{
+        e.stopPropagation();
+        searchSort=opt.dataset.sort;
+        document.getElementById('sort-popup').classList.remove('open');
+        renderHome();
+      });
+    });
+    document.getElementById('sort-btn').addEventListener('click',e=>{
+      e.stopPropagation();
+      document.getElementById('sort-popup').classList.toggle('open');
+    });
+    document.getElementById('search-results-close').addEventListener('click',()=>{
+      searchQuery='';
+      document.getElementById('search-input').value='';
+      document.getElementById('search-clear').style.display='none';
+      document.getElementById('search-bar').classList.remove('open');
+      renderHome();
+    });
+
+    function searchSectionHeader(text){
+      const h = document.createElement('div');
+      h.style.cssText='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin:14px 0 6px;padding:0 2px';
+      h.textContent=text;
+      return h;
+    }
+
+    // Projects section
+    if(matchedProjects.length){
+      listEl.appendChild(searchSectionHeader(`Projects · ${matchedProjects.length}`));
+      if(sortVal==='status' || sortVal==='relevance'){
+        STATUS_ORDER.forEach(status=>{
+          const inStatus = sortedProjects.filter(p=>p.status===status);
+          if(!inStatus.length) return;
+          listEl.appendChild(searchSectionHeader(status));
+          inStatus.forEach(p=>listEl.appendChild(makeCard(p)));
+        });
+      } else {
+        sortedProjects.forEach(p=>listEl.appendChild(makeCard(p)));
+      }
+    }
+
+    // Steps section
+    if(matchedSteps.length){
+      listEl.appendChild(searchSectionHeader(`Steps · ${matchedSteps.length}`));
+      const stepsCard = document.createElement('div');
+      stepsCard.className='card'; stepsCard.style.cursor='default';
+      matchedSteps.forEach(({step:s, project:p}, i)=>{
+        const row = document.createElement('div');
+        row.className='check-row';
+        if(i===matchedSteps.length-1) row.style.borderBottom='none';
+        row.style.cursor='pointer';
+        row.innerHTML=`
+          <div class="checkbox ${s.completed?'checked-sage':'unchecked'}">${s.completed?'<span class="check-icon">✓</span>':''}</div>
+          <div class="check-content">
+            <div class="check-title${s.completed?' done':''}">${s.title}</div>
+            <div class="check-sub" style="display:flex;align-items:center;gap:6px">
+              <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.coverColor};flex-shrink:0"></span>
+              ${p.title}${s.dueDate?` · Due ${fmt(s.dueDate)}`:''}
+            </div>
+          </div>`;
+        row.addEventListener('click',()=>{ searchQuery=''; document.getElementById('search-input').value=''; document.getElementById('search-clear').style.display='none'; document.getElementById('search-bar').classList.remove('open'); openProject(p.id); });
+        stepsCard.appendChild(row);
+      });
+      listEl.appendChild(stepsCard);
+    }
+
+    renderDueToday(); return;
+  }
+
+  // ── Normal tab view ────────────────────────────────────────────────────────
+  const PAGE = 10;
   if(!current.length){
     const empty = document.createElement('div');
     empty.className='empty';
@@ -623,8 +1978,37 @@ function renderHome(){
     const emptyBtn = document.getElementById('btn-empty-new');
     if(emptyBtn) emptyBtn.addEventListener('click', openNewModal);
   } else {
-    current.forEach(p => listEl.appendChild(makeCard(p)));
+    const byAge=[...projects].sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
+    const lockedIds=new Set(IS_PREMIUM?[]:byAge.slice(FREE_LIMIT()).map(p=>p.id));
+    const available=current.filter(p=>!lockedIds.has(p.id));
+    const visible = available.slice(0, 10);
+    const rest = available.slice(10);
+    visible.forEach(p => listEl.appendChild(makeCard(p)));
+    if(rest.length){
+      const btn = document.createElement('button');
+      btn.className='btn-empty';
+      btn.style.cssText='display:block;width:100%;margin-top:4px;text-align:center';
+      btn.textContent=`Show ${rest.length} more`;
+      btn.addEventListener('click',()=>{
+        btn.remove();
+        rest.forEach(p => listEl.appendChild(makeCard(p)));
+      });
+      listEl.appendChild(btn);
+    }
+    // free mode: show locked projects (least active first)
+    if(!IS_PREMIUM){
+      const byAge=[...projects].sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
+      const lockedIds=new Set(byAge.slice(FREE_LIMIT()).map(p=>p.id));
+      const lockedInTab=current.filter(p=>lockedIds.has(p.id));
+      if(lockedInTab.length){
+        const notice=document.createElement('div');
+        notice.style.cssText='text-align:center;padding:16px;background:var(--elevated);border-radius:12px;margin-top:8px;border:1px dashed var(--amethyst)44';
+        notice.innerHTML=`<div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">🔒 ${lockedInTab.length} project${lockedInTab.length>1?'s':''} locked — upgrade to access your archive</div><button class="btn-upgrade" onclick="closeProfile();openSubpanel('sp-upgrade')">Unlock Premium</button>`;
+        listEl.appendChild(notice);
+      }
+    }
   }
+  renderDueToday();
 }
 
 function makeCard(p){
@@ -641,6 +2025,7 @@ function makeCard(p){
         <div class="card-title">${p.title}</div>
         <div class="card-pills">
           <span class="status-pill" style="background:${sc}22;color:${sc}">${p.status}</span>
+          ${p.category?`<span class="cat-badge">${p.category}</span>`:''}
           ${p.deadline?`<span class="card-deadline">due ${fmt(p.deadline)}</span>`:''}
         </div>
       </div>
@@ -649,12 +2034,15 @@ function makeCard(p){
         <div class="status-menu">
           ${STATUS_ORDER.filter(s=>s!==p.status).map(s=>`
             <div class="status-menu-item" data-status="${s}" style="color:${STATUS_COLORS[s]}">
-              <span class="status-dot" style="background:${STATUS_COLORS[s]}"></span>Move to ${s}
+              <span class="status-dot" style="background:${STATUS_COLORS[s]}"></span>${s}
             </div>`).join('')}
+          <div class="status-menu-divider"></div>
+          <div class="status-menu-item" data-action="edit">✏️ Edit</div>
+          <div class="status-menu-item danger" data-action="delete">🗑 Delete</div>
         </div>
       </div>
     </div>
-    ${p.pickUpHere?`<div class="pickup-note">${p.pickUpHere}</div>`:''}
+    ${p.pickUpHere&&appSettings.showPickup!==false?`<div class="pickup-note">${p.pickUpHere}</div>`:''}
     <div class="card-footer">
       ${ind?`<div class="step-indicator" style="color:${indicatorColor(ind.type)}">${ind.text}</div>`:'<div class="step-indicator"></div>'}
       ${p.steps.length?`<div class="step-count">${done}/${p.steps.length} steps</div>`:''}
@@ -678,9 +2066,18 @@ function makeCard(p){
   card.querySelectorAll('.status-menu-item').forEach(item=>{
     item.addEventListener('click', e=>{
       e.stopPropagation();
-      const proj = projects.find(x=>x.id===p.id);
-      if(proj){ proj.status=item.dataset.status; renderHome(); }
       menu.classList.remove('open');
+      if(item.dataset.action==='edit'){
+        openNewModal(p.id);
+      } else if(item.dataset.action==='delete'){
+        if(confirm(`Delete "${p.title}"? This can't be undone.`)){
+          projects = projects.filter(x=>x.id!==p.id);
+          renderHome();
+        }
+      } else {
+        const proj = projects.find(x=>x.id===p.id);
+        if(proj){ proj.status=item.dataset.status; renderHome(); }
+      }
     });
   });
 
@@ -694,24 +2091,42 @@ document.addEventListener('click', ()=>{
 
 // ── New project modal ──────────────────────────────────────────────────────
 
-function openNewModal(){
-  const atLimit = projects.length>=FREE_LIMIT;
+function openNewModal(editId){
+  editingProjectId = editId||null;
+  const p = editId ? projects.find(x=>x.id===editId) : null;
+  const atLimit = !p && projects.length>=FREE_LIMIT();
+  document.getElementById('modal-title').textContent = p ? 'Edit Project' : 'New Project';
+  document.getElementById('btn-create').textContent = p ? 'Save Changes' : 'Create Project';
   document.getElementById('limit-warn-box').style.display = atLimit?'':'none';
-  document.getElementById('new-title').value='';
-  document.getElementById('new-pickup').value='';
-  document.getElementById('new-desc').value='';
-  document.getElementById('new-status').value='Active';
-  document.getElementById('new-deadline').value='';
-  document.getElementById('new-title').disabled = atLimit;
-  document.getElementById('new-pickup').disabled = atLimit;
-  document.getElementById('new-desc').disabled = atLimit;
-  document.getElementById('new-status').disabled = atLimit;
-  document.getElementById('new-deadline').disabled = atLimit;
-  document.getElementById('btn-create').disabled = atLimit;
+  document.getElementById('new-title').value = p?p.title:'';
+  document.getElementById('new-pickup').value = p?p.pickUpHere:'';
+  document.getElementById('new-desc').value = p?p.description:'';
+  document.getElementById('new-status').value = p?p.status:'Active';
+  document.getElementById('new-deadline').value = p?p.deadline||'':'';
+  document.getElementById('new-priority').value = p?p.priority||0:0;
+  document.getElementById('new-effort').value = p?p.effort||0:0;
+  // populate category select from current categories list
+  const catSel = document.getElementById('new-category');
+  catSel.innerHTML = '<option value="">— None —</option>' + categories.map(c=>`<option value="${c}">${c}</option>`).join('');
+  catSel.value = p?p.category||'':'';
+  const disabled = atLimit;
+  ['new-title','new-pickup','new-desc','new-status','new-deadline','new-category','new-priority','new-effort'].forEach(id=>document.getElementById(id).disabled=disabled);
+  const createBtn = document.getElementById('btn-create');
+  if(atLimit){
+    createBtn.textContent = '✦ Upgrade to add more projects';
+    createBtn.disabled = false;
+    createBtn.style.background = 'var(--amethyst)';
+    createBtn.dataset.mode = 'upgrade';
+  } else {
+    createBtn.textContent = p ? 'Save Changes' : 'Create Project';
+    createBtn.disabled = false;
+    createBtn.style.background = '';
+    createBtn.dataset.mode = '';
+  }
   // swatches
   const grid = document.getElementById('swatch-grid');
   grid.innerHTML='';
-  selectedColor = SWATCH_COLORS[0];
+  selectedColor = p ? p.coverColor : SWATCH_COLORS[0];
   SWATCH_COLORS.forEach(c=>{
     const sw = document.createElement('div');
     sw.className='color-swatch'+(c===selectedColor?' selected':'');
@@ -739,40 +2154,84 @@ function closeModal(){
 }
 
 document.getElementById('btn-create').addEventListener('click',()=>{
+  const btn = document.getElementById('btn-create');
+  if(btn.dataset.mode === 'upgrade'){ closeModal(); openSubpanel('sp-upgrade'); return; }
+  const atLimit = !editingProjectId && projects.length>=FREE_LIMIT();
+  if(atLimit){ closeModal(); openSubpanel('sp-upgrade'); return; }
   const title = document.getElementById('new-title').value.trim();
-  if(!title || projects.length>=FREE_LIMIT) return;
-  const status = document.getElementById('new-status').value;
-  projects.push({
-    id:uid(), title,
+  if(!title) return;
+  const newFields = {
+    title,
     description:document.getElementById('new-desc').value,
     pickUpHere:document.getElementById('new-pickup').value,
     deadline:document.getElementById('new-deadline').value||null,
-    status, coverColor:selectedColor,
-    steps:[], supplies:[]
-  });
-  activeTab=status;
+    status:document.getElementById('new-status').value,
+    coverColor:selectedColor,
+    category:document.getElementById('new-category').value||null,
+    priority:parseInt(document.getElementById('new-priority').value)||0,
+    effort:parseInt(document.getElementById('new-effort').value)||0,
+  };
+  if(editingProjectId){
+    const p = projects.find(x=>x.id===editingProjectId);
+    if(p){ Object.assign(p, newFields); p.updatedAt=new Date().toISOString(); }
+    editingProjectId=null;
+  } else {
+    if(projects.length>=FREE_LIMIT()) return;
+    projects.push({
+      id:uid(), ...newFields,
+      createdAt:new Date().toISOString(),
+      updatedAt:new Date().toISOString(),
+      steps:[], supplies:[], journalEntries:[]
+    });
+    activeTab=newFields.status;
+  }
   closeModal();
   renderHome();
 });
 
 // ── Detail view ────────────────────────────────────────────────────────────
 
+let activeDetailTab = 'steps';
+
 function openProject(id){
   openProjectId=id;
-  document.getElementById('home').style.display='none';
+  activeDetailTab='steps';
   document.getElementById('detail').classList.add('open');
-  renderDetail();
-  window.scrollTo(0,0);
+  try {
+    renderDetail();
+    window.scrollTo(0,0);
+    document.getElementById('detail').scrollTo(0,0);
+  } catch(e) {
+    console.error('renderDetail failed:', e.message, e.stack);
+    document.getElementById('detail').classList.remove('open');
+    alert('Detail view error: ' + e.message);
+  }
 }
 
 document.getElementById('detail-back').addEventListener('click',()=>{
   openProjectId=null;
+  stepsEditMode=false;
+  suppliesEditMode=false;
   document.getElementById('detail').classList.remove('open');
-  document.getElementById('home').style.display='';
   renderHome();
 });
 
 function getProject(){ return projects.find(p=>p.id===openProjectId); }
+
+// detail tab switching
+document.getElementById('detail-tabs').addEventListener('click',e=>{
+  const tab=e.target.closest('.detail-tab');
+  if(!tab) return;
+  activeDetailTab=tab.dataset.tab;
+  const p=getProject(); if(!p) return;
+  document.querySelectorAll('.detail-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===activeDetailTab));
+  document.getElementById('panel-steps').style.display=activeDetailTab==='steps'?'':'none';
+  document.getElementById('panel-supplies').style.display=activeDetailTab==='supplies'?'':'none';
+  document.getElementById('panel-timeline').style.display=activeDetailTab==='timeline'?'':'none';
+  if(activeDetailTab==='steps') renderSteps(p);
+  else if(activeDetailTab==='supplies') renderSupplies(p);
+  else renderTimeline(p);
+});
 
 function renderDetail(){
   const p = getProject(); if(!p) return;
@@ -784,8 +2243,13 @@ function renderDetail(){
   const done = p.steps.filter(s=>s.completed).length;
   document.getElementById('detail-meta').innerHTML =
     `<span class="status-pill" style="background:${sc}22;color:${sc}">${p.status}</span>`+
+    (p.category?`<span class="cat-badge">${p.category}</span>`:'')+
     (p.deadline?`<span>Due ${fmt(p.deadline)}</span>`:'')+
-    (p.steps.length?`<span>${done}/${p.steps.length} steps done</span>`:'');
+    (p.steps.length?`<span>${done}/${p.steps.length} steps done</span>`:'')+
+    (p.priority&&PRIORITY_LABELS[p.priority]?`<span class="priority-badge-${['','low','medium','high'][p.priority]}">▲ ${PRIORITY_LABELS[p.priority]}</span>`:'')+
+    (p.effort&&EFFORT_LABELS[p.effort]?`<span style="color:var(--text-faint)">⏱ ${EFFORT_LABELS[p.effort]}</span>`:'')+
+    (p.createdAt?`<span>Started ${fmt(p.createdAt.slice(0,10))}</span>`:'')+
+    (p.updatedAt?`<span class="last-activity">Active ${timeAgo(p.updatedAt)}</span>`:'');
   // progress bar
   if(p.steps.length){
     document.getElementById('progress-wrap').style.display='';
@@ -793,15 +2257,135 @@ function renderDetail(){
   } else {
     document.getElementById('progress-wrap').style.display='none';
   }
+  // description
+  const descEl = document.getElementById('detail-description');
+  if(p.description){ descEl.textContent=p.description; descEl.style.display=''; }
+  else { descEl.style.display='none'; }
   // pickup
   renderPickup(p);
-  // steps
-  renderSteps(p);
-  // supplies
-  renderSupplies(p);
+  // active panel
+  document.getElementById('panel-steps').style.display=activeDetailTab==='steps'?'':'none';
+  document.getElementById('panel-supplies').style.display=activeDetailTab==='supplies'?'':'none';
+  document.getElementById('panel-timeline').style.display=activeDetailTab==='timeline'?'':'none';
+  document.querySelectorAll('.detail-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===activeDetailTab));
+  if(activeDetailTab==='steps') renderSteps(p);
+  else if(activeDetailTab==='supplies') renderSupplies(p);
+  else renderTimeline(p);
 }
 
+function renderTimeline(p){
+  const list=document.getElementById('timeline-list');
+  list.innerHTML='';
+
+  // build merged event list
+  const events=[];
+  p.steps.filter(s=>s.completed).forEach(s=>{
+    events.push({type:'step',date:s.completedAt||null,label:`✓ ${s.title}`,sub:s.completedAt?fmtFull(s.completedAt):'Completed before tracking began'});
+  });
+  (p.journalEntries||[]).forEach(j=>{
+    events.push({type:'journal',date:j.createdAt,label:j.text,sub:fmtFull(j.createdAt),id:j.id});
+  });
+  // supply acquisitions could be added here in future
+  events.sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+
+  // free tier: show only last 3 total
+  const FREE_TIMELINE_LIMIT = 3;
+  let visibleEvents = events;
+  let hiddenCount = 0;
+  if(!IS_PREMIUM && events.length > FREE_TIMELINE_LIMIT){
+    hiddenCount = events.length - FREE_TIMELINE_LIMIT;
+    visibleEvents = events.slice(0, FREE_TIMELINE_LIMIT);
+  }
+
+  if(!events.length){
+    list.innerHTML='<div class="timeline-empty">No activity yet — complete a step or add a journal note.</div>';
+  } else {
+    visibleEvents.forEach(ev=>{
+      const item=document.createElement('div'); item.className='timeline-item';
+      const dotColor = ev.type==='journal'?'var(--amethyst)':'var(--sage)';
+      item.innerHTML=`
+        <div class="timeline-dot" style="background:${dotColor}"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">${ev.label}</div>
+          <div class="timeline-sub">${ev.sub}</div>
+        </div>
+        ${ev.type==='journal'?`<button style="border:none;background:none;color:var(--text-faint);font-size:14px;cursor:pointer;flex-shrink:0;align-self:flex-start;padding:4px" data-del-journal="${ev.id}">✕</button>`:''}`;
+      if(ev.type==='journal'){
+        item.querySelector('[data-del-journal]').addEventListener('click',e=>{
+          e.stopPropagation();
+          p.journalEntries=p.journalEntries.filter(j=>j.id!==ev.id);
+          renderTimeline(p);
+        });
+      }
+      list.appendChild(item);
+    });
+    if(hiddenCount>0){
+      const lock=document.createElement('div');
+      lock.className='journal-locked';
+      lock.innerHTML=`🔒 ${hiddenCount} older entr${hiddenCount===1?'y':'ies'} hidden — <button class="btn-upgrade" style="padding:4px 12px;font-size:12px" onclick="openSubpanel('sp-upgrade')">Upgrade to see all</button>`;
+      list.appendChild(lock);
+    }
+  }
+
+  // upcoming steps section
+  const upcoming=p.steps.filter(s=>!s.completed);
+  if(upcoming.length){
+    const divider=document.createElement('div');
+    divider.style.cssText='font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);padding:14px 0 6px';
+    divider.textContent='Upcoming';
+    list.appendChild(divider);
+    upcoming.forEach(s=>{
+      const item=document.createElement('div'); item.className='timeline-item';
+      item.innerHTML=`
+        <div class="timeline-dot" style="background:var(--border-strong)"></div>
+        <div class="timeline-content">
+          <div class="timeline-title" style="color:var(--text-muted)">${s.title}</div>
+          ${s.dueDate?`<div class="timeline-sub">Due ${fmt(s.dueDate)}</div>`:''}
+        </div>`;
+      list.appendChild(item);
+    });
+  }
+}
+
+function fmtFull(dateStr){
+  if(!dateStr) return '';
+  const d=new Date(dateStr);
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+}
+
+// journal entry handlers
+document.getElementById('btn-add-journal').addEventListener('click',()=>{
+  const form=document.getElementById('journal-add-form');
+  const isHidden = form.style.display==='none'||form.style.display==='';
+  form.style.display=isHidden?'block':'none';
+  if(isHidden){
+    document.getElementById('journal-input').value='';
+    document.getElementById('journal-input').focus();
+  }
+});
+document.getElementById('journal-cancel').addEventListener('click',()=>{
+  document.getElementById('journal-add-form').style.display='none';
+});
+document.getElementById('journal-save').addEventListener('click',()=>{
+  const text=document.getElementById('journal-input').value.trim();
+  const p=getProject(); if(!p||!text) return;
+  if(!p.journalEntries) p.journalEntries=[];
+  p.journalEntries.push({id:uid(),text,createdAt:new Date().toISOString()});
+  p.updatedAt=new Date().toISOString();
+  document.getElementById('journal-add-form').style.display='none';
+  renderTimeline(p);
+});
+
 // pickup
+document.getElementById('steps-edit-toggle').addEventListener('click',()=>{
+  stepsEditMode=!stepsEditMode;
+  const p=getProject(); if(p) renderSteps(p);
+});
+document.getElementById('supplies-edit-toggle').addEventListener('click',()=>{
+  suppliesEditMode=!suppliesEditMode;
+  const p=getProject(); if(p) renderSupplies(p);
+});
+
 function renderPickup(p){
   const disp = document.getElementById('pickup-display');
   const edit = document.getElementById('pickup-edit');
@@ -822,6 +2406,7 @@ document.getElementById('pickup-display').addEventListener('click',()=>{
 document.getElementById('pickup-save').addEventListener('click',()=>{
   const p=getProject(); if(!p) return;
   p.pickUpHere=document.getElementById('pickup-input').value;
+  p.updatedAt=new Date().toISOString();
   renderPickup(p);
 });
 document.getElementById('pickup-cancel').addEventListener('click',()=>{
@@ -834,39 +2419,116 @@ function renderSteps(p){
   const list=document.getElementById('steps-list');
   list.innerHTML='';
   document.getElementById('steps-count').textContent=p.steps.length?`(${p.steps.length})`:'';
+  const toggleBtn=document.getElementById('steps-edit-toggle');
+  toggleBtn.classList.toggle('active',stepsEditMode);
+
   if(!p.steps.length){
     list.innerHTML='<div class="empty-section">No steps yet — tap + to add one.</div>';
     return;
   }
-  p.steps.forEach(s=>{
+
+  let dragSrc=null;
+
+  p.steps.forEach((s,i)=>{
     const row=document.createElement('div'); row.className='check-row';
-    const shortfallNote='';
+    row.dataset.idx=i;
     row.innerHTML=`
+      <div class="drag-handle${stepsEditMode?'':' edit-mode-hidden'}">⠿</div>
       <div class="checkbox ${s.completed?'checked-sage':'unchecked'}">${s.completed?'<span class="check-icon">✓</span>':''}</div>
       <div class="check-content">
         <div class="check-title${s.completed?' done':''}">${s.title}</div>
         ${s.dueDate&&!s.completed?`<div class="check-sub">Due ${fmt(s.dueDate)}</div>`:''}
-      </div>`;
-    row.addEventListener('click',()=>{
-      s.completed=!s.completed;
+        ${s.notes?`<span class="step-notes-toggle" data-notes-toggle>📝 Notes</span><div class="step-notes-body">${s.notes}</div>`:''}
+      </div>
+      <button style="width:32px;height:32px;border-radius:6px;border:none;background:transparent;font-size:15px;flex-shrink:0;cursor:pointer;display:${stepsEditMode?'flex':'none'};align-items:center;justify-content:center" data-del-step="${s.id}">🗑</button>`;
+
+    row.querySelector(`[data-del-step]`).addEventListener('click',e=>{
+      e.stopPropagation();
+      p.steps=p.steps.filter(x=>x.id!==s.id);
       renderDetail();
     });
+
+    const notesToggle = row.querySelector('[data-notes-toggle]');
+    if(notesToggle){
+      notesToggle.addEventListener('click',e=>{
+        e.stopPropagation();
+        const body = notesToggle.nextElementSibling;
+        body.classList.toggle('open');
+        notesToggle.textContent = body.classList.contains('open') ? '📝 Hide notes' : '📝 Notes';
+      });
+    }
+
+    row.addEventListener('click',e=>{
+      if(e.target.closest('[data-del-step]')||e.target.closest('.drag-handle')||e.target.closest('[data-notes-toggle]')) return;
+      s.completed=!s.completed;
+      s.completedAt=s.completed?new Date().toISOString():null;
+      const p2=getProject(); if(p2) p2.updatedAt=new Date().toISOString();
+      renderDetail();
+    });
+
+    const handle=row.querySelector('.drag-handle');
+    let startY=0, clone=null, rows=[];
+
+    handle.addEventListener('touchstart',e=>{
+      e.preventDefault();
+      startY=e.touches[0].clientY;
+      dragSrc=row;
+      rows=[...list.querySelectorAll('.check-row')];
+      row.classList.add('dragging');
+      clone=row.cloneNode(true);
+      clone.style.cssText=`position:fixed;left:${row.getBoundingClientRect().left}px;top:${row.getBoundingClientRect().top}px;width:${row.offsetWidth}px;z-index:999;opacity:.85;background:var(--card);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);pointer-events:none;`;
+      document.body.appendChild(clone);
+    },{passive:false});
+
+    handle.addEventListener('touchmove',e=>{
+      e.preventDefault();
+      const dy=e.touches[0].clientY-startY;
+      clone.style.top=(row.getBoundingClientRect().top+dy)+'px';
+      const midY=e.touches[0].clientY;
+      rows.forEach(r=>{
+        r.classList.remove('drag-over');
+        const rect=r.getBoundingClientRect();
+        if(r!==dragSrc && midY>rect.top && midY<rect.bottom) r.classList.add('drag-over');
+      });
+    },{passive:false});
+
+    handle.addEventListener('touchend',e=>{
+      if(clone){clone.remove();clone=null;}
+      row.classList.remove('dragging');
+      const target=rows.find(r=>r.classList.contains('drag-over'));
+      if(target&&target!==row){
+        const fromIdx=parseInt(row.dataset.idx);
+        const toIdx=parseInt(target.dataset.idx);
+        const moved=p.steps.splice(fromIdx,1)[0];
+        p.steps.splice(toIdx,0,moved);
+      }
+      rows.forEach(r=>r.classList.remove('drag-over'));
+      renderDetail();
+    });
+
     list.appendChild(row);
   });
 }
 document.getElementById('btn-add-step').addEventListener('click',()=>{
-  document.getElementById('step-add-form').style.display='';
   document.getElementById('step-input').value='';
-  document.getElementById('step-input').focus();
+  document.getElementById('step-due').value='';
+  document.getElementById('step-notes').value='';
+  document.getElementById('step-modal-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('step-input').focus(),150);
 });
-document.getElementById('step-cancel').addEventListener('click',()=>{
-  document.getElementById('step-add-form').style.display='none';
+function closeStepModal(){
+  document.getElementById('step-modal-overlay').classList.remove('open');
+}
+document.getElementById('step-cancel').addEventListener('click', closeStepModal);
+document.getElementById('step-modal-close').addEventListener('click', closeStepModal);
+document.getElementById('step-modal-overlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('step-modal-overlay')) closeStepModal();
 });
 document.getElementById('step-save').addEventListener('click',()=>{
   const title=document.getElementById('step-input').value.trim();
   const p=getProject(); if(!p||!title) return;
-  p.steps.push({id:uid(),title,completed:false,dueDate:null});
-  document.getElementById('step-add-form').style.display='none';
+  p.steps.push({id:uid(),title,completed:false,dueDate:document.getElementById('step-due').value||null,completedAt:null,notes:document.getElementById('step-notes').value.trim()});
+  closeStepModal();
   renderDetail();
 });
 document.getElementById('step-input').addEventListener('keydown',e=>{
@@ -878,6 +2540,9 @@ function renderSupplies(p){
   const list=document.getElementById('supplies-list');
   list.innerHTML='';
   document.getElementById('supplies-count').textContent=p.supplies.length?`(${p.supplies.length})`:'';
+  const toggleBtn=document.getElementById('supplies-edit-toggle');
+  toggleBtn.classList.toggle('active',suppliesEditMode);
+
   if(!p.supplies.length){
     list.innerHTML='<div class="empty-section">No supplies yet — tap + to add one.</div>';
     return;
@@ -890,9 +2555,19 @@ function renderSupplies(p){
       <div class="check-content">
         <div class="check-title${s.acquired?' done':''}">${s.item}</div>
         <div class="check-sub">${s.qtyOnHand} / ${s.qtyNeeded} ${s.unit}${shortfall>0&&!s.acquired?`<span class="shortfall">need ${shortfall} more</span>`:''}</div>
+        ${s.url?`<a class="supply-url-link" href="${s.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 View item</a>`:''}
       </div>
-      ${s.cost?`<div class="check-cost">$${s.cost}</div>`:''}`;
-    row.addEventListener('click',()=>{ s.acquired=!s.acquired; renderDetail(); });
+      ${s.cost?`<div class="check-cost">$${s.cost}</div>`:''}
+      <button style="width:32px;height:32px;border-radius:6px;border:none;background:transparent;font-size:15px;flex-shrink:0;margin-left:4px;cursor:pointer;display:${suppliesEditMode?'flex':'none'};align-items:center;justify-content:center" data-del-supply="${s.id}">🗑</button>`;
+    row.querySelector(`[data-del-supply]`).addEventListener('click',e=>{
+      e.stopPropagation();
+      p.supplies=p.supplies.filter(x=>x.id!==s.id);
+      renderDetail();
+    });
+    row.addEventListener('click',e=>{
+      if(e.target.closest('[data-del-supply]')) return;
+      s.acquired=!s.acquired; renderDetail();
+    });
     list.appendChild(row);
   });
 }
@@ -903,6 +2578,8 @@ document.getElementById('btn-add-supply').addEventListener('click',()=>{
   document.getElementById('supply-have').value='0';
   document.getElementById('supply-unit').value='';
   document.getElementById('supply-cost').value='';
+  document.getElementById('supply-store').value='';
+  document.getElementById('supply-url').value='';
   document.getElementById('supply-name').focus();
 });
 document.getElementById('supply-cancel').addEventListener('click',()=>{
@@ -917,15 +2594,752 @@ document.getElementById('supply-save').addEventListener('click',()=>{
     qtyOnHand:parseFloat(document.getElementById('supply-have').value)||0,
     unit:document.getElementById('supply-unit').value,
     cost:parseFloat(document.getElementById('supply-cost').value)||0,
+    store:document.getElementById('supply-store').value.trim()||null,
+    url:document.getElementById('supply-url').value.trim()||null,
     acquired:false
   });
   document.getElementById('supply-add-form').style.display='none';
   renderDetail();
 });
 
+// ── Shopping list ──────────────────────────────────────────────────────────
+
+let shoppingSort = 'store';
+
+let shoppingSessionPurchased = new Set(); // supply IDs checked this session
+
+function openShopping(){
+  document.getElementById('shopping').style.display='flex';
+  renderShopping();
+  window.scrollTo(0,0);
+}
+function closeShopping(){
+  shoppingSessionPurchased.clear();
+  document.getElementById('shopping').style.display='none';
+}
+document.getElementById('shopping-close').addEventListener('click', closeShopping);
+
+document.getElementById('shopping-sort-tabs').addEventListener('click',e=>{
+  const tab=e.target.closest('.tab');
+  if(!tab) return;
+  shoppingSort=tab.dataset.sort;
+  document.querySelectorAll('#shopping-sort-tabs .tab').forEach(t=>t.classList.toggle('active',t.dataset.sort===shoppingSort));
+  renderShopping();
+});
+
+const STATUS_IMPORTANCE = {Active:0, Paused:1, Someday:2, Done:3};
+
+function getAllUnacquired(){
+  const items=[];
+  projects.forEach(p=>{
+    p.supplies.filter(s=>!s.acquired).forEach(s=>{
+      items.push({supply:s, project:p});
+    });
+  });
+  return items;
+}
+
+function makeShoppingRow(s, p, isLast, isPurchased){
+  const shortfall = s.qtyNeeded - s.qtyOnHand;
+  const row = document.createElement('div');
+  row.className='check-row';
+  row.style.cursor='default';
+  if(isLast) row.style.borderBottom='none';
+  const strike = isPurchased ? 'done' : '';
+  const checkClass = isPurchased ? 'checked-sage' : 'unchecked';
+  const checkInner = isPurchased ? '<span class="check-icon">✓</span>' : '';
+  row.innerHTML=`
+    <div class="checkbox ${checkClass}" style="cursor:${isPurchased?'default':'pointer'};flex-shrink:0">${checkInner}</div>
+    <div class="check-content">
+      <div class="check-title ${strike}">${s.item}</div>
+      <div class="check-sub" style="${isPurchased?'opacity:.5':''}">
+        <span style="color:${p.coverColor};font-weight:600">${p.title}</span>
+        ${s.cost?` · ~$${(s.cost*(shortfall/s.qtyNeeded)).toFixed(2)}`:''}
+        ${s.store?` · ${s.store}`:''}
+      </div>
+    </div>
+    ${shortfall>0&&!isPurchased?`<div class="check-cost" style="font-size:12px;color:var(--text-muted)">×${shortfall}${s.unit?' '+s.unit:''}</div>`:''}`;
+  if(!isPurchased){
+    row.querySelector('.checkbox').addEventListener('click',()=>{
+      s.acquired=true;
+      shoppingSessionPurchased.add(s.id);
+      renderShopping();
+    });
+  }
+  return row;
+}
+
+function renderGroup(el, label, items, isPurchased){
+  if(!items.length) return;
+  const header=document.createElement('div');
+  header.style.cssText='font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin:14px 0 6px';
+  header.textContent=label;
+  el.appendChild(header);
+  const card=document.createElement('div');
+  card.className='card'; card.style.cursor='default';
+  items.forEach(({supply:s,project:p},i)=>{
+    card.appendChild(makeShoppingRow(s,p,i===items.length-1,isPurchased||false));
+  });
+  el.appendChild(card);
+}
+
+function renderShopping(){
+  const el = document.getElementById('shopping-list');
+  el.innerHTML='';
+
+  // split into unacquired and session-purchased
+  const allItems=[];
+  projects.forEach(p=>{
+    p.supplies.forEach(s=>{
+      if(!s.acquired) allItems.push({supply:s, project:p});
+      else if(shoppingSessionPurchased.has(s.id)) allItems.push({supply:s, project:p, purchased:true});
+    });
+  });
+
+  const all = allItems.filter(i=>!i.purchased);
+  const purchased = allItems.filter(i=>i.purchased);
+
+  if(!all.length && !purchased.length){
+    el.innerHTML='<div class="empty">Nothing on your shopping list — all supplies are acquired! 🎉</div>';
+    return;
+  }
+
+  if(all.length){
+    if(shoppingSort==='store'){
+      const stores={};
+      const noStore=[];
+      all.forEach(entry=>{
+        const store=entry.supply.store;
+        if(store){ (stores[store]=stores[store]||[]).push(entry); }
+        else noStore.push(entry);
+      });
+      Object.keys(stores).sort().forEach(store=>renderGroup(el, store, stores[store]));
+      if(noStore.length) renderGroup(el, 'No store assigned', noStore);
+    } else if(shoppingSort==='type'){
+      const types={};
+      all.forEach(entry=>{
+        const t=entry.supply.unit||'Other';
+        (types[t]=types[t]||[]).push(entry);
+      });
+      Object.keys(types).sort().forEach(t=>renderGroup(el, t, types[t]));
+    } else if(shoppingSort==='importance'){
+      const byStatus={};
+      all.forEach(entry=>{
+        const s=entry.project.status;
+        (byStatus[s]=byStatus[s]||[]).push(entry);
+      });
+      ['Active','Paused','Someday','Done'].forEach(s=>{
+        if(byStatus[s]) renderGroup(el, s+' projects', byStatus[s]);
+      });
+    } else if(shoppingSort==='cost'){
+      const sorted=[...all].sort((a,b)=>{
+        const ca=a.supply.cost*(a.supply.qtyNeeded-a.supply.qtyOnHand)/a.supply.qtyNeeded;
+        const cb=b.supply.cost*(b.supply.qtyNeeded-b.supply.qtyOnHand)/b.supply.qtyNeeded;
+        return cb-ca;
+      });
+      renderGroup(el, `${sorted.length} items`, sorted);
+    }
+  }
+
+  // purchased this session — always at bottom, struck through
+  if(purchased.length){
+    renderGroup(el, `Purchased (${purchased.length})`, purchased, true);
+  }
+}
+
+// ── Sub-panel system ───────────────────────────────────────────────────────
+
+let userProfile = { name:'Quinn Avery', bio:'', avatarUrl:null };
+let notifPrefs = { due:true, dueWhen:'3d', dormant:true, dormantWhen:'14d', weekly:true, weeklyDay:'1', email:'' };
+let appSettings = { showPriority:true, showEffort:true, showCategory:true, showPickup:true, defaultStatus:'Active', dateFormat:'mdy', shoppingSort:'store' };
+
+function openSubpanel(id){
+  closeProfile();
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(id==='sp-upgrade') syncUpgradePanel();
+  el.classList.add('open');
+  const bd = document.getElementById('subpanel-backdrop');
+  bd.style.opacity='1'; bd.style.pointerEvents='all';
+}
+function closeSubpanel(id){
+  const el = document.getElementById(id);
+  if(el) el.classList.remove('open');
+  // hide backdrop only if no other subpanel is open
+  if(!document.querySelector('.subpanel.open')){
+    const bd = document.getElementById('subpanel-backdrop');
+    bd.style.opacity='0'; bd.style.pointerEvents='none';
+  }
+}
+
+// backdrop tap closes active subpanel
+document.getElementById('subpanel-backdrop').addEventListener('click',()=>{
+  document.querySelectorAll('.subpanel.open').forEach(el=>el.classList.remove('open'));
+  const bd = document.getElementById('subpanel-backdrop');
+  bd.style.opacity='0'; bd.style.pointerEvents='none';
+});
+
+// wire all back buttons
+document.querySelectorAll('[data-close-sp]').forEach(btn=>{
+  btn.addEventListener('click',()=>closeSubpanel(btn.dataset.closeSp));
+});
+
+// nav hub rows
+document.getElementById('nav-profile').addEventListener('click',()=>{
+  syncProfilePanel();
+  openSubpanel('sp-profile');
+});
+document.getElementById('nav-notifications').addEventListener('click',()=>{
+  syncNotifPanel();
+  openSubpanel('sp-notifications');
+});
+document.getElementById('nav-upgrade').addEventListener('click',()=>{
+  syncUpgradePanel();
+  openSubpanel('sp-upgrade');
+});
+document.getElementById('nav-reports').addEventListener('click',()=>openSubpanel('sp-reports'));
+document.getElementById('nav-about').addEventListener('click',()=>openSubpanel('sp-about'));
+
+// ── Profile sub-panel ──────────────────────────────────────────────────────
+function syncProfilePanel(){
+  document.getElementById('sp-name').value = userProfile.name;
+  document.getElementById('sp-theme-toggle').classList.toggle('on', dark);
+  document.getElementById('sp-date-format').value = appSettings.dateFormat;
+  // plan display
+  const isPrem = IS_PREMIUM;
+  document.getElementById('sp-plan-name').textContent = isPrem ? '✦ Premium' : 'Free plan';
+  document.getElementById('sp-plan-name').style.color = isPrem ? 'var(--amethyst)' : 'var(--text)';
+  document.getElementById('sp-plan-sub').textContent = isPrem ? 'Full access to all features' : 'Up to 5 projects';
+  const actionBtn = document.getElementById('sp-plan-action');
+  actionBtn.style.display = isPrem ? 'none' : '';
+  actionBtn.textContent = 'Upgrade';
+  actionBtn.style.background = 'var(--amethyst)';
+  actionBtn.style.color = '#fff';
+  document.getElementById('sp-cancel-row').style.display = isPrem ? '' : 'none';
+  if(userProfile.avatarUrl){
+    document.getElementById('sp-avatar-img').src = userProfile.avatarUrl;
+    document.getElementById('sp-avatar-img').style.display = 'block';
+    document.getElementById('sp-avatar-emoji').style.display = 'none';
+  }
+}
+document.getElementById('sp-bio')?.addEventListener('input',e=>{
+  document.getElementById('sp-bio-count').textContent = e.target.value.length;
+});
+document.getElementById('sp-plan-action').addEventListener('click',()=>{
+  closeSubpanel('sp-profile'); openSubpanel('sp-upgrade');
+});
+document.getElementById('sp-cancel-row').addEventListener('click',()=>{
+  if(confirm('Cancel your Premium subscription? You\'ll keep access until the end of your billing period.'))
+    alert('Cancellation flow goes here — this will open the Stripe Customer Portal.');
+});
+document.getElementById('sp-avatar-wrap').addEventListener('click',()=>{
+  document.getElementById('sp-avatar-input').click();
+});
+document.getElementById('sp-avatar-input').addEventListener('change',e=>{
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    userProfile.avatarUrl=ev.target.result;
+    document.getElementById('sp-avatar-img').src=ev.target.result;
+    document.getElementById('sp-avatar-img').style.display='block';
+    document.getElementById('sp-avatar-emoji').style.display='none';
+    setAvatar(ev.target.result);
+  };
+  reader.readAsDataURL(file);
+});
+document.getElementById('sp-profile-save').addEventListener('click',()=>{
+  userProfile.name = document.getElementById('sp-name').value.trim()||'Quinn Avery';
+  appSettings.dateFormat = document.getElementById('sp-date-format').value;
+  document.getElementById('profile-hub-name').textContent = userProfile.name;
+  updateAvatarInitials();
+  closeSubpanel('sp-profile');
+});
+
+// ── Settings sub-panel ─────────────────────────────────────────────────────
+function syncProjectSettingsPanel(){
+  document.getElementById('sp-show-priority').classList.toggle('on', appSettings.showPriority);
+  document.getElementById('sp-show-effort').classList.toggle('on', appSettings.showEffort);
+  document.getElementById('sp-show-category').classList.toggle('on', appSettings.showCategory);
+  document.getElementById('sp-show-pickup').classList.toggle('on', appSettings.showPickup !== false);
+  document.getElementById('sp-default-status').value = appSettings.defaultStatus;
+  document.getElementById('sp-shopping-sort-pref').value = appSettings.shoppingSort || 'store';
+  renderSettingsCategoryChips();
+}
+function renderSettingsCategoryChips(){
+  const el=document.getElementById('sp-cat-chips');
+  el.innerHTML='';
+  categories.forEach(c=>{
+    const chip=document.createElement('span'); chip.className='cat-chip';
+    chip.innerHTML=`${c}<button class="cat-chip-remove" title="Remove">×</button>`;
+    chip.querySelector('.cat-chip-remove').addEventListener('click',()=>{
+      categories=categories.filter(x=>x!==c);
+      renderSettingsCategoryChips();
+    });
+    el.appendChild(chip);
+  });
+}
+document.getElementById('sp-theme-toggle').addEventListener('click',()=>{
+  dark=!dark; applyTheme();
+  document.getElementById('sp-theme-toggle').classList.toggle('on',dark);
+});
+['sp-show-priority','sp-show-effort','sp-show-category','sp-show-pickup'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',()=>{
+    const btn=document.getElementById(id);
+    btn.classList.toggle('on');
+    const key = id==='sp-show-priority'?'showPriority':id==='sp-show-effort'?'showEffort':id==='sp-show-category'?'showCategory':'showPickup';
+    appSettings[key]=btn.classList.contains('on');
+  });
+});
+document.getElementById('sp-default-status').addEventListener('change',e=>{ appSettings.defaultStatus=e.target.value; });
+document.getElementById('sp-shopping-sort-pref').addEventListener('change',e=>{ appSettings.shoppingSort=e.target.value; shoppingSort=e.target.value; });
+document.getElementById('sp-date-format').addEventListener('change',e=>{ appSettings.dateFormat=e.target.value; });
+document.getElementById('nav-project-settings').addEventListener('click',()=>{ syncProjectSettingsPanel(); openSubpanel('sp-project-settings'); });
+document.getElementById('sp-cat-add').addEventListener('click',()=>{
+  const val=document.getElementById('sp-cat-input').value.trim();
+  if(!val||categories.includes(val)) return;
+  categories.push(val); categories.sort();
+  document.getElementById('sp-cat-input').value='';
+  renderSettingsCategoryChips();
+});
+document.getElementById('sp-cat-input').addEventListener('keydown',e=>{
+  if(e.key==='Enter') document.getElementById('sp-cat-add').click();
+});
+document.getElementById('sp-export-row').addEventListener('click',()=>{
+  const data = JSON.stringify({projects, categories, exportedAt:new Date().toISOString()}, null, 2);
+  const blob = new Blob([data],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'noodlr-export.json';
+  a.click();
+});
+
+// ── Notifications sub-panel ────────────────────────────────────────────────
+function syncNotifPanel(){
+  document.getElementById('notif-due-toggle').classList.toggle('on', notifPrefs.due);
+  document.getElementById('notif-due-timing').classList.toggle('open', notifPrefs.due);
+  document.getElementById('notif-due-when').value = notifPrefs.dueWhen;
+  document.getElementById('notif-dormant-toggle').classList.toggle('on', notifPrefs.dormant);
+  document.getElementById('notif-dormant-timing').classList.toggle('open', notifPrefs.dormant);
+  document.getElementById('notif-dormant-when').value = notifPrefs.dormantWhen;
+  document.getElementById('notif-weekly-toggle').classList.toggle('on', notifPrefs.weekly);
+  document.getElementById('notif-weekly-timing').classList.toggle('open', notifPrefs.weekly);
+  document.getElementById('notif-weekly-day').value = notifPrefs.weeklyDay;
+  document.getElementById('notif-email').value = notifPrefs.email;
+}
+['notif-due-toggle','notif-dormant-toggle','notif-weekly-toggle'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',()=>{
+    const btn=document.getElementById(id);
+    btn.classList.toggle('on');
+    const timingId=btn.dataset.timing;
+    document.getElementById(timingId).classList.toggle('open', btn.classList.contains('on'));
+  });
+});
+document.getElementById('notif-save').addEventListener('click',()=>{
+  notifPrefs.due = document.getElementById('notif-due-toggle').classList.contains('on');
+  notifPrefs.dueWhen = document.getElementById('notif-due-when').value;
+  notifPrefs.dormant = document.getElementById('notif-dormant-toggle').classList.contains('on');
+  notifPrefs.dormantWhen = document.getElementById('notif-dormant-when').value;
+  notifPrefs.weekly = document.getElementById('notif-weekly-toggle').classList.contains('on');
+  notifPrefs.weeklyDay = document.getElementById('notif-weekly-day').value;
+  notifPrefs.email = document.getElementById('notif-email').value.trim();
+  closeSubpanel('sp-notifications');
+});
+
+// ── Upgrade sub-panel ──────────────────────────────────────────────────────
+let selectedPlan = 'annual';
+function syncUpgradePanel(){
+  ['plan-free','plan-monthly','plan-annual'].forEach(id=>{
+    document.getElementById(id).classList.toggle('selected', id===`plan-${selectedPlan}`);
+  });
+  document.getElementById('profile-hub-plan').textContent = IS_PREMIUM ? '✦ Premium' : 'Free plan';
+  document.getElementById('profile-hub-plan').style.color = IS_PREMIUM ? 'var(--amethyst)' : 'var(--text-muted)';
+}
+['plan-free','plan-monthly','plan-annual'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',()=>{
+    selectedPlan = id.replace('plan-','');
+    ['plan-free','plan-monthly','plan-annual'].forEach(pid=>document.getElementById(pid).classList.remove('selected'));
+    document.getElementById(id).classList.add('selected');
+  });
+});
+document.getElementById('btn-checkout').addEventListener('click',()=>{
+  if(selectedPlan==='free'){
+    IS_PREMIUM=false; updatePremiumUI(); syncUpgradePanel(); closeSubpanel('sp-upgrade'); return;
+  }
+  // Stripe checkout hook — replace with real Stripe session URL
+  alert(`Stripe checkout would open here for the ${selectedPlan} plan.\n\nIn production this calls your backend to create a Stripe Checkout Session and redirects to stripe.com.`);
+  // Simulate upgrade for demo
+  IS_PREMIUM=true; updatePremiumUI(); syncUpgradePanel();
+});
+document.getElementById('sp-manage-billing').addEventListener('click',()=>{
+  alert('This would open the Stripe Customer Portal for managing subscriptions and invoices.');
+});
+
+// ── About FAQ ──────────────────────────────────────────────────────────────
+function toggleFaq(header){
+  const chevron=header.querySelector('.faq-chevron');
+  const answer=header.nextElementSibling;
+  const isOpen=answer.classList.contains('open');
+  answer.classList.toggle('open',!isOpen);
+  chevron.classList.toggle('open',!isOpen);
+}
+document.getElementById('sp-feedback-row').addEventListener('click',()=>{
+  alert('Feedback form coming soon — for now, email feedback@noodlr.app');
+});
+
+// ── Export preview ─────────────────────────────────────────────────────────
+
+let activeExportTab = 'steps';
+
+function openExportModal(){
+  const p = getProject(); if(!p) return;
+  if(!IS_PREMIUM){
+    openSubpanel('sp-upgrade'); return;
+  }
+  activeExportTab = 'steps';
+  document.getElementById('export-modal-sub').textContent = `"${p.title}" · 3 tabs`;
+  document.querySelectorAll('.export-tab').forEach(t=>t.classList.toggle('active', t.dataset.exportTab==='steps'));
+  renderExportPreview(p);
+  document.getElementById('export-overlay').classList.add('open');
+}
+
+function closeExportModal(){
+  document.getElementById('export-overlay').classList.remove('open');
+}
+
+function exportHeaderBlock(p){
+  const deadline = p.deadline ? `Due ${fmt(p.deadline)}` : '';
+  const meta = [p.status, p.category, deadline, p.effort&&EFFORT_LABELS[p.effort]?EFFORT_LABELS[p.effort]:''].filter(Boolean).join(' · ');
+  return `
+    <div class="export-header-block" id="export-cover-bar" style="border-left:4px solid ${p.coverColor}">
+      <div class="export-header-title">${p.title}</div>
+      <div class="export-header-meta">
+        ${meta ? `<div>${meta}</div>` : ''}
+        ${p.pickUpHere ? `<div style="margin-top:4px;color:var(--text-sub)">↪ ${p.pickUpHere}</div>` : ''}
+      </div>
+    </div>`;
+}
+
+function renderExportPreview(p){
+  const el = document.getElementById('export-preview');
+  if(activeExportTab === 'steps') el.innerHTML = exportHeaderBlock(p) + buildStepsTable(p);
+  else if(activeExportTab === 'materials') el.innerHTML = exportHeaderBlock(p) + buildMaterialsTable(p);
+  else el.innerHTML = exportHeaderBlock(p) + buildTimelineTable(p);
+}
+
+function buildStepsTable(p){
+  if(!p.steps.length) return '<div class="export-note">No steps added yet.</div>';
+  const rows = p.steps.map((s,i)=>{
+    const strike = s.completed ? 'export-strike' : '';
+    const due = s.dueDate ? fmt(s.dueDate) : '—';
+    const check = s.completed ? '☑' : '☐';
+    return `<tr>
+      <td style="width:28px;color:var(--text-muted)">${i+1}</td>
+      <td class="${strike}">${s.title}</td>
+      <td class="${strike}" style="color:var(--text-muted)">${s.notes||'—'}</td>
+      <td class="${strike}" style="color:var(--text-muted);white-space:nowrap">${due}</td>
+      <td style="width:28px;text-align:center">${check}</td>
+    </tr>`;
+  }).join('');
+  const done = p.steps.filter(s=>s.completed).length;
+  return `
+    <div class="export-note">${done} of ${p.steps.length} steps complete — completed steps shown with strikethrough</div>
+    <table class="export-table">
+      <thead><tr><th>#</th><th>Step</th><th>Notes</th><th>Due</th><th>✓</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function buildMaterialsTable(p){
+  if(!p.supplies.length) return '<div class="export-note">No materials added yet.</div>';
+  let totalCost = 0;
+  const rows = p.supplies.map(s=>{
+    const shortfall = s.qtyNeeded - s.qtyOnHand;
+    const strike = s.acquired ? 'export-strike' : '';
+    const cost = s.cost ? `$${s.cost.toFixed(2)}` : '—';
+    const check = s.acquired ? '☑' : '☐';
+    if(s.cost) totalCost += s.cost;
+    const urlCell = s.url ? `<a href="${s.url}" style="color:var(--amethyst);font-size:11px" target="_blank">Link</a>` : '—';
+    return `<tr>
+      <td class="${strike}">${s.item}</td>
+      <td class="${strike}" style="text-align:center">${s.qtyNeeded} ${s.unit||''}</td>
+      <td class="${strike}" style="text-align:center">${s.qtyOnHand} ${s.unit||''}</td>
+      <td style="text-align:center;color:${shortfall>0&&!s.acquired?'#f59e0b':'var(--text-muted)'}" class="${strike}">${shortfall>0&&!s.acquired?`+${shortfall}`:'—'}</td>
+      <td class="${strike}" style="text-align:right">${cost}</td>
+      <td>${s.store||'—'}</td>
+      <td>${urlCell}</td>
+      <td style="text-align:center">${check}</td>
+    </tr>`;
+  }).join('');
+  const acquired = p.supplies.filter(s=>s.acquired).length;
+  return `
+    <div class="export-note">${acquired} of ${p.supplies.length} materials acquired — acquired items shown with strikethrough</div>
+    <table class="export-table">
+      <thead><tr><th>Item</th><th>Need</th><th>Have</th><th>Short</th><th>Cost</th><th>Store</th><th>Link</th><th>✓</th></tr></thead>
+      <tbody>
+        ${rows}
+        ${totalCost>0?`<tr class="export-totals"><td colspan="4">Total estimated cost</td><td style="text-align:right">$${totalCost.toFixed(2)}</td><td colspan="3"></td></tr>`:''}
+      </tbody>
+    </table>`;
+}
+
+function buildTimelineTable(p){
+  const events = [];
+  p.steps.filter(s=>s.completed).forEach(s=>{
+    events.push({type:'step', date:s.completedAt, label:`✓ ${s.title}`, sub: s.completedAt ? fmtFull(s.completedAt) : 'Before tracking began'});
+  });
+  (p.journalEntries||[]).forEach(j=>{
+    events.push({type:'journal', date:j.createdAt, label:j.text, sub:fmtFull(j.createdAt)});
+  });
+  events.sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
+
+  const upcoming = p.steps.filter(s=>!s.completed);
+
+  if(!events.length && !upcoming.length) return '<div class="export-note">No activity yet.</div>';
+
+  const completedRows = events.map(ev=>{
+    const icon = ev.type==='journal' ? '📝' : '✓';
+    const color = ev.type==='journal' ? 'var(--amethyst)' : 'var(--sage)';
+    return `<tr>
+      <td style="white-space:nowrap;color:var(--text-muted);font-size:12px">${ev.sub}</td>
+      <td style="width:20px;text-align:center;color:${color}">${icon}</td>
+      <td>${ev.label.replace(/^✓ /,'')}</td>
+    </tr>`;
+  }).join('');
+
+  const upcomingRows = upcoming.map(s=>`<tr style="color:var(--text-muted)">
+    <td style="white-space:nowrap;font-size:12px">${s.dueDate?fmt(s.dueDate):'—'}</td>
+    <td style="text-align:center">○</td>
+    <td>${s.title}</td>
+  </tr>`).join('');
+
+  return `
+    <div class="export-note">${events.length} completed events · ${upcoming.length} upcoming steps · Timeline may span two pages when printed</div>
+    <table class="export-table">
+      <thead><tr><th>Date</th><th></th><th>Event</th></tr></thead>
+      <tbody>
+        ${completedRows}
+        ${upcoming.length ? `<tr><td colspan="3" style="background:var(--elevated);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint);padding:8px 12px">Upcoming</td></tr>${upcomingRows}` : ''}
+      </tbody>
+    </table>`;
+}
+
+document.getElementById('detail-export').addEventListener('click', openExportModal);
+document.getElementById('export-close').addEventListener('click', closeExportModal);
+document.getElementById('export-close-btn').addEventListener('click', closeExportModal);
+document.getElementById('export-overlay').addEventListener('click', e=>{
+  if(e.target===document.getElementById('export-overlay')) closeExportModal();
+});
+
+document.getElementById('export-tabs').addEventListener('click', e=>{
+  const tab = e.target.closest('.export-tab');
+  if(!tab) return;
+  activeExportTab = tab.dataset.exportTab;
+  document.querySelectorAll('.export-tab').forEach(t=>t.classList.toggle('active', t===tab));
+  const p = getProject(); if(p) renderExportPreview(p);
+});
+
+document.getElementById('btn-export-sheets').addEventListener('click',()=>{
+  // Google Sheets API hook — replace with real Sheets creation call
+  alert('Google Sheets export will open here.\n\nIn production this calls your backend, which uses the Google Sheets API to create a formatted spreadsheet in the user\'s Drive and returns a URL to open it.');
+});
+
+// ── Due Today ──────────────────────────────────────────────────────────────
+
+function getDueItems(){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+  const items = [];
+
+  projects.forEach(p=>{
+    if(p.status==='Done') return;
+
+    // project deadline due today or overdue
+    if(p.deadline){
+      const d = new Date(p.deadline); d.setHours(0,0,0,0);
+      if(d < tomorrow){
+        const overdue = d < today;
+        items.push({
+          type:'project', label:p.title,
+          sub: overdue ? `Project deadline — ${fmt(p.deadline)}` : 'Project deadline — due today',
+          overdue, project:p, color:p.coverColor,
+          sortDate: d
+        });
+      }
+    }
+
+    // steps due today or overdue
+    p.steps.filter(s=>!s.completed && s.dueDate).forEach(s=>{
+      const d = new Date(s.dueDate); d.setHours(0,0,0,0);
+      if(d < tomorrow){
+        const overdue = d < today;
+        items.push({
+          type:'step', label:s.title,
+          sub: `${p.title}${overdue ? ` — overdue ${fmt(s.dueDate)}` : ' — due today'}`,
+          overdue, project:p, step:s, color:p.coverColor,
+          sortDate: d
+        });
+      }
+    });
+  });
+
+  // overdue first, then by date, then by project name
+  items.sort((a,b)=>{
+    if(a.overdue !== b.overdue) return a.overdue ? -1 : 1;
+    return a.sortDate - b.sortDate;
+  });
+  return items;
+}
+
+function makeDueRow(item, isLast){
+  const row = document.createElement('div');
+  row.className = 'due-row';
+  if(isLast) row.style.borderBottom = 'none';
+  const badgeColor = item.overdue ? '#ef4444' : '#E8A020';
+  const badgeText = item.overdue ? 'Overdue' : 'Today';
+  const icon = item.type === 'project' ? '📁' : '◉';
+  row.innerHTML = `
+    <div class="due-dot" style="background:${item.color}"></div>
+    <div class="due-row-content">
+      <div class="due-row-title">${item.label}</div>
+      <div class="due-row-sub">${item.sub}</div>
+    </div>
+    <span class="due-row-badge" style="background:${badgeColor}22;color:${badgeColor}">${badgeText}</span>`;
+  row.addEventListener('click',()=>{
+    closeDueScreen();
+    openProject(item.project.id);
+  });
+  return row;
+}
+
+function renderDueToday(){
+  const container = document.getElementById('due-today-container');
+  const items = getDueItems();
+
+  const card = document.createElement('div');
+  card.className = 'due-today-card';
+
+  if(!items.length){
+    card.innerHTML = `
+      <div class="due-today-head">
+        <span class="due-today-label">🔴 Due today</span>
+      </div>
+      <div style="padding:14px;font-size:14px;color:var(--text-muted);text-align:center">
+        🎉 Hooray! You're all caught up.
+      </div>`;
+    container.innerHTML='';
+    container.appendChild(card);
+    return;
+  }
+
+  const preview = items.slice(0,3);
+  const hasMore = items.length > 3;
+
+  card.innerHTML = `
+    <div class="due-today-head">
+      <span class="due-today-label">
+        🔴 Due today
+        <span class="due-today-count">${items.length}</span>
+      </span>
+      ${hasMore ? `<button class="due-today-see-more" id="due-see-more">See all →</button>` : ''}
+    </div>`;
+
+  preview.forEach((item,i)=>{
+    card.appendChild(makeDueRow(item, i===preview.length-1 && !hasMore));
+  });
+
+  container.innerHTML='';
+  container.appendChild(card);
+
+  if(hasMore){
+    document.getElementById('due-see-more').addEventListener('click', openDueScreen);
+  }
+}
+
+function openDueScreen(){
+  document.getElementById('due-screen').style.display='';
+  renderDueScreen();
+  window.scrollTo(0,0);
+}
+function closeDueScreen(){
+  document.getElementById('due-screen').style.display='none';
+}
+document.getElementById('due-screen-close').addEventListener('click', closeDueScreen);
+
+function renderDueScreen(){
+  const el = document.getElementById('due-screen-list');
+  el.innerHTML='';
+  const items = getDueItems();
+
+  if(!items.length){
+    el.innerHTML='<div class="empty">Nothing due today 🎉</div>';
+    return;
+  }
+
+  // group: overdue first, then today
+  const overdue = items.filter(i=>i.overdue);
+  const today = items.filter(i=>!i.overdue);
+
+  function renderGroup(label, group){
+    if(!group.length) return;
+    const heading = document.createElement('div');
+    heading.style.cssText='font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin:14px 0 6px';
+    heading.textContent = label;
+    el.appendChild(heading);
+    const card = document.createElement('div');
+    card.className='card'; card.style.cursor='default';
+    group.forEach((item,i)=>card.appendChild(makeDueRow(item, i===group.length-1)));
+    el.appendChild(card);
+  }
+
+  renderGroup('Overdue', overdue);
+  renderGroup('Due today', today);
+}
+
+// ── Search ─────────────────────────────────────────────────────────────────
+
+let searchQuery = '';
+let searchSort = 'relevance';
+
+document.getElementById('btn-search').addEventListener('click',()=>{
+  const bar = document.getElementById('search-bar');
+  const isOpen = bar.classList.contains('open');
+  bar.classList.toggle('open', !isOpen);
+  if(!isOpen){
+    document.getElementById('search-input').focus();
+  } else {
+    searchQuery = '';
+    document.getElementById('search-input').value = '';
+    document.getElementById('search-clear').style.display = 'none';
+    renderHome();
+  }
+});
+
+document.getElementById('search-input').addEventListener('input', e=>{
+  searchQuery = e.target.value.trim().toLowerCase();
+  document.getElementById('search-clear').style.display = searchQuery ? '' : 'none';
+  renderHome();
+});
+
+document.getElementById('search-clear').addEventListener('click',()=>{
+  searchQuery = '';
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-clear').style.display = 'none';
+  document.getElementById('search-input').focus();
+  renderHome();
+});
+
+// close sort popup on outside click
+document.addEventListener('click',()=>{
+  const popup = document.getElementById('sort-popup');
+  if(popup) popup.classList.remove('open');
+});
+
 // ── Init ───────────────────────────────────────────────────────────────────
 applyTheme();
+updatePremiumUI();
+updateAvatarInitials();
 renderHome();
+renderDueToday();
 </script>
 </body>
 </html>
