@@ -79,12 +79,6 @@ body{background:var(--bg);color:var(--text)}
   display:flex;align-items:center;justify-content:center;
   transition:background .2s;flex-shrink:0;
 }
-.btn-add-main{
-  width:38px;height:38px;border-radius:10px;border:none;
-  background:var(--sage);color:#fff;
-  font-size:22px;font-weight:700;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-}
 .btn-primary{
   padding:13px;border-radius:10px;border:none;width:100%;
   background:var(--sage);color:#fff;
@@ -312,13 +306,7 @@ textarea{resize:vertical;min-height:60px}
   padding:52px 20px 16px;
   border-bottom:1px solid var(--border);
 }
-.profile-name{font-size:18px;font-weight:800;color:var(--text);margin-bottom:2px}
-.profile-plan{font-size:12px;font-weight:600;color:var(--amethyst)}
 .profile-section{padding:0}
-.profile-section-label{
-  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--text-faint);padding:12px 20px 4px;
-}
 .profile-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:13px 20px;cursor:pointer;
@@ -444,15 +432,6 @@ textarea{resize:vertical;min-height:60px}
 .supply-add-row input{flex:1}
 
 /* ── Upgrade box ──────────────────────────────────────────────────────────── */
-.upgrade-section{margin-top:26px;margin-bottom:40px}
-.upgrade-label{font-size:10px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
-.upgrade-box{
-  background:var(--card);border-radius:14px;padding:20px 16px;
-  text-align:center;border:1px dashed var(--amethyst)44;
-}
-.upgrade-icon{font-size:26px;margin-bottom:8px}
-.upgrade-title{font-size:14px;font-weight:700;color:var(--text-muted);margin-bottom:4px}
-.upgrade-body{font-size:12px;color:var(--text-faint);margin-bottom:14px;line-height:1.5}
 .btn-upgrade{
   background:var(--sage);border:none;border-radius:10px;
   padding:9px 20px;font-size:13px;font-weight:700;
@@ -466,12 +445,6 @@ textarea{resize:vertical;min-height:60px}
 
 /* ── Journal entries ──────────────────────────────────────────────────────── */
 .journal-locked{font-size:13px;color:var(--text-faint);padding:10px 0;font-style:italic;text-align:center}
-.journal-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
-.journal-item:last-child{border-bottom:none}
-.journal-dot{width:10px;height:10px;border-radius:50%;background:var(--amethyst);flex-shrink:0;margin-top:5px}
-.journal-content{flex:1}
-.journal-text{font-size:15px;color:var(--text);line-height:1.45}
-.journal-date{font-size:12px;color:var(--text-muted);margin-top:3px}
 .journal-add-form{margin-top:12px;display:none}
 
 /* ── Category / priority badges ──────────────────────────────────────────── */
@@ -480,11 +453,39 @@ textarea{resize:vertical;min-height:60px}
 .priority-badge-medium{color:#E8A020}
 .priority-badge-low{color:var(--text-faint)}
 
-/* ── Settings modal ───────────────────────────────────────────────────────── */
-.settings-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .2s}
-.settings-overlay.open{opacity:1;pointer-events:all}
-.settings-modal{width:100%;background:var(--card);border-radius:20px 20px 0 0;padding:20px 20px 44px;max-height:80vh;overflow-y:auto;border:1px solid var(--border);transform:translateY(20px);transition:transform .2s}
-.settings-overlay.open .settings-modal{transform:translateY(0)}
+/* ── New project category bubbles ─────────────────────────────────────────── */
+.cat-bubble-wrap{
+  display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:center;align-items:center;
+  margin-bottom:20px;
+  padding:8px 4px;
+}
+.cat-bubble{
+  padding:7px 15px;border-radius:99px;border:1.5px solid var(--border-strong);
+  background:var(--card);color:var(--text-sub);
+  font-size:13px;font-weight:600;font-family:Inter,sans-serif;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+.cat-bubble:active{transform:scale(.94)}
+.cat-bubble.selected{
+  border-color:var(--amethyst);
+  background:var(--amethyst)22;color:var(--amethyst);
+  box-shadow:0 0 0 3px var(--amethyst)18;
+}
+.cat-bubble-add{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px dashed var(--border-strong);
+  background:var(--card);color:var(--text-muted);
+  font-size:20px;font-weight:300;font-family:Inter,sans-serif;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;flex-shrink:0;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+.cat-bubble-add:active{transform:scale(.94)}
+.cat-bubble-add:hover{border-color:var(--amethyst);color:var(--amethyst)}
+
+/* ── Category chips ──────────────────────────────────────────────────────── */
 .cat-chip{display:inline-flex;align-items:center;gap:5px;background:var(--elevated);border-radius:99px;padding:4px 10px 4px 12px;font-size:13px;color:var(--text-sub);margin:4px}
 .cat-chip-remove{border:none;background:none;color:var(--text-muted);font-size:14px;cursor:pointer;padding:0;line-height:1}
 
@@ -523,7 +524,6 @@ textarea{resize:vertical;min-height:60px}
 .sp-row-left{display:flex;align-items:center;gap:12px}
 .sp-row-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0}
 .sp-row-sub{font-size:12px;color:var(--text-muted);margin-top:2px;font-weight:400}
-.sp-row-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .sp-select{
   background:var(--elevated);border:1px solid var(--border-strong);
   border-radius:7px;padding:5px 8px;font-size:13px;font-family:Inter,sans-serif;
@@ -533,11 +533,6 @@ textarea{resize:vertical;min-height:60px}
   background:var(--elevated);border:1px solid var(--border-strong);
   border-radius:8px;padding:9px 12px;font-size:15px;font-family:Inter,sans-serif;
   color:var(--text);outline:none;width:100%;margin:0;
-}
-.sp-textarea{
-  background:var(--elevated);border:1px solid var(--border-strong);
-  border-radius:8px;padding:10px 12px;font-size:15px;font-family:Inter,sans-serif;
-  color:var(--text);outline:none;width:100%;resize:vertical;min-height:80px;margin:0;
 }
 .sp-field{padding:12px 20px;border-bottom:1px solid var(--border)}
 .sp-field-label{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
@@ -622,13 +617,6 @@ textarea{resize:vertical;min-height:60px}
 /* ── Due today full screen ────────────────────────────────────────────────── */
 .supply-url-link{font-size:12px;color:var(--amethyst);text-decoration:none;word-break:break-all}
 
-/* ── Display name input in profile ───────────────────────────────────────── */
-.profile-name-input{
-  background:var(--elevated);border:1px solid var(--border-strong);
-  border-radius:8px;padding:6px 10px;
-  font-size:17px;font-weight:800;color:var(--text);
-  font-family:Inter,sans-serif;width:100%;outline:none;
-}
 
 /* ── Search sort popup ────────────────────────────────────────────────────── */
 .sort-btn{
@@ -654,7 +642,6 @@ textarea{resize:vertical;min-height:60px}
   display:flex;justify-content:space-between;align-items:center;
   margin-bottom:8px;position:relative;
 }
-.search-results-count{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint)}
 
 /* ── Search ───────────────────────────────────────────────────────────────── */
 .search-bar{
@@ -676,6 +663,188 @@ textarea{resize:vertical;min-height:60px}
 
 /* ── Last activity ────────────────────────────────────────────────────────── */
 .last-activity{font-size:11px;color:var(--text-faint)}
+
+/* ── Noodle card button ───────────────────────────────────────────────────── */
+.noodle-card-btn{
+  background:none;border:none;font-size:20px;cursor:pointer;
+  padding:2px 4px;line-height:1;flex-shrink:0;
+  opacity:.55;transition:opacity .15s;
+}
+.noodle-card-btn:hover{opacity:1}
+
+/* ── Noodle detail button ─────────────────────────────────────────────────── */
+.noodle-detail-btn{
+  width:100%;padding:13px;border-radius:12px;border:none;
+  background:var(--amethyst);color:#fff;
+  font-size:15px;font-weight:700;font-family:Inter,sans-serif;
+  cursor:pointer;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  opacity:.92;transition:opacity .15s;
+}
+.noodle-detail-btn:hover{opacity:1}
+
+/* ── Noodle screen shared ─────────────────────────────────────────────────── */
+#noodle-screen{display:none}
+#noodle-screen.open{display:flex;flex-direction:column}
+.noodle-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 16px 0;
+}
+.noodle-wordmark{
+  font-size:13px;font-weight:800;color:var(--text-muted);
+  letter-spacing:.04em;
+}
+.noodle-close{
+  background:var(--elevated);border:none;border-radius:8px;
+  padding:6px 12px;font-size:13px;font-weight:600;
+  color:var(--text-muted);cursor:pointer;font-family:Inter,sans-serif;
+}
+.noodle-body{
+  padding:24px 20px 48px;flex:1;
+}
+.noodle-project-name{
+  font-size:12px;font-weight:700;color:var(--amethyst);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;
+}
+.noodle-hero-text{
+  font-size:22px;font-weight:800;color:var(--text);
+  line-height:1.3;margin-bottom:22px;
+}
+
+/* warm-up checklist */
+.noodle-checklist{margin-bottom:24px}
+.noodle-check-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:15px;color:var(--text);cursor:pointer;
+}
+.noodle-check-row:last-child{border-bottom:none}
+.noodle-check-row.checked .noodle-check-box{
+  background:var(--sage);border-color:var(--sage);
+}
+.noodle-check-row.checked .noodle-check-icon{opacity:1}
+.noodle-check-row.checked .noodle-check-label{color:var(--text-muted)}
+.noodle-check-box{
+  width:24px;height:24px;border-radius:6px;flex-shrink:0;
+  border:2px solid var(--border-strong);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.noodle-check-icon{font-size:13px;color:#fff;font-weight:700;opacity:0;transition:opacity .15s}
+.noodle-check-label{flex:1;line-height:1.35}
+
+/* up next */
+.noodle-next-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--text-faint);margin-bottom:8px;
+}
+.noodle-next-step{
+  background:var(--card);border:1px solid var(--border);
+  border-left:4px solid var(--amethyst);
+  border-radius:10px;padding:12px 14px;
+  font-size:16px;font-weight:600;color:var(--text);
+  margin-bottom:24px;line-height:1.4;
+}
+.noodle-next-step.empty{
+  color:var(--text-muted);font-style:italic;font-weight:400;
+}
+
+/* time picker */
+.noodle-time-label{
+  font-size:13px;font-weight:700;color:var(--text-muted);
+  margin-bottom:10px;
+}
+.noodle-time-options{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;
+}
+.noodle-time-btn{
+  padding:12px;border-radius:10px;border:2px solid var(--border);
+  background:var(--card);color:var(--text);
+  font-size:14px;font-weight:700;font-family:Inter,sans-serif;
+  cursor:pointer;transition:all .15s;
+}
+.noodle-time-btn.selected{
+  border-color:var(--amethyst);background:var(--amethyst)18;color:var(--amethyst);
+}
+.noodle-go-btn{
+  width:100%;padding:14px;border-radius:12px;border:none;
+  background:var(--amethyst);color:#fff;
+  font-size:16px;font-weight:800;font-family:Inter,sans-serif;
+  cursor:pointer;margin-bottom:12px;transition:opacity .15s;
+}
+.noodle-go-btn:disabled{
+  background:var(--elevated);color:var(--text-disabled);cursor:not-allowed;
+}
+.noodle-reassure{
+  text-align:center;font-size:13px;color:var(--text-faint);line-height:1.5;
+}
+
+/* timer phase */
+.noodle-body-timer{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding-top:20px;
+}
+.noodle-timer-project{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--amethyst);margin-bottom:6px;
+}
+.noodle-timer-step{
+  font-size:17px;font-weight:700;color:var(--text);
+  margin-bottom:28px;line-height:1.3;max-width:280px;
+}
+.noodle-ring-wrap{
+  position:relative;width:200px;height:200px;margin-bottom:24px;
+}
+.noodle-ring{width:200px;height:200px;transform:rotate(-90deg)}
+.noodle-ring-track{
+  fill:none;stroke:var(--elevated);stroke-width:8;
+}
+.noodle-ring-fill{
+  fill:none;stroke:var(--amethyst);stroke-width:8;
+  stroke-linecap:round;
+  stroke-dasharray:326.7;
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset .8s linear;
+}
+.noodle-timer-display{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:42px;font-weight:800;color:var(--text);letter-spacing:-.03em;
+}
+.noodle-timer-nudge{
+  font-size:14px;color:var(--text-muted);margin-bottom:20px;
+  min-height:22px;font-style:italic;text-align:center;
+}
+.noodle-done-early-btn{
+  background:none;border:1px solid var(--border-strong);
+  border-radius:10px;padding:11px 24px;
+  font-size:14px;font-weight:600;font-family:Inter,sans-serif;
+  color:var(--text-muted);cursor:pointer;
+}
+
+/* finish phase */
+.noodle-finish-emoji{font-size:56px;margin-bottom:12px;line-height:1}
+.noodle-finish-headline{
+  font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px;
+}
+.noodle-finish-time{
+  font-size:14px;font-weight:600;color:var(--amethyst);margin-bottom:12px;
+}
+.noodle-finish-msg{
+  font-size:15px;color:var(--text-muted);line-height:1.6;
+  margin-bottom:32px;
+}
+.noodle-finish-actions{display:flex;flex-direction:column;gap:10px}
+.greeting-block{
+  padding:18px 16px 4px;
+}
+.greeting-name{
+  font-size:13px;font-weight:700;color:var(--text-muted);
+  letter-spacing:.04em;margin-bottom:3px;
+}
+.greeting-phrase{
+  font-size:22px;font-weight:800;color:var(--text);
+  line-height:1.2;letter-spacing:-.02em;
+}
 
 
 .demo-banner{
@@ -735,18 +904,21 @@ textarea{resize:vertical;min-height:60px}
       <div class="tabs" id="tabs"></div>
     </div>
     <div class="project-list">
+      <div class="greeting-block" id="greeting-block">
+        <div class="greeting-name" id="greeting-name"></div>
+        <div class="greeting-phrase" id="greeting-phrase"></div>
+      </div>
       <div id="due-today-container"></div>
       <div class="limit-bar" id="limit-bar">
         <div class="limit-bar-labels">
           <span id="limit-label">0 of 5 projects (free)</span>
           <div style="display:flex;align-items:center;gap:8px">
-            <span id="limit-warn" class="limit-bar-warn" style="display:none">Limit reached</span>
+            <span id="limit-warn" class="limit-bar-warn" style="display:none">You're full up!</span>
             <button id="btn-new-project" title="New project" style="width:34px;height:34px;border-radius:8px;border:none;background:#ff6b6b22;color:#ff6b6b;font-size:26px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0">+</button>
           </div>
         </div>
         <div class="limit-bar-track"><div class="limit-bar-fill" id="limit-fill" style="width:0%"></div></div>
       </div>
-      <div id="search-sort-row" style="display:none"></div>
       <div id="project-list"></div>
     </div>
   </div>
@@ -776,6 +948,9 @@ textarea{resize:vertical;min-height:60px}
         </div>
       </div>
 
+      <!-- Noodle button -->
+      <button class="noodle-detail-btn" id="noodle-detail-btn">🍜 Start a noodle</button>
+
       <!-- detail tabs -->
       <div class="detail-tabs" id="detail-tabs">
         <button class="detail-tab active" data-tab="steps">Steps</button>
@@ -793,7 +968,6 @@ textarea{resize:vertical;min-height:60px}
           </div>
         </div>
         <div id="steps-list"></div>
-        <div id="step-add-form" style="display:none"></div>
       </div>
 
       <!-- supplies panel -->
@@ -1026,7 +1200,7 @@ textarea{resize:vertical;min-height:60px}
         </div>
 
         <div style="padding:20px">
-          <button class="btn-primary" id="sp-profile-save">Save</button>
+          <button class="btn-primary" id="sp-profile-save">Save changes</button>
         </div>
       </div>
     </div>
@@ -1199,7 +1373,7 @@ textarea{resize:vertical;min-height:60px}
             <input class="sp-input" id="notif-email" type="email" placeholder="you@example.com">
           </div>
           <div style="padding:0 20px 16px">
-            <button class="btn-primary" id="notif-save">Save Preferences</button>
+            <button class="btn-primary" id="notif-save">Save preferences</button>
           </div>
         </div>
       </div>
@@ -1216,8 +1390,8 @@ textarea{resize:vertical;min-height:60px}
       <div class="subpanel-body">
         <div style="padding:20px 20px 4px;text-align:center">
           <div style="font-size:22px;margin-bottom:6px">✦</div>
-          <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Unlock everything in noodlr</div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Unlimited projects, full timeline history, progress photos, and more.</div>
+          <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">You're ready for more. ✦</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Unlimited projects, full timeline history, progress photos — and more on the way.</div>
         </div>
 
         <!-- Free plan -->
@@ -1279,8 +1453,8 @@ textarea{resize:vertical;min-height:60px}
       <div class="subpanel-body">
         <div style="padding:20px 20px 4px;text-align:center">
           <div style="font-size:28px;margin-bottom:8px">📊</div>
-          <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">Reports coming soon</div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Insights across all your projects — time spent, completion rates, supply spend, and more.</div>
+          <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">Reports are coming 🎉</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Insights across all your projects — time spent, completion rates, supply spend, and more. Good things are in the works.</div>
         </div>
         <div class="sp-section" style="margin-top:16px">
           <div class="sp-label">Planned reports</div>
@@ -1303,7 +1477,7 @@ textarea{resize:vertical;min-height:60px}
       <div class="subpanel-body">
         <div style="padding:20px;text-align:center;border-bottom:1px solid var(--border)">
           <div style="font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--text)">noodlr<span style="color:var(--amethyst)">.</span></div>
-          <div style="font-size:12px;color:var(--text-faint);margin-top:4px">Version 0.1 · Demo build · May 2026</div>
+          <div style="font-size:12px;color:var(--text-faint);margin-top:4px">Version 0.1 · Demo build · June 2026</div>
         </div>
 
         <div class="sp-section">
@@ -1355,8 +1529,8 @@ textarea{resize:vertical;min-height:60px}
         </div>
 
         <div style="padding:20px;text-align:center;color:var(--text-faint);font-size:12px;line-height:1.7;border-top:1px solid var(--border)">
-          Made with care for makers, writers, and creative humans.<br>
-          <span style="color:var(--amethyst)">noodlr.</span>
+          Made with a lot of love for makers, writers, and creative humans everywhere.<br>
+          You've got this. <span style="color:var(--amethyst)">noodlr.</span>
         </div>
       </div>
     </div>
@@ -1366,17 +1540,17 @@ textarea{resize:vertical;min-height:60px}
   <div class="step-modal-overlay" id="step-modal-overlay">
     <div class="step-modal">
       <div class="modal-header" style="margin-bottom:16px">
-        <span class="modal-title">Add Step</span>
+        <span class="modal-title">Add a step</span>
         <button class="modal-close" id="step-modal-close">×</button>
       </div>
       <label class="field-label">Step name *</label>
-      <input type="text" id="step-input" placeholder="e.g. Carve the key block" style="font-size:15px;padding:12px">
+      <input type="text" id="step-input" placeholder="e.g. Carve the key block — keep it small!" style="font-size:15px;padding:12px">
       <label class="field-label">Due date (optional)</label>
       <input type="date" id="step-due">
       <label class="field-label">Notes (optional)</label>
       <textarea id="step-notes" placeholder="Any details, tips, or reminders…" style="min-height:50px;font-size:15px"></textarea>
       <div style="display:flex;gap:8px;margin-top:4px">
-        <button class="btn-primary" id="step-save" style="flex:1">Add Step</button>
+        <button class="btn-primary" id="step-save" style="flex:1">Add it ✓</button>
         <button class="btn-sm btn-sm-ghost" id="step-cancel" style="padding:13px 18px">Cancel</button>
       </div>
     </div>
@@ -1384,63 +1558,55 @@ textarea{resize:vertical;min-height:60px}
 
   <!-- ── New project modal ─────────────────────────────────────────────────── -->
   <div class="modal-overlay" id="modal-overlay">
-    <div class="modal">
+    <div class="modal" style="padding:20px 20px 36px">
       <div class="modal-handle"></div>
-      <div class="modal-header">
-        <span class="modal-title" id="modal-title">New Project</span>
+
+      <!-- Step header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <button id="np-back" style="display:none;background:var(--elevated);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:18px;color:var(--text-muted);display:none;align-items:center;justify-content:center">‹</button>
+          <span class="modal-title" id="modal-title">What are you making?</span>
+        </div>
         <button class="modal-close" id="modal-close">×</button>
       </div>
+
       <div class="warn-box" id="limit-warn-box" style="display:none">
-        You've reached the 5-project limit on the free tier. Remove a project to make room, or upgrade for unlimited projects.
+        You've filled all 5 free slots — seriously impressive. Upgrade to keep the momentum going with unlimited projects.
       </div>
-      <label class="field-label">Project title *</label>
-      <input type="text" id="new-title" placeholder="e.g. Autumn Throw Blanket">
-      <label class="field-label">Pick up here</label>
-      <textarea id="new-pickup" placeholder="Where did you leave off?"></textarea>
-      <label class="field-label">Description (optional)</label>
-      <textarea id="new-desc" placeholder="Purpose, goal, or any context" style="min-height:50px"></textarea>
-      <div class="field-row">
-        <div>
-          <label class="field-label">Status</label>
-          <select id="new-status">
-            <option>Active</option>
-            <option>Paused</option>
-            <option>Someday</option>
-            <option>Done</option>
-          </select>
-        </div>
-        <div>
-          <label class="field-label">Deadline</label>
-          <input type="date" id="new-deadline">
+
+      <!-- Step 1: Category -->
+      <div id="np-step-1">
+        <div class="cat-bubble-wrap" id="np-cat-grid"></div>
+        <div id="np-new-cat-form" style="display:none;margin-top:4px">
+          <input type="text" id="np-new-cat-input" placeholder="Category name…" style="margin-bottom:8px;font-size:15px">
+          <div style="display:flex;gap:8px">
+            <button class="btn-sm btn-sm-sage" id="np-new-cat-save">Add &amp; select</button>
+            <button class="btn-sm btn-sm-ghost" id="np-new-cat-cancel">Cancel</button>
+          </div>
         </div>
       </div>
-      <div class="field-row">
-        <div>
-          <label class="field-label">Category</label>
-          <select id="new-category"></select>
-        </div>
-        <div>
-          <label class="field-label">Priority</label>
-          <select id="new-priority">
-            <option value="0">—</option>
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
-          </select>
-        </div>
+
+      <!-- Step 2: Name + Color (combined) -->
+      <div id="np-step-2" style="display:none">
+        <input type="text" id="new-title" placeholder="Something like "Half-finished sweater"…" style="font-size:18px;padding:14px;margin-bottom:16px">
+        <div class="swatch-grid" id="swatch-grid" style="margin-bottom:8px"></div>
+        <div id="np-cat-display" style="margin-bottom:16px;min-height:20px"></div>
+        <button class="btn-primary" id="np-to-step-3">Let's go →</button>
       </div>
-      <label class="field-label">Effort estimate</label>
-      <select id="new-effort">
-        <option value="0">—</option>
-        <option value="1">A few hours</option>
-        <option value="2">A weekend</option>
-        <option value="3">A few weeks</option>
-        <option value="4">Months</option>
-        <option value="5">Ongoing</option>
-      </select>
-      <label class="field-label">Cover color</label>
-      <div class="swatch-grid" id="swatch-grid"></div>
-      <button class="btn-primary" id="btn-create">Create Project</button>
+
+      <!-- Step 3 hidden — merged into step 2 -->
+      <div id="np-step-3" style="display:none">
+        <button class="btn-primary" id="btn-create">Create Project</button>
+      </div>
+
+      <!-- Hidden fields carried through -->
+      <input type="hidden" id="new-category">
+      <input type="hidden" id="new-status" value="Active">
+      <input type="hidden" id="new-pickup" value="">
+      <input type="hidden" id="new-desc" value="">
+      <input type="hidden" id="new-deadline" value="">
+      <input type="hidden" id="new-priority" value="0">
+      <input type="hidden" id="new-effort" value="0">
     </div>
   </div>
   <!-- ── Export preview modal ──────────────────────────────────────────────── -->
@@ -1469,7 +1635,73 @@ textarea{resize:vertical;min-height:60px}
       </div>
     </div>
   </div>
-  <!-- ── Subpanel backdrop ──────────────────────────────────────────────────── -->
+  <!-- ── Noodle screen ────────────────────────────────────────────────────── -->
+  <div id="noodle-screen" style="display:none;position:fixed;inset:0;z-index:400;background:var(--bg);overflow-y:auto;flex-direction:column">
+
+    <!-- phase: warm-up -->
+    <div id="noodle-warmup">
+      <div class="noodle-head">
+        <button class="noodle-close" id="noodle-close-warmup">✕</button>
+        <div class="noodle-wordmark">🍜 noodle time</div>
+      </div>
+      <div class="noodle-body">
+        <div class="noodle-project-name" id="noodle-project-name"></div>
+        <div class="noodle-hero-text">Before we dive in —<br>look what you've already done.</div>
+        <div class="noodle-checklist" id="noodle-warmup-checks"></div>
+        <div class="noodle-next-label">Up next</div>
+        <div class="noodle-next-step" id="noodle-next-step"></div>
+        <div class="noodle-time-label">How long do you want to try for?</div>
+        <div class="noodle-time-options">
+          <button class="noodle-time-btn" data-mins="5">5 min</button>
+          <button class="noodle-time-btn" data-mins="10">10 min</button>
+          <button class="noodle-time-btn" data-mins="20">20 min</button>
+          <button class="noodle-time-btn" data-mins="0">Free run</button>
+        </div>
+        <button class="noodle-go-btn" id="noodle-go-btn" disabled>Let's go →</button>
+        <div class="noodle-reassure">No pressure. You can stop any time — every minute counts.</div>
+      </div>
+    </div>
+
+    <!-- phase: timer -->
+    <div id="noodle-timer" style="display:none">
+      <div class="noodle-head">
+        <button class="noodle-close" id="noodle-close-timer">Stop</button>
+        <div class="noodle-wordmark">🍜 noodling…</div>
+      </div>
+      <div class="noodle-body noodle-body-timer">
+        <div class="noodle-timer-project" id="noodle-timer-project"></div>
+        <div class="noodle-timer-step" id="noodle-timer-step"></div>
+        <div class="noodle-ring-wrap">
+          <svg class="noodle-ring" viewBox="0 0 120 120">
+            <circle class="noodle-ring-track" cx="60" cy="60" r="52"/>
+            <circle class="noodle-ring-fill" id="noodle-ring-fill" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="noodle-timer-display" id="noodle-timer-display">0:00</div>
+        </div>
+        <div class="noodle-timer-nudge" id="noodle-timer-nudge"></div>
+        <button class="noodle-done-early-btn" id="noodle-done-early">I'm done for now</button>
+      </div>
+    </div>
+
+    <!-- phase: finish -->
+    <div id="noodle-finish" style="display:none">
+      <div class="noodle-head">
+        <button class="noodle-close" id="noodle-close-finish">✕</button>
+        <div class="noodle-wordmark">🍜 noodlr</div>
+      </div>
+      <div class="noodle-body" style="text-align:center">
+        <div class="noodle-finish-emoji" id="noodle-finish-emoji">🎉</div>
+        <div class="noodle-finish-headline" id="noodle-finish-headline">You did it!</div>
+        <div class="noodle-finish-time" id="noodle-finish-time"></div>
+        <div class="noodle-finish-msg" id="noodle-finish-msg"></div>
+        <div class="noodle-finish-actions">
+          <button class="btn-primary" id="noodle-another">Do another noodle</button>
+          <button class="btn-sm btn-sm-ghost" id="noodle-finish-close" style="width:100%;padding:13px">All done for now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div id="subpanel-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:499;opacity:0;pointer-events:none;transition:opacity .2s"></div>
 
 </div>
@@ -1825,7 +2057,7 @@ function renderHome(){
   // limit bar
   const pct = Math.min(100,(projects.length/FREE_LIMIT())*100);
   const atLimit = projects.length>=FREE_LIMIT();
-  document.getElementById('limit-label').textContent = IS_PREMIUM ? `${projects.length} projects` : `${projects.length} of ${FREE_LIMIT()} projects (free)`;
+  document.getElementById('limit-label').textContent = IS_PREMIUM ? `${projects.length} project${projects.length===1?'':'s'} — go you` : `${projects.length} of ${FREE_LIMIT()} slots used`;
   document.getElementById('limit-warn').style.display = atLimit?'':'none';
   const fill = document.getElementById('limit-fill');
   fill.style.width = pct+'%';
@@ -1877,7 +2109,7 @@ function renderHome(){
     if(!totalResults){
       const empty = document.createElement('div');
       empty.className='empty';
-      empty.innerHTML=`No results for "<strong>${q}</strong>"`;
+      empty.innerHTML=`<div>Hmm, nothing matched "<strong>${q}</strong>"</div><div style="font-size:12px;margin-top:4px">Try a different word, or check your spelling — no pressure.</div>`;
       listEl.appendChild(empty);
       renderDueToday(); return;
     }
@@ -1973,7 +2205,13 @@ function renderHome(){
   if(!current.length){
     const empty = document.createElement('div');
     empty.className='empty';
-    empty.innerHTML = `No ${activeTab.toLowerCase()} projects yet.${activeTab==='Active'?`<br><button class="btn-empty" id="btn-empty-new">+ Start a project</button>`:''}`;
+    const emptyMessages = {
+      Active: `Nothing active right now — that's okay!<br><button class="btn-empty" id="btn-empty-new">✨ Start something new</button>`,
+      Paused: `Nothing on pause. Everything's either moving or on the wish list — nice.`,
+      Someday: `Your someday list is empty. Dream something up.`,
+      Done: `Nothing finished yet — but it's coming. Every project starts here.`
+    };
+    empty.innerHTML = emptyMessages[activeTab] || `No ${activeTab.toLowerCase()} projects yet.`;
     listEl.appendChild(empty);
     const emptyBtn = document.getElementById('btn-empty-new');
     if(emptyBtn) emptyBtn.addEventListener('click', openNewModal);
@@ -2003,7 +2241,7 @@ function renderHome(){
       if(lockedInTab.length){
         const notice=document.createElement('div');
         notice.style.cssText='text-align:center;padding:16px;background:var(--elevated);border-radius:12px;margin-top:8px;border:1px dashed var(--amethyst)44';
-        notice.innerHTML=`<div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">🔒 ${lockedInTab.length} project${lockedInTab.length>1?'s':''} locked — upgrade to access your archive</div><button class="btn-upgrade" onclick="closeProfile();openSubpanel('sp-upgrade')">Unlock Premium</button>`;
+        notice.innerHTML=`<div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">🔒 ${lockedInTab.length} project${lockedInTab.length>1?'s are':' is'} waiting for you — upgrade to pick them back up</div><button class="btn-upgrade" onclick="closeProfile();openSubpanel('sp-upgrade')">Unlock Premium</button>`;
         listEl.appendChild(notice);
       }
     }
@@ -2045,13 +2283,13 @@ function makeCard(p){
     ${p.pickUpHere&&appSettings.showPickup!==false?`<div class="pickup-note">${p.pickUpHere}</div>`:''}
     <div class="card-footer">
       ${ind?`<div class="step-indicator" style="color:${indicatorColor(ind.type)}">${ind.text}</div>`:'<div class="step-indicator"></div>'}
-      ${p.steps.length?`<div class="step-count">${done}/${p.steps.length} steps</div>`:''}
+      <button class="noodle-card-btn" data-noodle-id="${p.id}" title="Start a noodle">🍜</button>
     </div>
   `;
 
   // open project
   card.addEventListener('click', e=>{
-    if(e.target.closest('.menu-wrap')) return;
+    if(e.target.closest('.menu-wrap')||e.target.closest('.noodle-card-btn')) return;
     openProject(p.id);
   });
 
@@ -2070,7 +2308,7 @@ function makeCard(p){
       if(item.dataset.action==='edit'){
         openNewModal(p.id);
       } else if(item.dataset.action==='delete'){
-        if(confirm(`Delete "${p.title}"? This can't be undone.`)){
+        if(confirm(`Archive "${p.title}"? This can't be undone — it'll be gone for good.`)){
           projects = projects.filter(x=>x.id!==p.id);
           renderHome();
         }
@@ -2079,6 +2317,12 @@ function makeCard(p){
         if(proj){ proj.status=item.dataset.status; renderHome(); }
       }
     });
+  });
+
+  // noodle button on card
+  card.querySelector('.noodle-card-btn').addEventListener('click', e=>{
+    e.stopPropagation();
+    openNoodle(p.id);
   });
 
   return card;
@@ -2091,57 +2335,189 @@ document.addEventListener('click', ()=>{
 
 // ── New project modal ──────────────────────────────────────────────────────
 
-function openNewModal(editId){
-  editingProjectId = editId||null;
-  const p = editId ? projects.find(x=>x.id===editId) : null;
-  const atLimit = !p && projects.length>=FREE_LIMIT();
-  document.getElementById('modal-title').textContent = p ? 'Edit Project' : 'New Project';
-  document.getElementById('btn-create').textContent = p ? 'Save Changes' : 'Create Project';
-  document.getElementById('limit-warn-box').style.display = atLimit?'':'none';
-  document.getElementById('new-title').value = p?p.title:'';
-  document.getElementById('new-pickup').value = p?p.pickUpHere:'';
-  document.getElementById('new-desc').value = p?p.description:'';
-  document.getElementById('new-status').value = p?p.status:'Active';
-  document.getElementById('new-deadline').value = p?p.deadline||'':'';
-  document.getElementById('new-priority').value = p?p.priority||0:0;
-  document.getElementById('new-effort').value = p?p.effort||0:0;
-  // populate category select from current categories list
-  const catSel = document.getElementById('new-category');
-  catSel.innerHTML = '<option value="">— None —</option>' + categories.map(c=>`<option value="${c}">${c}</option>`).join('');
-  catSel.value = p?p.category||'':'';
-  const disabled = atLimit;
-  ['new-title','new-pickup','new-desc','new-status','new-deadline','new-category','new-priority','new-effort'].forEach(id=>document.getElementById(id).disabled=disabled);
-  const createBtn = document.getElementById('btn-create');
-  if(atLimit){
-    createBtn.textContent = '✦ Upgrade to add more projects';
-    createBtn.disabled = false;
-    createBtn.style.background = 'var(--amethyst)';
-    createBtn.dataset.mode = 'upgrade';
-  } else {
-    createBtn.textContent = p ? 'Save Changes' : 'Create Project';
-    createBtn.disabled = false;
-    createBtn.style.background = '';
-    createBtn.dataset.mode = '';
+// ── New project — 3-step flow ──────────────────────────────────────────────
+
+let npStep = 1;
+let npCategory = null;
+
+function npShowStep(n){
+  npStep = n;
+  [1,2].forEach(i=>{
+    document.getElementById('np-step-'+i).style.display = i===n?'':'none';
+  });
+  document.getElementById('np-step-3').style.display='none';
+  const back = document.getElementById('np-back');
+  back.style.display = n>1 ? 'flex' : 'none';
+  const titles = {1:'What are you making? 🎨', 2:'Give it a name'};
+  document.getElementById('modal-title').textContent = titles[n]||'New project';
+  if(n===2){
+    // default title to "Untitled [Category]"
+    const titleEl = document.getElementById('new-title');
+    if(!titleEl.value){
+      titleEl.value = npCategory ? `Untitled ${npCategory}` : 'Untitled Project';
+    }
+    titleEl.focus();
+    titleEl.select();
+    npUpdateCatDisplay();
+    npBuildSwatches();
   }
-  // swatches
+}
+
+function npBuildCategoryGrid(){
+  const grid = document.getElementById('np-cat-grid');
+  grid.innerHTML = '';
+  document.getElementById('np-new-cat-form').style.display = 'none';
+  categories.forEach(c=>{
+    const btn = document.createElement('button');
+    btn.className = 'cat-bubble' + (c===npCategory?' selected':'');
+    btn.textContent = c;
+    btn.addEventListener('click',()=>{
+      npCategory = c;
+      document.getElementById('new-category').value = c;
+      grid.querySelectorAll('.cat-bubble').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(()=>npShowStep(2), 180);
+    });
+    grid.appendChild(btn);
+  });
+  // + New bubble (circle)
+  const addBtn = document.createElement('button');
+  addBtn.className = 'cat-bubble-add';
+  addBtn.textContent = '+';
+  addBtn.title = 'Add new category';
+  addBtn.addEventListener('click',()=>{
+    document.getElementById('np-new-cat-form').style.display = '';
+    document.getElementById('np-new-cat-input').value = '';
+    document.getElementById('np-new-cat-input').focus();
+  });
+  grid.appendChild(addBtn);
+}
+
+document.getElementById('np-new-cat-save').addEventListener('click',()=>{
+  const val = document.getElementById('np-new-cat-input').value.trim();
+  if(!val) return;
+  if(!categories.includes(val)){ categories.push(val); categories.sort(); }
+  npCategory = val;
+  document.getElementById('new-category').value = val;
+  document.getElementById('np-new-cat-form').style.display = 'none';
+  npBuildCategoryGrid();
+  setTimeout(()=>npShowStep(2), 180);
+});
+document.getElementById('np-new-cat-cancel').addEventListener('click',()=>{
+  document.getElementById('np-new-cat-form').style.display = 'none';
+});
+document.getElementById('np-new-cat-input').addEventListener('keydown',e=>{
+  if(e.key==='Enter') document.getElementById('np-new-cat-save').click();
+  if(e.key==='Escape') document.getElementById('np-new-cat-cancel').click();
+});
+
+function npUpdateCatDisplay(){
+  const el = document.getElementById('np-cat-display');
+  if(npCategory){
+    el.innerHTML = `<span class="cat-badge" style="background:var(--amethyst)22;color:var(--amethyst);border:1px solid var(--amethyst)44">${npCategory}</span>`;
+  } else {
+    el.innerHTML = '';
+  }
+}
+
+function npBuildSwatches(){
   const grid = document.getElementById('swatch-grid');
-  grid.innerHTML='';
-  selectedColor = p ? p.coverColor : SWATCH_COLORS[0];
+  grid.innerHTML = '';
+  selectedColor = SWATCH_COLORS[0];
   SWATCH_COLORS.forEach(c=>{
     const sw = document.createElement('div');
-    sw.className='color-swatch'+(c===selectedColor?' selected':'');
-    sw.style.background=c;
+    sw.className = 'color-swatch' + (c===selectedColor?' selected':'');
+    sw.style.background = c;
     sw.addEventListener('click',()=>{
-      if(atLimit) return;
-      selectedColor=c;
+      selectedColor = c;
       grid.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('selected'));
       sw.classList.add('selected');
     });
     grid.appendChild(sw);
   });
-  document.getElementById('modal-overlay').classList.add('open');
-  if(!atLimit) setTimeout(()=>document.getElementById('new-title').focus(),200);
 }
+
+function openNewModal(editId){
+  editingProjectId = editId||null;
+  const p = editId ? projects.find(x=>x.id===editId) : null;
+  const atLimit = !p && projects.length>=FREE_LIMIT();
+
+  if(atLimit){ openSubpanel('sp-upgrade'); return; }
+
+  // reset flow state
+  npCategory = p ? p.category||null : null;
+  document.getElementById('new-category').value = npCategory||'';
+  document.getElementById('new-title').value = p?p.title:'';
+  document.getElementById('new-status').value = p?p.status:(appSettings.defaultStatus||'Active');
+  document.getElementById('new-pickup').value = p?p.pickUpHere||'':'';
+  document.getElementById('new-desc').value = p?p.description||'':'';
+  document.getElementById('new-deadline').value = p?p.deadline||'':'';
+  document.getElementById('new-priority').value = p?p.priority||0:0;
+  document.getElementById('new-effort').value = p?p.effort||0:0;
+
+  if(p){
+    // edit mode — go to step 2 with title + swatches pre-filled
+    selectedColor = p.coverColor||SWATCH_COLORS[0];
+    document.getElementById('np-step-1').style.display='none';
+    document.getElementById('np-step-3').style.display='none';
+    document.getElementById('np-step-2').style.display='';
+    document.getElementById('np-back').style.display='flex';
+    document.getElementById('modal-title').textContent='Edit project';
+    document.getElementById('np-to-step-3').textContent='Save changes ✓';
+    npBuildSwatches();
+    npUpdateCatDisplay();
+  } else {
+    // new project — start at step 1
+    npBuildCategoryGrid();
+    npBuildSwatches();
+    document.getElementById('btn-create').textContent='Create Project';
+    document.getElementById('btn-create').dataset.mode='';
+    npShowStep(1);
+  }
+
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+document.getElementById('np-back').addEventListener('click',()=>{
+  if(npStep===2){ document.getElementById('new-title').value=''; npShowStep(1); }
+  else closeModal();
+});
+
+document.getElementById('np-to-step-3').addEventListener('click',()=>{
+  const atLimit = !editingProjectId && projects.length>=FREE_LIMIT();
+  if(atLimit){ closeModal(); openSubpanel('sp-upgrade'); return; }
+  const title = document.getElementById('new-title').value.trim() || (npCategory?`Untitled ${npCategory}`:'Untitled Project');
+  const fields = {
+    title,
+    description: document.getElementById('new-desc').value,
+    pickUpHere: document.getElementById('new-pickup').value,
+    deadline: document.getElementById('new-deadline').value||null,
+    status: document.getElementById('new-status').value,
+    coverColor: selectedColor,
+    category: document.getElementById('new-category').value||null,
+    priority: parseInt(document.getElementById('new-priority').value)||0,
+    effort: parseInt(document.getElementById('new-effort').value)||0,
+  };
+  if(editingProjectId){
+    const p = projects.find(x=>x.id===editingProjectId);
+    if(p){ Object.assign(p, fields); p.updatedAt=new Date().toISOString(); }
+    editingProjectId=null;
+  } else {
+    projects.push({
+      id:uid(), ...fields,
+      createdAt:new Date().toISOString(),
+      updatedAt:new Date().toISOString(),
+      steps:[], supplies:[], journalEntries:[]
+    });
+    activeTab=fields.status;
+  }
+  closeModal();
+  renderHome();
+});
+
+document.getElementById('new-title').addEventListener('keydown',e=>{
+  if(e.key==='Enter') document.getElementById('np-to-step-3').click();
+});
 
 document.getElementById('btn-new-project').addEventListener('click', openNewModal);
 document.getElementById('modal-close').addEventListener('click', closeModal);
@@ -2154,29 +2530,26 @@ function closeModal(){
 }
 
 document.getElementById('btn-create').addEventListener('click',()=>{
-  const btn = document.getElementById('btn-create');
-  if(btn.dataset.mode === 'upgrade'){ closeModal(); openSubpanel('sp-upgrade'); return; }
   const atLimit = !editingProjectId && projects.length>=FREE_LIMIT();
   if(atLimit){ closeModal(); openSubpanel('sp-upgrade'); return; }
   const title = document.getElementById('new-title').value.trim();
   if(!title) return;
   const newFields = {
     title,
-    description:document.getElementById('new-desc').value,
-    pickUpHere:document.getElementById('new-pickup').value,
-    deadline:document.getElementById('new-deadline').value||null,
-    status:document.getElementById('new-status').value,
-    coverColor:selectedColor,
-    category:document.getElementById('new-category').value||null,
-    priority:parseInt(document.getElementById('new-priority').value)||0,
-    effort:parseInt(document.getElementById('new-effort').value)||0,
+    description: document.getElementById('new-desc').value,
+    pickUpHere: document.getElementById('new-pickup').value,
+    deadline: document.getElementById('new-deadline').value||null,
+    status: document.getElementById('new-status').value,
+    coverColor: selectedColor,
+    category: document.getElementById('new-category').value||null,
+    priority: parseInt(document.getElementById('new-priority').value)||0,
+    effort: parseInt(document.getElementById('new-effort').value)||0,
   };
   if(editingProjectId){
     const p = projects.find(x=>x.id===editingProjectId);
     if(p){ Object.assign(p, newFields); p.updatedAt=new Date().toISOString(); }
     editingProjectId=null;
   } else {
-    if(projects.length>=FREE_LIMIT()) return;
     projects.push({
       id:uid(), ...newFields,
       createdAt:new Date().toISOString(),
@@ -2298,7 +2671,7 @@ function renderTimeline(p){
   }
 
   if(!events.length){
-    list.innerHTML='<div class="timeline-empty">No activity yet — complete a step or add a journal note.</div>';
+    list.innerHTML='<div class="timeline-empty">Nothing logged yet — complete a step or add a journal note. Every little thing counts.</div>';
   } else {
     visibleEvents.forEach(ev=>{
       const item=document.createElement('div'); item.className='timeline-item';
@@ -2322,7 +2695,7 @@ function renderTimeline(p){
     if(hiddenCount>0){
       const lock=document.createElement('div');
       lock.className='journal-locked';
-      lock.innerHTML=`🔒 ${hiddenCount} older entr${hiddenCount===1?'y':'ies'} hidden — <button class="btn-upgrade" style="padding:4px 12px;font-size:12px" onclick="openSubpanel('sp-upgrade')">Upgrade to see all</button>`;
+      lock.innerHTML=`🔒 ${hiddenCount} older moment${hiddenCount===1?'':'s'} hidden — <button class="btn-upgrade" style="padding:4px 12px;font-size:12px" onclick="openSubpanel('sp-upgrade')">Upgrade to see the full story</button>`;
       list.appendChild(lock);
     }
   }
@@ -2393,7 +2766,7 @@ function renderPickup(p){
   if(p.pickUpHere){
     disp.textContent=p.pickUpHere; disp.className='pickup-text';
   } else {
-    disp.textContent='Tap to add a note on where you left off…'; disp.className='pickup-text empty';
+    disp.textContent='Where did you leave off? Tap to drop a note — future you will be so grateful.'; disp.className='pickup-text empty';
   }
 }
 document.getElementById('pickup-display').addEventListener('click',()=>{
@@ -2423,7 +2796,7 @@ function renderSteps(p){
   toggleBtn.classList.toggle('active',stepsEditMode);
 
   if(!p.steps.length){
-    list.innerHTML='<div class="empty-section">No steps yet — tap + to add one.</div>';
+    list.innerHTML='<div class="empty-section">No steps yet. Break it down — even one tiny thing counts. ✨</div>';
     return;
   }
 
@@ -2544,7 +2917,7 @@ function renderSupplies(p){
   toggleBtn.classList.toggle('active',suppliesEditMode);
 
   if(!p.supplies.length){
-    list.innerHTML='<div class="empty-section">No supplies yet — tap + to add one.</div>';
+    list.innerHTML='<div class="empty-section">No supplies listed yet. What do you need to make this happen?</div>';
     return;
   }
   p.supplies.forEach(s=>{
@@ -2700,7 +3073,7 @@ function renderShopping(){
   const purchased = allItems.filter(i=>i.purchased);
 
   if(!all.length && !purchased.length){
-    el.innerHTML='<div class="empty">Nothing on your shopping list — all supplies are acquired! 🎉</div>';
+    el.innerHTML='<div class="empty">You\'ve got everything you need! 🎉 Nothing left to shop for.</div>';
     return;
   }
 
@@ -2822,9 +3195,6 @@ function syncProfilePanel(){
     document.getElementById('sp-avatar-emoji').style.display = 'none';
   }
 }
-document.getElementById('sp-bio')?.addEventListener('input',e=>{
-  document.getElementById('sp-bio-count').textContent = e.target.value.length;
-});
 document.getElementById('sp-plan-action').addEventListener('click',()=>{
   closeSubpanel('sp-profile'); openSubpanel('sp-upgrade');
 });
@@ -3334,10 +3704,320 @@ document.addEventListener('click',()=>{
   if(popup) popup.classList.remove('open');
 });
 
+// ── Noodle ─────────────────────────────────────────────────────────────────
+
+let noodleProjectId = null;
+let noodleMins = 0;
+let noodleInterval = null;
+let noodleElapsed = 0; // seconds
+let noodleTotalSecs = 0;
+
+const WARMUP_CHECKS = [
+  { key:'opened',   label:'I opened the app today' },
+  { key:'showed',   label:'I showed up' },
+  { key:'thinking', label:'I\'ve been thinking about this' },
+  { key:'ready',    label:'I\'m ready to try (even a little)' },
+];
+
+const NUDGES = [
+  'You\'re doing it. 🙌',
+  'One step at a time.',
+  'This is progress.',
+  'Look at you go.',
+  'Keep going — you\'ve got this.',
+  'Every minute counts.',
+  'Future you says thank you.',
+  'You showed up. That\'s everything.',
+];
+
+const FINISH_MSGS = [
+  'Seriously — you showed up and did the thing. That counts for a lot.',
+  'Even a short session moves the needle. Be proud of this.',
+  'Every bit of progress is real progress. Well done.',
+  'You did more today than you would have without noodlr. That\'s the whole game.',
+  'Look at you, actually doing it. This is how projects get finished.',
+  'A noodle done is a win logged. Great work.',
+];
+
+function openNoodle(projectId){
+  noodleProjectId = projectId;
+  noodleMins = 0;
+  noodleElapsed = 0;
+  clearInterval(noodleInterval);
+
+  const p = projects.find(x=>x.id===projectId);
+  if(!p) return;
+
+  // populate warmup
+  document.getElementById('noodle-project-name').textContent = p.title;
+
+  // build warm-up checklist
+  const checksEl = document.getElementById('noodle-warmup-checks');
+  checksEl.innerHTML = '';
+  const completedSteps = p.steps.filter(s=>s.completed);
+  const preChecked = [];
+
+  // pre-check items based on real data
+  if(completedSteps.length) preChecked.push('showed');
+  if(p.updatedAt) preChecked.push('thinking');
+
+  WARMUP_CHECKS.forEach(item=>{
+    const row = document.createElement('div');
+    const isChecked = preChecked.includes(item.key);
+    row.className = 'noodle-check-row' + (isChecked?' checked':'');
+    row.innerHTML = `
+      <div class="noodle-check-box">
+        <span class="noodle-check-icon">✓</span>
+      </div>
+      <span class="noodle-check-label">${item.label}${isChecked?' ✓':''}</span>`;
+    row.addEventListener('click',()=>{
+      row.classList.toggle('checked');
+    });
+    checksEl.appendChild(row);
+  });
+
+  // next step
+  const nextStep = p.steps.find(s=>!s.completed);
+  const nextEl = document.getElementById('noodle-next-step');
+  if(nextStep){
+    nextEl.textContent = nextStep.title;
+    nextEl.className = 'noodle-next-step';
+  } else if(p.steps.length){
+    nextEl.textContent = 'All steps done — add a new one or just keep going!';
+    nextEl.className = 'noodle-next-step empty';
+  } else {
+    nextEl.textContent = 'No steps yet — just dive in!';
+    nextEl.className = 'noodle-next-step empty';
+  }
+
+  // reset time selection
+  document.querySelectorAll('.noodle-time-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('noodle-go-btn').disabled = true;
+
+  // show warmup phase
+  noodleShowPhase('warmup');
+  document.getElementById('noodle-screen').classList.add('open');
+  window.scrollTo(0,0);
+}
+
+function noodleShowPhase(phase){
+  document.getElementById('noodle-warmup').style.display = phase==='warmup'?'':'none';
+  document.getElementById('noodle-timer').style.display  = phase==='timer'?'':'none';
+  document.getElementById('noodle-finish').style.display = phase==='finish'?'':'none';
+}
+
+function closeNoodle(){
+  clearInterval(noodleInterval);
+  noodleInterval = null;
+  document.getElementById('noodle-screen').classList.remove('open');
+}
+
+// time selection
+document.querySelectorAll('.noodle-time-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.noodle-time-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    noodleMins = parseInt(btn.dataset.mins);
+    document.getElementById('noodle-go-btn').disabled = false;
+  });
+});
+
+// go button
+document.getElementById('noodle-go-btn').addEventListener('click',()=>{
+  const p = projects.find(x=>x.id===noodleProjectId);
+  if(!p) return;
+
+  noodleElapsed = 0;
+  noodleTotalSecs = noodleMins * 60;
+  const isFreeRun = noodleMins === 0;
+
+  // set up timer UI
+  const nextStep = p.steps.find(s=>!s.completed);
+  document.getElementById('noodle-timer-project').textContent = p.title;
+  document.getElementById('noodle-timer-step').textContent = nextStep ? nextStep.title : 'Keep going — you\'ve got this!';
+
+  const ring = document.getElementById('noodle-ring-fill');
+  const CIRCUMFERENCE = 326.7;
+  ring.style.strokeDashoffset = '0';
+  if(isFreeRun) ring.style.stroke = 'var(--sage)';
+  else ring.style.stroke = 'var(--amethyst)';
+
+  updateTimerDisplay(0);
+  document.getElementById('noodle-timer-nudge').textContent = '';
+
+  noodleShowPhase('timer');
+
+  // nudge cycle
+  let nudgeIdx = 0;
+  const nudgeInterval = setInterval(()=>{
+    nudgeIdx = (nudgeIdx+1) % NUDGES.length;
+    document.getElementById('noodle-timer-nudge').textContent = NUDGES[nudgeIdx];
+  }, 45000); // every 45s
+
+  noodleInterval = setInterval(()=>{
+    noodleElapsed++;
+    updateTimerDisplay(noodleElapsed);
+
+    if(!isFreeRun){
+      const pct = noodleElapsed / noodleTotalSecs;
+      ring.style.strokeDashoffset = (CIRCUMFERENCE * pct).toString();
+      if(pct >= 1){
+        clearInterval(noodleInterval);
+        clearInterval(nudgeInterval);
+        playFinishSound();
+        showNoodleFinish(noodleElapsed, true);
+      }
+    }
+  }, 1000);
+
+  // store nudge interval ref for cleanup
+  document.getElementById('noodle-screen').dataset.nudgeRef = nudgeInterval;
+});
+
+function updateTimerDisplay(secs){
+  const m = Math.floor(secs/60);
+  const s = secs%60;
+  document.getElementById('noodle-timer-display').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+function playFinishSound(){
+  try {
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    [[523,0],[659,0.15],[784,0.3],[1047,0.5]].forEach(([freq,delay])=>{
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      gain.gain.setValueAtTime(0,ctx.currentTime+delay);
+      gain.gain.linearRampToValueAtTime(0.18,ctx.currentTime+delay+0.05);
+      gain.gain.linearRampToValueAtTime(0,ctx.currentTime+delay+0.4);
+      osc.start(ctx.currentTime+delay);
+      osc.stop(ctx.currentTime+delay+0.5);
+    });
+  } catch(e){ /* audio not available */ }
+}
+
+function showNoodleFinish(elapsedSecs, completed){
+  const mins = Math.floor(elapsedSecs/60);
+  const secs = elapsedSecs%60;
+  const timeStr = mins>0 ? `${mins} min${mins>1?'s':''} ${secs>0?secs+'s':''}` : `${secs} seconds`;
+
+  document.getElementById('noodle-finish-emoji').textContent = completed ? '🎉' : '✨';
+  document.getElementById('noodle-finish-headline').textContent = completed ? 'You did it!' : 'Nice work!';
+  document.getElementById('noodle-finish-time').textContent = `${timeStr} of noodling logged`;
+  document.getElementById('noodle-finish-msg').textContent = FINISH_MSGS[Math.floor(Math.random()*FINISH_MSGS.length)];
+
+  // log session to project timeline
+  const p = projects.find(x=>x.id===noodleProjectId);
+  if(p){
+    if(!p.journalEntries) p.journalEntries=[];
+    p.journalEntries.push({
+      id:uid(),
+      text:`🍜 Noodle session — ${timeStr}`,
+      createdAt:new Date().toISOString()
+    });
+    p.updatedAt=new Date().toISOString();
+  }
+
+  noodleShowPhase('finish');
+}
+
+// stop early
+document.getElementById('noodle-done-early').addEventListener('click',()=>{
+  clearInterval(noodleInterval);
+  const ref = parseInt(document.getElementById('noodle-screen').dataset.nudgeRef);
+  if(ref) clearInterval(ref);
+  showNoodleFinish(noodleElapsed, false);
+});
+
+// close buttons
+document.getElementById('noodle-close-warmup').addEventListener('click', closeNoodle);
+document.getElementById('noodle-close-timer').addEventListener('click',()=>{
+  clearInterval(noodleInterval);
+  const ref = parseInt(document.getElementById('noodle-screen').dataset.nudgeRef);
+  if(ref) clearInterval(ref);
+  closeNoodle();
+});
+document.getElementById('noodle-close-finish').addEventListener('click', closeNoodle);
+document.getElementById('noodle-finish-close').addEventListener('click', closeNoodle);
+
+// do another
+document.getElementById('noodle-another').addEventListener('click',()=>{
+  openNoodle(noodleProjectId);
+});
+
+// detail view noodle button
+document.getElementById('noodle-detail-btn').addEventListener('click',()=>{
+  const p = getProject();
+  if(p) openNoodle(p.id);
+});
+
+// ── Daily greeting ─────────────────────────────────────────────────────────
+
+const GREETINGS = {
+  morning: [
+    "What are we making today?",
+    "Good morning — the glue gun is warmed up.",
+    "Fresh start. What's first?",
+    "Morning! Your projects missed you.",
+    "Rise and craft.",
+    "What's on the docket this morning?",
+    "Let's make something today.",
+    "Coffee first, then creativity.",
+    "Good morning! Ready to pick up where you left off?",
+    "What are we noodling on today?",
+  ],
+  afternoon: [
+    "What are we working on this afternoon?",
+    "Afternoon check-in — how's it going?",
+    "Time to make some progress.",
+    "The afternoon is yours. What's the plan?",
+    "Mid-day motivation incoming.",
+    "Good afternoon! What's on the docket?",
+    "What's happening right now?",
+    "Still going — what's next?",
+    "Afternoon hustle. Let's do this.",
+    "What are we noodling on this afternoon?",
+  ],
+  evening: [
+    "Evening session — what are we finishing?",
+    "Winding down or just getting started?",
+    "Good evening! What's on the table tonight?",
+    "One more good hour — what's it going to be?",
+    "The best crafting happens after dinner.",
+    "What are we working on tonight?",
+    "Evening vibes. What's the move?",
+    "Night owl energy. Let's go.",
+    "What's on the docket this evening?",
+    "Cozy and creative — what's next?",
+  ],
+};
+
+function renderGreeting(){
+  const hour = new Date().getHours();
+  const period = hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening';
+  const pool = GREETINGS[period];
+  const phrase = pool[Math.floor(Math.random() * pool.length)];
+
+  const nameEl = document.getElementById('greeting-name');
+  const phraseEl = document.getElementById('greeting-phrase');
+
+  // Use stored name if available
+  let name = '';
+  try {
+    const stored = localStorage.getItem('noodlr_profile');
+    name = stored ? (JSON.parse(stored).name || '').split(' ')[0] : '';
+  } catch(e) { /* sandboxed — skip */ }
+  nameEl.textContent = name ? `Hey, ${name} 👋` : '';
+  phraseEl.textContent = phrase;
+}
+
 // ── Init ───────────────────────────────────────────────────────────────────
 applyTheme();
 updatePremiumUI();
 updateAvatarInitials();
+renderGreeting();
 renderHome();
 renderDueToday();
 </script>

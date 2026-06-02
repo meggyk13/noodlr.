@@ -77,11 +77,84 @@ a{color:#6B8E23}
       <span class="brand-name">noodlr</span><span class="brand-dot">.</span>
     </div>
     <div class="brand-sub">What's New · Creativity Tracker</div>
-    <div class="brand-note">Updated in sync with the demo · Last updated May 31, 2026</div>
+    <div class="brand-note">Updated in sync with the demo · Last updated June 1, 2026</div>
   </div>
 
   <div class="intro-box">
     <strong>Thanks for testing!</strong> This page gives you a plain-English rundown of what's in the demo and what to try. You don't need any technical background — just tap through the things listed under "Give it a try" and let us know if anything feels off or confusing.
+  </div>
+
+  <!-- Entry: June 1 session -->
+  <div class="entry">
+    <div class="entry-header" onclick="toggle(this)">
+      <span class="version-badge">June 1 · 6:08 PM</span>
+      <span class="entry-date">Noodle timer, microcopy overhaul, and bug fixes</span>
+      <span class="entry-count">6 changes</span>
+      <i class="ti ti-chevron-right chevron open"></i>
+    </div>
+    <div class="changes open">
+
+      <div class="change-item">
+        <div class="change-what">🍜 Noodle — focus session timer</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The biggest feature this session. Noodle is a gentle focus timer built specifically for neurodivergent users — people who struggle with task initiation, overwhelm, and "where do I even start?" It's accessible from every project card (🍜 button) and from the project detail view.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-why">How it works</span>
+          <span class="change-body">Three phases: a warm-up ritual with pre-checked encouragement boxes and a single "up next" step; a timer with a soft progress ring and rotating nudge messages; and a warm finish screen with the session logged to the project timeline automatically. Duration options: 5, 10, 20 min, or free run.</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Tap 🍜 on any project card. Check off the warm-up boxes, pick a time, and start. Try stopping early with "I'm done for now" — it should feel kind, not punishing. Then check the project's Timeline to see the session logged.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Rotating daily greeting</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">The very first thing you see when you open the app is now a warm, rotating phrase — different for morning, afternoon, and evening. 30 phrases across the three pools, mostly encouraging with a few silly ones mixed in ("Good morning — the glue gun is warmed up.").</span>
+        </div>
+        <div class="change-row">
+          <span class="change-label label-try">Give it a try</span>
+          <span class="change-body">Refresh a few times to see different phrases. The greeting sits above the Due Today card — it's the first thing you land on.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Full microcopy overhaul — warmer tone throughout</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">Every empty state, button label, placeholder, and confirmation in the app has been rewritten to match noodlr's new direction: friendly, encouraging, and neurodivergent-aware. The app now speaks like a supportive friend, not a productivity tool. Examples: "No steps yet. Break it down — even one tiny thing counts ✨" / "Where did you leave off? Tap to drop a note — future you will be so grateful." / "You've got this. noodlr."</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Strategic pivot — neurodivergent-first positioning</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">noodlr is now explicitly designed for ADHDers and neurodivergent creators — people with many half-finished projects who need help with task initiation, overwhelm, and "what next?" rather than another rigid productivity system. This shapes all future feature decisions.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Create project bug fix</div>
+        <div class="change-row">
+          <span class="change-label label-why">What was wrong</span>
+          <span class="change-body">Creating a new project silently failed in sandboxed/iframe preview environments. A localStorage call in the greeting function was throwing a security error and killing the entire init block — so renderHome() never ran after project creation. Wrapped in try/catch; now fails gracefully.</span>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-what">Noodle sessions logged to Timeline</div>
+        <div class="change-row">
+          <span class="change-label label-why">Why it matters</span>
+          <span class="change-body">When a Noodle session ends (timer complete or stopped early), the session is automatically logged as a journal entry on the project's Timeline — "🍜 Noodle session — 12 mins". Builds a record of creative momentum over time.</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Entry: Evening session -->
